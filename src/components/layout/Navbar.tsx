@@ -115,50 +115,52 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 py-4 animate-fade-in">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col space-y-4">
-              <Link to="/" className="font-medium text-gray-700 hover:text-primary py-2">
-                Home
-              </Link>
-              <Link to="/catalog" className="font-medium text-gray-700 hover:text-primary py-2">
-                Catalog
-              </Link>
-              <Link to="/about" className="font-medium text-gray-700 hover:text-primary py-2">
-                About Us
-              </Link>
-              <Link to="/contact" className="font-medium text-gray-700 hover:text-primary py-2">
-                Contact
-              </Link>
-              <div className="pt-2 border-t border-gray-200">
-                <a 
-                  href="tel:+918140251789" 
-                  className="flex items-center text-primary py-2"
-                >
-                  <Phone size={18} className="mr-2" />
-                  <span>+91 8140251789</span>
-                </a>
-                <Link 
-                  to="/contact" 
-                  className="bg-accent text-white font-medium px-4 py-2 rounded-md hover:bg-accent-600 transition-colors inline-block mt-2"
-                >
-                  Request Quote
+        <>
+          <div className="md:hidden bg-white border-t border-gray-200 py-4 animate-fade-in">
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col space-y-4">
+                <Link to="/" className="font-medium text-gray-700 hover:text-primary py-2">
+                  Home
                 </Link>
+                <Link to="/catalog" className="font-medium text-gray-700 hover:text-primary py-2">
+                  Catalog
+                </Link>
+                <Link to="/about" className="font-medium text-gray-700 hover:text-primary py-2">
+                  About Us
+                </Link>
+                <Link to="/contact" className="font-medium text-gray-700 hover:text-primary py-2">
+                  Contact
+                </Link>
+                <div className="pt-2 border-t border-gray-200">
+                  <a 
+                    href="tel:+918140251789" 
+                    className="flex items-center text-primary py-2"
+                  >
+                    <Phone size={18} className="mr-2" />
+                    <span>+91 8140251789</span>
+                  </a>
+                  <Link 
+                    to="/contact" 
+                    className="bg-accent text-white font-medium px-4 py-2 rounded-md hover:bg-accent-600 transition-colors inline-block mt-2"
+                  >
+                    Request Quote
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* WhatsApp Floating Button */}
-        <a 
-          href="https://wa.me/918140251789" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
-          aria-label="WhatsApp"
-        >
-          <MessageCircle size={24} />
-        </a>
+          
+          {/* WhatsApp Floating Button */}
+          <a 
+            href="https://wa.me/918140251789" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+            aria-label="WhatsApp"
+          >
+            <MessageCircle size={24} />
+          </a>
+        </>
       )}
     </header>
   );
