@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '../components/contact/ContactForm';
 
 const ContactPage: React.FC = () => {
@@ -29,13 +29,13 @@ const ContactPage: React.FC = () => {
             </div>
             <h3 className="text-lg font-semibold text-primary mb-2">Call Us</h3>
             <p className="text-gray-600 mb-4">
-              Our customer service team is available Monday through Friday, 8am to 6pm.
+              Our customer service team is available Monday through Saturday, 9am to 7pm.
             </p>
             <a 
-              href="tel:+18001234567" 
+              href="tel:+918140251789" 
               className="text-accent hover:text-accent-600 font-medium transition-colors"
             >
-              1-800-123-4567
+              +91 8140251789
             </a>
           </div>
           
@@ -48,10 +48,10 @@ const ContactPage: React.FC = () => {
               Send us an email and we'll respond within one business day.
             </p>
             <a 
-              href="mailto:info@novaauto.com" 
+              href="mailto:novaauto@outlook.in" 
               className="text-accent hover:text-accent-600 font-medium transition-colors"
             >
-              info@novaauto.com
+              novaauto@outlook.in
             </a>
           </div>
           
@@ -64,11 +64,24 @@ const ContactPage: React.FC = () => {
               Our headquarters and main distribution center are located at:
             </p>
             <address className="text-accent not-italic">
-              123 Industrial Way<br />
-              Machinery District, MD 21234<br />
-              United States
+              Rapid Technomat<br />
+              Shapar, Gujarat 360024<br />
+              India
             </address>
           </div>
+        </div>
+        
+        {/* WhatsApp Contact Card */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 text-center">
+          <div className="flex justify-center mb-4">
+            <MessageCircle size={32} className="text-green-600" />
+          </div>
+          <h3 className="text-lg font-semibold text-green-800 mb-2">Quick WhatsApp Support</h3>
+          <p className="text-green-700 mb-4">Get instant responses to your queries via WhatsApp</p>
+          <a href="https://wa.me/918140251789" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center">
+            <MessageCircle size={18} className="mr-2" />
+            Chat on WhatsApp
+          </a>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
@@ -86,14 +99,14 @@ const ContactPage: React.FC = () => {
                       <Clock size={18} className="text-accent mr-2" />
                       <span className="text-gray-700">Monday - Friday:</span>
                     </div>
-                    <span className="text-gray-600">8:00 AM - 6:00 PM</span>
+                    <span className="text-gray-600">9:00 AM - 7:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center">
                       <Clock size={18} className="text-accent mr-2" />
                       <span className="text-gray-700">Saturday:</span>
                     </div>
-                    <span className="text-gray-600">9:00 AM - 4:00 PM</span>
+                    <span className="text-gray-600">9:00 AM - 5:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center">
@@ -111,8 +124,8 @@ const ContactPage: React.FC = () => {
                   <div className="text-center p-6">
                     <MapPin size={48} className="text-primary mx-auto mb-2" />
                     <p className="text-gray-600">
-                      Google Maps would be embedded here showing our location at:<br />
-                      123 Industrial Way, Machinery District, MD 21234
+                      Our location in Shapar, Gujarat:<br />
+                      Rapid Technomat, Shapar, Gujarat 360024, India
                     </p>
                   </div>
                 </div>
@@ -127,10 +140,10 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-lg font-medium text-primary mb-2">
-                Do you offer international shipping?
+                Do you ship across India?
               </h3>
               <p className="text-gray-600">
-                Yes, we ship to most countries worldwide. International shipping rates and delivery times vary depending on the destination. Please contact our customer service team for specific details.
+                Yes, we ship across India. Shipping rates and delivery times vary depending on the destination. We offer express delivery for urgent requirements. Please contact us for specific details.
               </p>
             </div>
             

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -11,20 +11,14 @@ const Footer: React.FC = () => {
           <div>
             <div className="font-bold text-2xl mb-6">NOVA<span className="text-accent">AUTO</span></div>
             <p className="text-gray-300 mb-6">
-              Premium supplier of JCB spare parts and accessories. Trusted by professionals worldwide for reliability and quality.
+              Premium supplier of JCB spare parts and accessories. Trusted by professionals across India for reliability and quality.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/nova.auto.2025" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/nova_auto.parts" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors" aria-label="Twitter">
-                <Twitter size={20} />
               </a>
             </div>
           </div>
@@ -89,18 +83,18 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin size={20} className="text-accent mr-3 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">123 Industrial Way, Machinery District, MD 21234, USA</p>
+                <p className="text-gray-300">Rapid Technomat, Shapar, Gujarat 360024, India</p>
               </div>
               <div className="flex items-center">
                 <Phone size={20} className="text-accent mr-3 flex-shrink-0" />
-                <a href="tel:+18001234567" className="text-gray-300 hover:text-accent transition-colors">
-                  1-800-123-4567
+                <a href="tel:+918140251789" className="text-gray-300 hover:text-accent transition-colors">
+                  +91 8140251789
                 </a>
               </div>
               <div className="flex items-center">
                 <Mail size={20} className="text-accent mr-3 flex-shrink-0" />
-                <a href="mailto:info@novaauto.com" className="text-gray-300 hover:text-accent transition-colors">
-                  info@novaauto.com
+                <a href="mailto:novaauto@outlook.in" className="text-gray-300 hover:text-accent transition-colors">
+                  novaauto@outlook.in
                 </a>
               </div>
             </div>

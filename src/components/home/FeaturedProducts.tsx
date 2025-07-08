@@ -16,12 +16,12 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products }) => {
           <div>
             <h2 className="text-3xl font-bold text-primary mb-4">Featured Products</h2>
             <p className="text-gray-600 max-w-2xl">
-              Discover our most popular JCB spare parts and accessories, chosen for their exceptional quality, reliability, and customer satisfaction.
+              Discover our most popular JCB spare parts and accessories, chosen for their exceptional quality, reliability, and customer satisfaction across India.
             </p>
           </div>
           <Link 
             to="/catalog" 
-            className="flex items-center text-accent hover:text-accent-600 font-medium mt-4 md:mt-0 transition-colors"
+            className="flex items-center text-accent hover:text-accent-600 font-semibold mt-4 md:mt-0 transition-all duration-300 hover:scale-105"
           >
             View All Products
             <ArrowRight size={18} className="ml-2" />

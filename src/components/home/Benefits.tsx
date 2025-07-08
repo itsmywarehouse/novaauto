@@ -30,14 +30,14 @@ const Benefits: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white text-center mb-4">Why Choose Nova Auto</h2>
         <p className="text-white/80 text-center max-w-2xl mx-auto mb-12">
-          We are committed to providing high-quality JCB spare parts with exceptional service and support to keep your machinery running at peak performance.
+          We are committed to providing high-quality JCB spare parts with exceptional service and support across India to keep your machinery running at peak performance.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:bg-white/15"
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:bg-white/15 hover:scale-105"
             >
               <div className="mb-4">
                 {benefit.icon}

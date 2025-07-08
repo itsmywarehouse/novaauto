@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search, Phone } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,13 +83,13 @@ const Navbar: React.FC = () => {
           {/* Call to Action */}
           <div className="hidden md:flex items-center">
             <a 
-              href="tel:+18001234567" 
+              href="tel:+918140251789" 
               className={`flex items-center ${
                 isScrolled ? 'text-primary' : 'text-white'
               } mr-6 transition-colors`}
             >
               <Phone size={18} className="mr-2" />
-              <span>1-800-123-4567</span>
+              <span>+91 8140251789</span>
             </a>
             <Link 
               to="/contact" 
@@ -132,11 +132,11 @@ const Navbar: React.FC = () => {
               </Link>
               <div className="pt-2 border-t border-gray-200">
                 <a 
-                  href="tel:+18001234567" 
+                  href="tel:+918140251789" 
                   className="flex items-center text-primary py-2"
                 >
                   <Phone size={18} className="mr-2" />
-                  <span>1-800-123-4567</span>
+                  <span>+91 8140251789</span>
                 </a>
                 <Link 
                   to="/contact" 
@@ -148,6 +148,17 @@ const Navbar: React.FC = () => {
             </div>
           </div>
         </div>
+        
+        {/* WhatsApp Floating Button */}
+        <a 
+          href="https://wa.me/918140251789" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle size={24} />
+        </a>
       )}
     </header>
   );

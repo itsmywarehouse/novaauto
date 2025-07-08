@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getProductById, getFeaturedProducts } from '../data/products';
 import ProductCard from '../components/catalog/ProductCard';
-import { ArrowLeft, ShoppingCart, CheckCircle, XCircle, Info, ArrowRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Info, ArrowRight, MessageCircle, Phone } from 'lucide-react';
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -184,20 +184,23 @@ const ProductDetailPage: React.FC = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Link 
-                  to={`/contact?product=${product.id}`}
-                  className="bg-accent hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-md transition-colors flex items-center justify-center"
+                <a 
+                  href={`https://wa.me/918140251789?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide a quote?`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
                 >
-                  Request Quote
-                  <ShoppingCart size={18} className="ml-2" />
-                </Link>
+                  <MessageCircle size={18} className="mr-2" />
+                  WhatsApp Quote
+                </a>
                 
-                <Link 
-                  to="/contact"
-                  className="bg-primary hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-md transition-colors flex items-center justify-center"
+                <a 
+                  href="tel:+918140251789"
+                  className="bg-primary hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
                 >
-                  Ask a Question
-                </Link>
+                  <Phone size={18} className="mr-2" />
+                  Call Now
+                </a>
               </div>
             </div>
           </div>

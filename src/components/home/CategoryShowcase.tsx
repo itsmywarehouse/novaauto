@@ -54,7 +54,7 @@ const CategoryShowcase: React.FC = () => {
             <Link 
               key={category.id}
               to={`/catalog?category=${category.id}`}
-              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg"
+              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/10 z-10"></div>
               <img 

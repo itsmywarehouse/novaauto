@@ -82,16 +82,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="mt-5 flex space-x-2">
           <Link 
             to={`/catalog/${product.id}`}
-            className="flex-1 bg-primary hover:bg-primary-800 text-white text-center py-2 rounded transition-colors text-sm font-medium"
+            className="flex-1 bg-primary hover:bg-primary-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md"
           >
             View Details
           </Link>
-          <Link 
-            to={`/contact?product=${product.id}`}
-            className="flex-1 bg-accent hover:bg-accent-600 text-white text-center py-2 rounded transition-colors text-sm font-medium"
+          <a 
+            href={`https://wa.me/918140251789?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide more details?`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md"
           >
-            Request Quote
-          </Link>
+            WhatsApp
+          </a>
         </div>
       </div>
     </div>

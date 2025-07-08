@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight, Phone, MessageCircle } from 'lucide-react';
 
 const HeroBanner: React.FC = () => {
   return (
@@ -26,18 +26,29 @@ const HeroBanner: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
               <Link 
                 to="/catalog" 
-                className="bg-accent hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-md transition-colors flex items-center justify-center sm:justify-start"
+                className="bg-accent hover:bg-accent-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center sm:justify-start shadow-lg"
               >
                 Browse Catalog
                 <ArrowRight size={20} className="ml-2" />
               </Link>
               
-              <Link 
-                to="/contact" 
-                className="bg-white hover:bg-gray-100 text-primary font-medium px-6 py-3 rounded-md transition-colors flex items-center justify-center sm:justify-start"
+              <a 
+                href="tel:+918140251789" 
+                className="bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center sm:justify-start shadow-lg"
               >
-                Request Quote
-              </Link>
+                <Phone size={20} className="mr-2" />
+                Call Now
+              </a>
+              
+              <a 
+                href="https://wa.me/918140251789" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center sm:justify-start shadow-lg"
+              >
+                <MessageCircle size={20} className="mr-2" />
+                WhatsApp
+              </a>
             </div>
             
             <div className="mt-12 relative max-w-xl animate-fade-in" style={{animationDelay: '0.6s'}}>
@@ -53,7 +64,7 @@ const HeroBanner: React.FC = () => {
                   <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
                     <Search size={18} />
                   </div>
-                  <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-accent hover:bg-accent-600 text-white rounded-md px-4 py-1 text-sm font-medium transition-colors">
+                  <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-accent hover:bg-accent-600 text-white rounded-md px-4 py-1 text-sm font-semibold transition-colors">
                     Search
                   </button>
                 </div>
