@@ -17,12 +17,25 @@ const CallToAction: React.FC = () => {
           
           <div className="relative z-20 py-16 px-6 md:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Ready to Keep Your Equipment Running at Peak Performance?
-              </h2>
+              <div className="mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Our Mission</h2>
+                <p className="text-white/90 text-lg mb-6">
+                  To provide reliable, high-performance components that keep industries running — safely, efficiently, and affordably.
+                </p>
+                
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Our Vision</h2>
+                <p className="text-white/90 text-lg mb-6">
+                  To become India's leading multi-brand solution provider for heavy machinery parts and bearing systems — built on trust, quality, and customer-first service.
+                </p>
+              </div>
+              
+              <div className="border-t border-white/20 pt-8">
+                <h3 className="text-xl font-bold text-white mb-2">Powered by Rapid Technomach</h3>
+                <p className="text-accent font-semibold text-lg mb-8">Strong and Reliable Earthmoving Parts</p>
+              </div>
               
               <p className="text-white/90 text-lg mb-8">
-                Contact our team today for expert advice on the right JCB parts for your specific machinery and requirements.
+                Contact our team today for expert advice on the right parts for your specific machinery and requirements.
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
