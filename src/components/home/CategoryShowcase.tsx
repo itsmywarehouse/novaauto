@@ -54,26 +54,26 @@ const CategoryShowcase: React.FC = () => {
             <Link 
               key={category.id}
               to={`/catalog?category=${category.id}`}
-              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg hover:scale-105"
+              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg hover:scale-105 min-h-[280px] sm:min-h-[320px]"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/10 z-10"></div>
               <img 
                 src={category.image} 
                 alt={category.name}
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
-                <h3 className="text-xl font-semibold text-white mb-2">
+              <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
                   {category.name}
                 </h3>
-                <p className="text-white/80 mb-4">
+                <p className="text-white/80 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                   {category.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-accent font-medium">
+                  <span className="text-accent font-medium text-sm sm:text-base">
                     {category.count} products
                   </span>
-                  <div className="flex items-center text-white group-hover:text-accent transition-colors">
+                  <div className="flex items-center text-white group-hover:text-accent transition-colors text-sm sm:text-base">
                     Explore
                     <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
                   </div>

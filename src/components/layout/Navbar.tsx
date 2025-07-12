@@ -145,13 +145,13 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-40 bg-black/50" onClick={toggleMenu}>
+          <div className="lg:hidden fixed inset-0 z-[9999] bg-black/50" onClick={toggleMenu}>
             <div 
-              className="absolute top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl transform transition-transform duration-300 ease-out"
+              className="absolute top-0 right-0 w-80 max-w-[90vw] h-full bg-white shadow-2xl transform transition-transform duration-300 ease-out overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
                 <div className="font-bold text-xl text-primary">
                   NOVA<span className="text-accent">AUTO</span>
                 </div>
@@ -165,11 +165,11 @@ const Navbar: React.FC = () => {
               </div>
 
               {/* Mobile Menu Items */}
-              <div className="p-6">
+              <div className="p-4">
                 <nav className="space-y-4">
                   <Link 
                     to="/" 
-                    className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/') 
                         ? 'bg-accent text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
                   </Link>
                   <Link 
                     to="/about" 
-                    className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/about') 
                         ? 'bg-accent text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
@@ -189,7 +189,7 @@ const Navbar: React.FC = () => {
                   </Link>
                   <Link 
                     to="/catalog" 
-                    className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/catalog') 
                         ? 'bg-accent text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
@@ -199,7 +199,7 @@ const Navbar: React.FC = () => {
                   </Link>
                   <Link 
                     to="/contact" 
-                    className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/contact') 
                         ? 'bg-accent text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
@@ -211,7 +211,7 @@ const Navbar: React.FC = () => {
                     href="https://drive.google.com/file/d/18psmsUjVd56M8x71f5mivT8QDntspb98/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300"
+                    className="block py-4 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300 text-base"
                   >
                     📥 Download Catalog
                   </a>
@@ -221,7 +221,7 @@ const Navbar: React.FC = () => {
                 <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
                   <a 
                     href="tel:+918140251789" 
-                    className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                    className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
                   >
                     <Phone size={18} className="mr-2" />
                     📞 Call Now
@@ -230,7 +230,7 @@ const Navbar: React.FC = () => {
                     href="https://wa.me/918140251789" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                    className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
                   >
                     <MessageCircle size={18} className="mr-2" />
                     💬 WhatsApp Us
@@ -239,11 +239,11 @@ const Navbar: React.FC = () => {
 
                 {/* Mobile Contact Info */}
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-sm text-gray-600 text-center leading-relaxed">
                     📍 Rapid Technomat, Shapar<br />
                     Gujarat 360024, India
                   </p>
-                  <p className="text-sm text-gray-600 text-center mt-2">
+                  <p className="text-sm text-gray-600 text-center mt-3">
                     📧 novaauto@outlook.in
                   </p>
                 </div>
@@ -258,7 +258,7 @@ const Navbar: React.FC = () => {
         href="https://wa.me/918140251789" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-50 animate-bounce-gentle"
+        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-[9998] animate-bounce-gentle min-h-[48px] min-w-[48px] flex items-center justify-center"
         aria-label="WhatsApp"
       >
         <MessageCircle size={24} />

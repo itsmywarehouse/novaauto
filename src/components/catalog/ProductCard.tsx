@@ -82,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="mt-5 flex space-x-2">
           <Link 
             to={`/catalog/${product.id}`}
-            className="flex-1 bg-primary hover:bg-primary-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md"
+            className="flex-1 bg-primary hover:bg-primary-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md min-h-[44px] flex items-center justify-center"
           >
             View Details
           </Link>
@@ -90,7 +90,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             href={`https://wa.me/918140251789?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide more details?`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md"
+            className="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg transition-all duration-300 hover:scale-105 text-sm font-semibold shadow-md min-h-[44px] flex items-center justify-center"
           >
             WhatsApp
           </a>

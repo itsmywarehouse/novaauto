@@ -37,15 +37,15 @@ const Benefits: React.FC = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="bg-white/10 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:bg-white/15 hover:scale-105"
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 transition-all duration-300 hover:bg-white/15 hover:scale-105"
             >
-              <div className="mb-4">
+              <div className="mb-3 sm:mb-4">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-white/80">
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                 {benefit.description}
               </p>
             </div>
