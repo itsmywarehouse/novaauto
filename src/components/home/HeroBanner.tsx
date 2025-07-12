@@ -14,10 +14,7 @@ const HeroBanner: React.FC = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 animate-fade-in">
-              Powering Machines. <br />
-              <span className="text-accent">Building Trust.</span>
-            </h1>
+         
             
             <p className="text-xl text-white/90 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
               Welcome to Rapid Technomach, a trusted name in the heavy equipment parts industry. Through our specialized brands — NOVA and Rapid Bearing — we provide high-performance solutions for construction, industrial, and engineering sectors.
