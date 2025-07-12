@@ -12,7 +12,7 @@ const HeroBanner: React.FC = () => {
           backgroundImage: `url('https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
         }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 mt-8 mb-8 sm:mt-12 sm:mb-12 lg:mt-16 lg:mb-16">
           <div className="max-w-3xl pt-20 sm:pt-12">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight animate-fade-in">
               STRONG AND RELIABLE<br />
