@@ -3,7 +3,6 @@ import HeroBanner from '../components/home/HeroBanner';
 import FeaturedProducts from '../components/home/FeaturedProducts';
 import CategoryShowcase from '../components/home/CategoryShowcase';
 import Benefits from '../components/home/Benefits';
-import Testimonials from '../components/home/Testimonials';
 import CallToAction from '../components/home/CallToAction';
 import { getFeaturedProducts } from '../data/products';
 
@@ -15,7 +14,7 @@ const HomePage: React.FC = () => {
     window.scrollTo(0, 0);
     
     // Update page title
-    document.title = 'Nova Auto | JCB Spare Parts & Accessories';
+    document.title = 'NOVA Auto by Rapid Technomach | Genuine Backhoe Loader Parts';
   }, []);
 
   return (
@@ -24,7 +23,6 @@ const HomePage: React.FC = () => {
       <FeaturedProducts products={featuredProducts} />
       <CategoryShowcase />
       <Benefits />
-      <Testimonials />
       <CallToAction />
     </div>
   );
