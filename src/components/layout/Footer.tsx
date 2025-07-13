@@ -11,7 +11,9 @@ const Footer: React.FC = () => {
           <div>
             <div className="font-bold text-2xl mb-6">NOVA<span className="text-accent">AUTO</span></div>
             <p className="text-gray-300 mb-6">
-              Premium supplier of JCB spare parts and accessories. Trusted by professionals across India for reliability and quality.
+              Nova Auto – Premium Supplier of JCB Spare Parts & Accessories
+Trusted by professionals across India for unmatched reliability, durability, and quality
+
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/nova.auto.2025" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-accent transition-colors" aria-label="Facebook">
