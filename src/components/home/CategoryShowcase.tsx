@@ -46,7 +46,7 @@ const CategoryShowcase: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-primary text-center mb-4">Browse By Category</h2>
         <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-          Explore our extensive range of JCB parts and accessories, organized by category for easy navigation and quick access.
+          Explore our extensive range of Bekoloder parts and accessories, organized by category for easy navigation and quick access.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
