@@ -6,6 +6,7 @@ import CatalogPage from './pages/CatalogPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import SpacingTestPage from './pages/SpacingTestPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/catalog/:id" element={<ProductDetailPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/spacing-test" element={<SpacingTestPage />} />
       </Routes>
     </Layout>
   );
