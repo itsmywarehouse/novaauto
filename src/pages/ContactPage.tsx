@@ -12,9 +12,9 @@ const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="py-24 bg-gray-50">
+    <div className="pt-28 pb-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8 py-8 bg-gray-50 rounded-lg px-6">
           <h1 className="text-3xl font-bold text-primary mb-4">Contact Us</h1>
           <p className="text-gray-600">
             Have questions about our products or need technical support? 
@@ -22,6 +22,11 @@ const ContactPage: React.FC = () => {
           </p>
         </div>
         
+      </div>
+    </div>
+    
+    <div className="bg-gray-50 pb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="bg-white rounded-lg shadow-custom p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-custom-lg">
             <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">

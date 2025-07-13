@@ -108,9 +108,9 @@ const CatalogPage: React.FC = () => {
   };
 
   return (
-    <div className="py-24 bg-gray-50">
+    <div className="pt-28 pb-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
+        <div className="mb-8 py-8 bg-gray-50 rounded-lg px-6">
           <h1 className="text-3xl font-bold text-primary mb-4">JCB Spare Parts Catalog</h1>
           <p className="text-gray-600 max-w-3xl">
             Browse our extensive collection of high-quality JCB spare parts and accessories. 
@@ -118,6 +118,11 @@ const CatalogPage: React.FC = () => {
           </p>
         </div>
         
+      </div>
+    </div>
+    
+    <div className="bg-gray-50 pb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Filter Toggle */}
         <div className="md:hidden mb-4">
           <button
