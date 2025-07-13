@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center z-50">
               <div className={`font-bold text-2xl transition-colors duration-300 ${
-                isScrolled ? 'text-primary' : 'text-white'
+                isScrolled ? 'text-primary' : 'text-gray-900'
               }`}>
                 NOVA<span className="text-accent">AUTO</span>
               </div>
