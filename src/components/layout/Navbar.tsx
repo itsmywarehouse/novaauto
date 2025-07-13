@@ -7,6 +7,16 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  // Detect pages with white backgrounds that need dark text
+  const isWhiteBackgroundPage = () => {
+    const whiteBackgroundPaths = ['/catalog', '/contact', '/about'];
+    return whiteBackgroundPaths.some(path => 
+      location.pathname === path || location.pathname.startsWith(path)
+    );
+  };
+
+  const hasWhiteBackground = isWhiteBackgroundPage();
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -33,6 +43,52 @@ const Navbar: React.FC = () => {
     return location.pathname === path;
   };
 
+  // Dynamic text color classes based on page background and scroll state
+  const getTextColor = (isActive: boolean = false) => {
+    if (isScrolled) {
+      // When scrolled, navbar has white background
+      return isActive 
+        ? 'text-accent font-semibold' 
+        : 'text-gray-700 hover:text-primary';
+    } else {
+      // When not scrolled, check page background
+      if (hasWhiteBackground) {
+        // White background pages need dark text
+        return isActive 
+          ? 'text-accent font-semibold' 
+          : 'text-primary hover:text-accent';
+      } else {
+        // Dark background pages (like home) need light text
+        return isActive 
+          ? 'text-accent font-semibold' 
+          : 'text-white hover:text-accent';
+      }
+    }
+  };
+
+  const getLogoColor = () => {
+    if (isScrolled) {
+      return 'text-primary';
+    } else {
+      return hasWhiteBackground ? 'text-primary' : 'text-white';
+    }
+  };
+
+  const getPhoneColor = () => {
+    if (isScrolled) {
+      return 'text-primary hover:text-accent';
+    } else {
+      return hasWhiteBackground ? 'text-primary hover:text-accent' : 'text-white hover:text-accent';
+    }
+  };
+
+  const getMobileButtonColor = () => {
+    if (isScrolled) {
+      return 'text-primary hover:bg-gray-100';
+    } else {
+      return hasWhiteBackground ? 'text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10';
+    }
+  };
   return (
     <>
       <header 
