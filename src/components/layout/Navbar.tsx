@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
                 }`}
               >
                 <Download size={16} className="mr-1" />
-                Download Catalog
+                View Catalog
               </a>
             </nav>
 
@@ -226,7 +226,7 @@ const Navbar: React.FC = () => {
                     rel="noopener noreferrer"
                     className="block py-4 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300 text-base"
                   >
-                    📥 Download Catalog
+                    📥 View Catalog
                   </a>
                 </nav>
 
