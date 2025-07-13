@@ -12,7 +12,8 @@ const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-28 pb-16 bg-white">
+    <>
+      <div className="pt-28 pb-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-8 py-8 bg-gray-50 rounded-lg px-6">
           <h1 className="text-3xl font-bold text-primary mb-4">Contact Us</h1>
@@ -23,9 +24,9 @@ const ContactPage: React.FC = () => {
         </div>
         
       </div>
-    </div>
+      </div>
     
-    <div className="bg-gray-50 pb-16">
+      <div className="bg-gray-50 pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="bg-white rounded-lg shadow-custom p-6 flex flex-col items-center text-center transition-all duration-300 hover:shadow-custom-lg">
@@ -181,7 +182,8 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
