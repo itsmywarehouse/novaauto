@@ -22,7 +22,7 @@ const CallToAction: React.FC = () => {
               </h2>
               
               <p className="text-white/90 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-                Contact our team today for expert advice on the right JCB parts for your specific machinery and requirements.
+                Contact our team today for expert advice on the right Bekoloder parts for your specific machinery and requirements.
               </p>
               
               <div className="flex flex-col gap-3 sm:gap-4 mb-4 sm:mb-6">
