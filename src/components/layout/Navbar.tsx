@@ -43,57 +43,14 @@ const Navbar: React.FC = () => {
     return location.pathname === path;
   };
 
-  // Dynamic text color classes based on page background and scroll state
-  const getTextColor = (isActive: boolean = false) => {
-    if (isScrolled) {
-      // When scrolled, navbar has white background
-      return isActive 
-        ? 'text-accent font-semibold' 
-        : 'text-gray-700 hover:text-primary';
-    } else {
-      // When not scrolled, check page background
-      if (hasWhiteBackground) {
-        // White background pages need dark text
-        return isActive 
-          ? 'text-accent font-semibold' 
-          : 'text-primary hover:text-accent';
-      } else {
-        // Dark background pages (like home) need light text
-        return isActive 
-          ? 'text-accent font-semibold' 
-          : 'text-white hover:text-accent';
-      }
-    }
-  };
+  // Determine if navbar should be solid (scrolled OR on white background pages)
+  const shouldBeSolid = isScrolled || hasWhiteBackground;
 
-  const getLogoColor = () => {
-    if (isScrolled) {
-      return 'text-primary';
-    } else {
-      return hasWhiteBackground ? 'text-primary' : 'text-white';
-    }
-  };
-
-  const getPhoneColor = () => {
-    if (isScrolled) {
-      return 'text-primary hover:text-accent';
-    } else {
-      return hasWhiteBackground ? 'text-primary hover:text-accent' : 'text-white hover:text-accent';
-    }
-  };
-
-  const getMobileButtonColor = () => {
-    if (isScrolled) {
-      return 'text-primary hover:bg-gray-100';
-    } else {
-      return hasWhiteBackground ? 'text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10';
-    }
-  };
   return (
     <>
       <header 
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
+          shouldBeSolid ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,7 +58,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center z-50">
               <div className={`font-bold text-2xl transition-colors duration-300 ${
-                isScrolled ? 'text-primary' : 'text-white'
+                shouldBeSolid ? 'text-primary' : 'text-white'
               }`}>
                 NOVA<span className="text-accent">AUTO</span>
               </div>
@@ -113,8 +70,8 @@ const Navbar: React.FC = () => {
                 to="/" 
                 className={`font-medium transition-all duration-300 hover:scale-105 ${
                   isActiveRoute('/') 
-                    ? (isScrolled ? 'text-accent font-semibold' : 'text-accent font-semibold')
-                    : (isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
+                    ? 'text-accent font-semibold'
+                    : (shouldBeSolid ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
                 }`}
               >
                 Home
@@ -123,8 +80,8 @@ const Navbar: React.FC = () => {
                 to="/about" 
                 className={`font-medium transition-all duration-300 hover:scale-105 ${
                   isActiveRoute('/about') 
-                    ? (isScrolled ? 'text-accent font-semibold' : 'text-accent font-semibold')
-                    : (isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
+                    ? 'text-accent font-semibold'
+                    : (shouldBeSolid ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
                 }`}
               >
                 About Us
@@ -133,8 +90,8 @@ const Navbar: React.FC = () => {
                 to="/catalog" 
                 className={`font-medium transition-all duration-300 hover:scale-105 ${
                   isActiveRoute('/catalog') 
-                    ? (isScrolled ? 'text-accent font-semibold' : 'text-accent font-semibold')
-                    : (isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
+                    ? 'text-accent font-semibold'
+                    : (shouldBeSolid ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
                 }`}
               >
                 Products
@@ -143,8 +100,8 @@ const Navbar: React.FC = () => {
                 to="/contact" 
                 className={`font-medium transition-all duration-300 hover:scale-105 ${
                   isActiveRoute('/contact') 
-                    ? (isScrolled ? 'text-accent font-semibold' : 'text-accent font-semibold')
-                    : (isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
+                    ? 'text-accent font-semibold'
+                    : (shouldBeSolid ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent')
                 }`}
               >
                 Contact
@@ -154,7 +111,7 @@ const Navbar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-medium transition-all duration-300 hover:scale-105 flex items-center ${
-                  isScrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent'
+                  shouldBeSolid ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-accent'
                 }`}
               >
                 <Download size={16} className="mr-1" />
@@ -167,7 +124,7 @@ const Navbar: React.FC = () => {
               <a 
                 href="tel:+918140251789" 
                 className={`flex items-center transition-all duration-300 hover:scale-105 ${
-                  isScrolled ? 'text-primary hover:text-accent' : 'text-white hover:text-accent'
+                  shouldBeSolid ? 'text-primary hover:text-accent' : 'text-white hover:text-accent'
                 }`}
               >
                 <Phone size={18} className="mr-2" />
@@ -189,7 +146,7 @@ const Navbar: React.FC = () => {
               <button 
                 onClick={toggleMenu}
                 className={`p-2 rounded-lg transition-all duration-300 hover:scale-110 focus:outline-none ${
-                  isScrolled ? 'text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                  shouldBeSolid ? 'text-primary hover:bg-gray-100' : 'text-white hover:bg-white/10'
                 }`}
                 aria-label="Toggle menu"
               >
