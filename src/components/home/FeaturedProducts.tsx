@@ -16,7 +16,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products }) => {
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-3 sm:mb-4">Featured Products</h2>
             <p className="text-gray-600 max-w-2xl text-sm sm:text-base leading-relaxed">
-              Discover our most popular JCB spare parts and accessories, chosen for their exceptional quality, reliability, and customer satisfaction across India.
+              Discover our most popular Bekoloder spare parts and accessories, chosen for their exceptional quality, reliability, and customer satisfaction across India.
             </p>
           </div>
           <Link 
