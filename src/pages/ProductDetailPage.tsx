@@ -220,7 +220,7 @@ const ProductDetailPage: React.FC = () => {
               </Link>
             </div>
             
-            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {relatedProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
