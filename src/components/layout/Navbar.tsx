@@ -253,7 +253,7 @@ const Navbar: React.FC = () => {
                 {/* Mobile Contact Info */}
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <p className="text-sm text-gray-600 text-center leading-relaxed">
-                    📍 Rapid Technomat, Shapar<br />
+                    📍 Rapid Technomat, Shapar-Veraval, Rajkot<br />
                     Gujarat 360024, India
                   </p>
                   <p className="text-sm text-gray-600 text-center mt-3">

@@ -85,7 +85,7 @@ Trusted by professionals across India for unmatched reliability, durability, and
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin size={20} className="text-accent mr-3 mt-1 flex-shrink-0" />
-                <p className="text-gray-300">Rapid Technomat, Shapar, Gujarat 360024, India</p>
+                <p className="text-gray-300">Rapid Technomat, Shapar-Veraval, Rajkot, Gujarat 360024, India</p>
               </div>
               <div className="flex items-center">
                 <Phone size={20} className="text-accent mr-3 flex-shrink-0" />
