@@ -249,7 +249,7 @@ const CatalogPage: React.FC = () => {
               {/* Product Grid/List */}
               {displayedProducts.length > 0 && (
                 <div className={viewMode === 'grid' 
-                  ? 'grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4'
+                  ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4'
                   : 'space-y-4'
                 }>
                   {displayedProducts.map(product => (
