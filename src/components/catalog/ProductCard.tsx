@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <img 
             src={product.imageUrl} 
             alt={product.name} 
-            className="w-full h-20 sm:h-24 object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
         {product.featured && (

@@ -84,7 +84,7 @@ const ProductDetailPage: React.FC = () => {
                 <img 
                   src={activeImage || product.imageUrl} 
                   alt={product.name}
-                  className="w-full h-96 object-contain p-4"
+                  className="w-full aspect-square object-contain p-4"
                 />
               </div>
               
