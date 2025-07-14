@@ -49,12 +49,12 @@ const CategoryShowcase: React.FC = () => {
           Explore our extensive range of Bekoloder parts and accessories, organized by category for easy navigation and quick access.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {categories.map((category, index) => (
             <Link 
               key={category.id}
               to={`/catalog?category=${category.id}`}
-              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg hover:scale-105 min-h-[280px] sm:min-h-[320px]"
+              className="group relative overflow-hidden rounded-lg shadow-custom bg-white transition-all duration-300 hover:shadow-custom-lg hover:scale-105 aspect-square"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/10 z-10"></div>
               <img 
@@ -63,19 +63,19 @@ const CategoryShowcase: React.FC = () => {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                <h3 className="text-sm sm:text-lg font-semibold text-white mb-1 sm:mb-2">
                   {category.name}
                 </h3>
-                <p className="text-white/80 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
+                <p className="text-white/80 mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed line-clamp-2">
                   {category.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <span className="text-accent font-medium text-sm sm:text-base">
+                  <span className="text-accent font-medium text-xs sm:text-sm">
                     {category.count} products
                   </span>
-                  <div className="flex items-center text-white group-hover:text-accent transition-colors text-sm sm:text-base">
+                  <div className="flex items-center text-white group-hover:text-accent transition-colors text-xs sm:text-sm">
                     Explore
-                    <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight size={14} className="ml-1 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </div>
