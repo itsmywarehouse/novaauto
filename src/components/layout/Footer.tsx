@@ -57,6 +57,11 @@ Trusted by professionals across India for unmatched reliability, durability, and
                 </Link>
               </li>
               <li>
+                <Link to="/catalog?category=bearings" className="text-gray-300 hover:text-accent transition-colors">
+                  🔩 Bearings (Rapid Bearing)
+                </Link>
+              </li>
+              <li>
                 <Link to="/catalog?category=engine" className="text-gray-300 hover:text-accent transition-colors">
                   Engine Components
                 </Link>

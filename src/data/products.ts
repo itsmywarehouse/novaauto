@@ -309,6 +309,9 @@ for (let i = 13; i <= 20; i++) {
     case 'hydraulic':
       subCategory = ['Cylinders', 'Pumps', 'Valves', 'Hoses'][Math.floor(Math.random() * 4)];
       break;
+    case 'bearings':
+      subCategory = ['Tapered Bearings', 'Ball Bearings', 'Needle Bearings', 'Thrust Bearings'][Math.floor(Math.random() * 4)];
+      break;
     case 'engine':
       subCategory = ['Pistons', 'Turbochargers', 'Gaskets', 'Cooling'][Math.floor(Math.random() * 4)];
       break;
