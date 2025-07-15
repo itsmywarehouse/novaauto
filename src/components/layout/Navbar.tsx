@@ -221,7 +221,7 @@ const Navbar: React.FC = () => {
                   <div 
                     className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/catalog') 
-                        ? 'bg-accent text-white shadow-md' 
+                        ? 'bg-primary text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
                     }`}
                   >
@@ -249,13 +249,13 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=power-parts"
-                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
                               >
                                 ⚡ Power Parts
                               </Link>
                               <button
                                 onClick={() => toggleCategory('power-parts')}
-                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
                               >
                                 {expandedCategories.has('power-parts') ? (
                                   <ChevronDown size={14} />
@@ -281,13 +281,13 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=drive-motion"
-                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
                               >
                                 🚜 Drive & Motion
                               </Link>
                               <button
                                 onClick={() => toggleCategory('drive-motion')}
-                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
                               >
                                 {expandedCategories.has('drive-motion') ? (
                                   <ChevronDown size={14} />
@@ -315,13 +315,13 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=tools-attachments"
-                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
                               >
                                 🔨 Tools & Attachments
                               </Link>
                               <button
                                 onClick={() => toggleCategory('tools-attachments')}
-                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
                               >
                                 {expandedCategories.has('tools-attachments') ? (
                                   <ChevronDown size={14} />
@@ -347,13 +347,13 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=body-maintenance"
-                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
                               >
                                 🛡️ Body & Maintenance
                               </Link>
                               <button
                                 onClick={() => toggleCategory('body-maintenance')}
-                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
                               >
                                 {expandedCategories.has('body-maintenance') ? (
                                   <ChevronDown size={14} />
@@ -379,13 +379,13 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=case-parts"
-                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
                               >
                                 🧱 Case Parts
                               </Link>
                               <button
                                 onClick={() => toggleCategory('case-parts')}
-                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
                               >
                                 {expandedCategories.has('case-parts') ? (
                                   <ChevronDown size={14} />
