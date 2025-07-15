@@ -45,7 +45,6 @@ const categories = [
     description: 'Lighting, cab components, attachments, and safety equipment',
     image: 'https://images.pexels.com/photos/760110/pexels-photo-760110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     count: 20
-  }
   },
   {
     id: 'case-parts',
@@ -53,6 +52,7 @@ const categories = [
     description: 'Transmission casings, axle housings, hydraulic tanks, and structural components',
     image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     count: 18
+  }
 ];
 
 const CategoryShowcase: React.FC = () => {
