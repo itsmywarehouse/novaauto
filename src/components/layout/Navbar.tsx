@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle, Download } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Download, ChevronDown, ChevronRight } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -19,6 +20,20 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Reset expanded categories when menu closes
+    if (isMenuOpen) {
+      setExpandedCategories(new Set());
+    }
+  };
+
+  const toggleCategory = (categoryId: string) => {
+    const newExpanded = new Set(expandedCategories);
+    if (newExpanded.has(categoryId)) {
+      newExpanded.delete(categoryId);
+    } else {
+      newExpanded.add(categoryId);
+    }
+    setExpandedCategories(newExpanded);
   };
 
   useEffect(() => {
@@ -37,6 +52,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     // Close mobile menu when route changes
     setIsMenuOpen(false);
+    setExpandedCategories(new Set());
   }, [location]);
 
   const isActiveRoute = (path: string) => {
@@ -200,25 +216,270 @@ const Navbar: React.FC = () => {
                   >
                     ℹ️ About Us
                   </Link>
-                  <Link 
-                    to="/catalog" 
+                  
+                  {/* Products/Catalog with Dropdown */}
+                  <div 
                     className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/catalog') 
                         ? 'bg-accent text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
                     }`}
                   >
-                    <details className="w-full">
-                      <summary className="flex items-center justify-between cursor-pointer list-none">
-                        <span>🛠️ Products / Catalog</span>
-                        <svg className="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </summary>
+                    <div className="w-full">
+                      <div className="flex items-center justify-between">
+                        <Link to="/catalog" className="flex-1 flex items-center">
+                          <span>🛠️ Products / Catalog</span>
+                        </Link>
+                        <button
+                          onClick={() => toggleCategory('products')}
+                          className="ml-2 p-1 rounded transition-transform duration-200"
+                        >
+                          {expandedCategories.has('products') ? (
+                            <ChevronDown size={16} />
+                          ) : (
+                            <ChevronRight size={16} />
+                          )}
+                        </button>
+                      </div>
                       
-                      <div className="mt-3 pl-4 space-y-2">
-                        <details className="border border-gray-200 rounded-md">
-                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                      {expandedCategories.has('products') && (
+                        <div className="mt-3 pl-4 space-y-2 animate-fade-in">
+                          {/* Power Parts */}
+                          <div className="border border-gray-200 rounded-md overflow-hidden">
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to="/catalog?category=power-parts"
+                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                ⚡ Power Parts
+                              </Link>
+                              <button
+                                onClick={() => toggleCategory('power-parts')}
+                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                {expandedCategories.has('power-parts') ? (
+                                  <ChevronDown size={14} />
+                                ) : (
+                                  <ChevronRight size={14} />
+                                )}
+                              </button>
+                            </div>
+                            {expandedCategories.has('power-parts') && (
+                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                                <li>• Hydraulic Rams</li>
+                                <li>• Hydraulic Pumps</li>
+                                <li>• Ram Repair Kits (Piston, Rod, Gland)</li>
+                                <li>• Seal Kits & O-Rings</li>
+                                <li>• Lubricants & Grease</li>
+                                <li>• Hydraulic Hoses & Fittings</li>
+                              </ul>
+                            )}
+                          </div>
+                          
+                          {/* Drive & Motion */}
+                          <div className="border border-gray-200 rounded-md overflow-hidden">
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to="/catalog?category=drive-motion"
+                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                🚜 Drive & Motion
+                              </Link>
+                              <button
+                                onClick={() => toggleCategory('drive-motion')}
+                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                {expandedCategories.has('drive-motion') ? (
+                                  <ChevronDown size={14} />
+                                ) : (
+                                  <ChevronRight size={14} />
+                                )}
+                              </button>
+                            </div>
+                            {expandedCategories.has('drive-motion') && (
+                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                                <li>• Axle Parts – Crown Pinion, Differential, Shafts</li>
+                                <li>• Transmission – Gears, Clutch Plates, Torque Converter</li>
+                                <li>• Pin & Bush Kits</li>
+                                <li>• Shims & Thrust Washers</li>
+                                <li>
+                                  • Bearings – Taper, Ball, Needle<br />
+                                  <span className="text-accent font-bold text-xs">🔧 Powered by Rapid Bearing</span>
+                                </li>
+                              </ul>
+                            )}
+                          </div>
+                          
+                          {/* Tools & Attachments */}
+                          <div className="border border-gray-200 rounded-md overflow-hidden">
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to="/catalog?category=tools-attachments"
+                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                🔨 Tools & Attachments
+                              </Link>
+                              <button
+                                onClick={() => toggleCategory('tools-attachments')}
+                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                {expandedCategories.has('tools-attachments') ? (
+                                  <ChevronDown size={14} />
+                                ) : (
+                                  <ChevronRight size={14} />
+                                )}
+                              </button>
+                            </div>
+                            {expandedCategories.has('tools-attachments') && (
+                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                                <li>• Buckets, Forks, Quick Couplers</li>
+                                <li>• Hydraulic Breaker Parts – Chisels, Seal Kits, Pistons</li>
+                                <li>• GET (Ground Engaging Tools) – Teeth, Side Cutters</li>
+                                <li>• Wear Parts – Cutting Edges, Liners</li>
+                                <li>• Control & Throttle Cables</li>
+                                <li>• Assembly Kits – Hose, Pins, Cylinders</li>
+                              </ul>
+                            )}
+                          </div>
+                          
+                          {/* Body & Maintenance */}
+                          <div className="border border-gray-200 rounded-md overflow-hidden">
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to="/catalog?category=body-maintenance"
+                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                🛡️ Body & Maintenance
+                              </Link>
+                              <button
+                                onClick={() => toggleCategory('body-maintenance')}
+                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                {expandedCategories.has('body-maintenance') ? (
+                                  <ChevronDown size={14} />
+                                ) : (
+                                  <ChevronRight size={14} />
+                                )}
+                              </button>
+                            </div>
+                            {expandedCategories.has('body-maintenance') && (
+                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                                <li>• Cabin, Bonnet, Mudguard, Glass</li>
+                                <li>• Electrical – Wiring, Lights, Switches, Sensors</li>
+                                <li>• Filters – Oil, Fuel, Hydraulic, Air</li>
+                                <li>• Fasteners – Nuts, Bolts, U-Clamps</li>
+                                <li>• Fabrication – Boom/Dipper Repair, Custom Metal</li>
+                                <li>• Misc. – Rubber Parts, Seats, Paints</li>
+                              </ul>
+                            )}
+                          </div>
+                          
+                          {/* Case Parts */}
+                          <div className="border border-gray-200 rounded-md overflow-hidden">
+                            <div className="flex items-center justify-between">
+                              <Link 
+                                to="/catalog?category=case-parts"
+                                className="flex-1 p-2 text-sm font-medium bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                🧱 Case Parts
+                              </Link>
+                              <button
+                                onClick={() => toggleCategory('case-parts')}
+                                className="p-2 bg-gray-50 hover:bg-gray-100 transition-colors"
+                              >
+                                {expandedCategories.has('case-parts') ? (
+                                  <ChevronDown size={14} />
+                                ) : (
+                                  <ChevronRight size={14} />
+                                )}
+                              </button>
+                            </div>
+                            {expandedCategories.has('case-parts') && (
+                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                                <li>• Transmission Casing</li>
+                                <li>• Axle Housing</li>
+                                <li>• Hydraulic Tank</li>
+                                <li>• Gearbox Housing</li>
+                                <li>• Boom & Dipper Body</li>
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <Link 
+                    to="/contact" 
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
+                      isActiveRoute('/contact') 
+                        ? 'bg-accent text-white shadow-md' 
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                    }`}
+                  >
+                    📞 Contact
+                  </Link>
+                  <a 
+                    href="https://drive.google.com/file/d/18psmsUjVd56M8x71f5mivT8QDntspb98/view?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-4 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300 text-base"
+                  >
+                    📥 View Catalog
+                  </a>
+                </nav>
+
+                {/* Mobile Contact Actions */}
+                <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
+                  <a 
+                    href="tel:+918140251789" 
+                    className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
+                  >
+                    <Phone size={18} className="mr-2" />
+                    📞 Call Now
+                  </a>
+                  <a 
+                    href="https://wa.me/918140251789" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
+                  >
+                    <MessageCircle size={18} className="mr-2" />
+                    💬 WhatsApp Us
+                  </a>
+                </div>
+
+                {/* Mobile Contact Info */}
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <p className="text-sm text-gray-600 text-center leading-relaxed">
+                    📍 Rapid Technomat, Shapar-Veraval, Rajkot<br />
+                    Gujarat 360024, India
+                  </p>
+                  <p className="text-sm text-gray-600 text-center mt-3">
+                    📧 novaauto@outlook.in
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* WhatsApp Floating Button - Always Visible */}
+      <a 
+        href="https://wa.me/918140251789" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-[9998] animate-bounce-gentle min-h-[48px] min-w-[48px] flex items-center justify-center"
+        aria-label="WhatsApp"
+      >
+        <MessageCircle size={24} />
+      </a>
+    </>
+  );
+};
+
+export default Navbar;
                             ⚡ Power Parts
                           </summary>
                           <ul className="p-2 text-xs space-y-1 bg-white">
