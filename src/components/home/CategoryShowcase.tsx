@@ -11,6 +11,14 @@ const categories = [
     count: 25
   },
   {
+    id: 'bearings',
+    name: 'Bearings – Taper, Ball, Needle',
+    description: 'Premium industrial bearings powered by Rapid Bearing',
+    image: 'https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    count: 35,
+    specialBrand: 'Rapid Bearing'
+  },
+  {
     id: 'engine',
     name: 'Engine Components',
     description: 'Pistons, turbochargers, gaskets, and cooling systems',
@@ -64,11 +72,27 @@ const CategoryShowcase: React.FC = () => {
               />
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6">
                 <h3 className="text-sm sm:text-lg font-semibold text-white mb-1 sm:mb-2">
-                  {category.name}
+                  {category.name === 'Bearings – Taper, Ball, Needle' ? (
+                    <>
+                      🔩 {category.name}
+                      <div className="text-xs sm:text-sm text-accent font-bold mt-1 flex items-center">
+                        🛠️ Powered by <span className="underline ml-1">Rapid Bearing</span>
+                      </div>
+                    </>
+                  ) : (
+                    category.name
+                  )}
                 </h3>
-                <p className="text-white/80 mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed line-clamp-2">
-                  {category.description}
-                </p>
+                {category.name !== 'Bearings – Taper, Ball, Needle' && (
+                  <p className="text-white/80 mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed line-clamp-2">
+                    {category.description}
+                  </p>
+                )}
+                {category.name === 'Bearings – Taper, Ball, Needle' && (
+                  <p className="text-white/80 mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed line-clamp-2">
+                    High-quality taper, ball, and needle bearings for industrial applications
+                  </p>
+                )}
                 <div className="flex justify-between items-center">
                   <span className="text-accent font-medium text-xs sm:text-sm">
                     {category.count} products
