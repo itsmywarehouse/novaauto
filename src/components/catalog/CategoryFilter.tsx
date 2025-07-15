@@ -41,7 +41,14 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
                 : 'text-gray-700 hover:bg-gray-100'
             }`}
           >
-            <span>{category.label}</span>
+            <div className="flex flex-col">
+              <span className="text-sm font-medium">{category.label}</span>
+              {category.value === 'drive-motion' && (
+                <span className="text-xs text-accent font-bold">
+                  🔩 Includes Rapid Bearing Products
+                </span>
+              )}
+            </div>
             <span className={`text-sm rounded-full px-2 py-0.5 ${
               selectedCategory === category.value 
                 ? 'bg-white text-primary' 

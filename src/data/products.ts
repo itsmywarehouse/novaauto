@@ -8,12 +8,12 @@ const generatePartNumber = (category: ProductCategory): string => {
 };
 
 export const products: Product[] = [
-  // Hydraulic Parts
+  // Power Parts - Hydraulic Systems
   {
     id: '1',
     name: 'Hydraulic Cylinder Assembly',
-    category: 'hydraulic',
-    subCategory: 'Cylinders',
+    category: 'power-parts',
+    subCategory: 'Hydraulic Rams',
     description: 
       'High-quality hydraulic cylinder assembly designed for JCB excavators and backhoes. ' +
       'Engineered with precision to provide reliable performance under heavy workloads. ' +
@@ -36,8 +36,8 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'Hydraulic Pump Assembly',
-    category: 'hydraulic',
-    subCategory: 'Pumps',
+    category: 'power-parts',
+    subCategory: 'Hydraulic Pumps',
     description: 
       'High-efficiency hydraulic pump assembly designed specifically for JCB machinery. ' +
       'Delivers consistent flow and pressure to ensure optimal performance of all hydraulic systems. ' +
@@ -59,8 +59,8 @@ export const products: Product[] = [
   {
     id: '3',
     name: 'Hydraulic Control Valve',
-    category: 'hydraulic',
-    subCategory: 'Valves',
+    category: 'power-parts',
+    subCategory: 'Hydraulic Hoses & Fittings',
     description: 
       'Precision-engineered hydraulic control valve for JCB machinery. ' +
       'Provides accurate flow control and pressure regulation for optimal equipment operation. ' +
@@ -80,61 +80,62 @@ export const products: Product[] = [
     }
   },
 
-  // Engine Components
+  // Drive & Motion - Transmission and Axle Parts
   {
     id: '4',
-    name: 'Diesel Engine Piston Kit',
-    category: 'engine',
-    subCategory: 'Pistons',
+    name: 'Transmission Gear Set',
+    category: 'drive-motion',
+    subCategory: 'Transmission',
     description: 
-      'Complete diesel engine piston kit manufactured to OEM specifications for JCB equipment. ' +
-      'Includes pistons, rings, pins, and retainers for a complete rebuild. ' +
-      'Precision-machined from high-grade aluminum alloy for optimal compression and fuel efficiency. ' +
-      'Designed for maximum durability and resistance to high temperatures and pressures.',
-    shortDescription: 'Complete piston kit for JCB diesel engines with all necessary components.',
+      'Complete transmission gear set manufactured to OEM specifications for JCB equipment. ' +
+      'Includes primary and secondary gears, clutch plates, and torque converter components. ' +
+      'Precision-machined from high-grade steel for optimal power transmission and durability. ' +
+      'Designed for maximum torque handling and smooth gear changes.',
+    shortDescription: 'Complete transmission gear set for JCB equipment with all necessary components.',
     imageUrl: 'https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'ENG-84726',
-    compatibleWith: ['JCB Dieselmax', 'JCB 444 Engine', 'JCB 448 Engine'],
+    partNumber: 'DM-TX-84726',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB 5CX'],
     inStock: true,
     featured: true,
     specifications: {
-      'Diameter': '103mm',
-      'Compression Height': '56.5mm',
-      'Pin Diameter': '28mm',
-      'Material': 'Forged aluminum alloy',
-      'Ring Pack': '3-piece design'
+      'Gear Ratio': '1:4.2',
+      'Torque Capacity': '850 Nm',
+      'Material': 'Hardened steel',
+      'Weight': '45 kg',
+      'Lubrication': 'Pressure fed'
     }
   },
   {
     id: '5',
-    name: 'Engine Turbocharger',
-    category: 'engine',
-    subCategory: 'Turbochargers',
+    name: 'Tapered Roller Bearing Set',
+    category: 'drive-motion',
+    subCategory: '🔩 Bearings – Taper, Ball, Needle',
     description: 
-      'High-performance turbocharger for JCB diesel engines. ' +
-      'Designed to increase engine power and efficiency by forcing more air into the combustion chamber. ' +
-      'Features precision-balanced turbine and compressor wheels for smooth, vibration-free operation. ' +
-      'Includes water-cooled center housing for extended service life under demanding conditions.',
-    shortDescription: 'Performance turbocharger for JCB diesel engines with precision-balanced components.',
+      'Premium tapered roller bearing set from Rapid Bearing for heavy-duty JCB applications. ' +
+      'Designed to handle high radial and axial loads with superior durability. ' +
+      'Features precision-ground raceways and rollers for smooth, vibration-free operation. ' +
+      'Manufactured to strict quality standards for extended service life under demanding conditions.',
+    shortDescription: 'Premium tapered roller bearings from Rapid Bearing for heavy-duty applications.',
     imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'ENG-59104',
-    compatibleWith: ['JCB 444 Engine', 'JCB 448 Engine', 'JCB Dieselmax'],
-    inStock: false,
+    partNumber: 'RB-TR-59104',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB JS220'],
+    inStock: true,
+    featured: true,
     specifications: {
-      'Boost Pressure': '1.8 bar',
-      'Flow Capacity': '650 kg/h',
-      'Turbine Type': 'Fixed geometry',
-      'Wastegate': 'Integrated',
-      'Bearing Type': 'Journal bearing'
+      'Inner Diameter': '75mm',
+      'Outer Diameter': '130mm',
+      'Width': '31mm',
+      'Load Rating': '95 kN',
+      'Speed Rating': '4000 RPM'
     }
   },
 
-  // Filters
+  // Body & Maintenance - Filters and Electrical
   {
     id: '6',
     name: 'Premium Engine Oil Filter',
-    category: 'filters',
-    subCategory: 'Oil Filters',
+    category: 'body-maintenance',
+    subCategory: 'Filters',
     description: 
       'High-capacity engine oil filter designed specifically for JCB equipment. ' +
       'Features advanced filtration media to capture even the smallest contaminants and protect your engine. ' +
@@ -156,8 +157,8 @@ export const products: Product[] = [
   {
     id: '7',
     name: 'Air Filter Element',
-    category: 'filters',
-    subCategory: 'Air Filters',
+    category: 'body-maintenance',
+    subCategory: 'Filters',
     description: 
       'Heavy-duty air filter element for JCB machinery. ' +
       'Designed to prevent dust, dirt, and debris from entering the engine intake system. ' +
@@ -178,12 +179,12 @@ export const products: Product[] = [
     }
   },
 
-  // Electrical Components
+  // Body & Maintenance - Electrical Systems
   {
     id: '8',
     name: 'Starter Motor Assembly',
-    category: 'electrical',
-    subCategory: 'Starters',
+    category: 'body-maintenance',
+    subCategory: 'Electrical',
     description: 
       'High-torque starter motor assembly for JCB diesel engines. ' +
       'Engineered to provide reliable starting performance even in cold weather conditions. ' +
@@ -205,8 +206,8 @@ export const products: Product[] = [
   {
     id: '9',
     name: 'Alternator Assembly',
-    category: 'electrical',
-    subCategory: 'Charging System',
+    category: 'body-maintenance',
+    subCategory: 'Electrical',
     description: 
       'High-output alternator assembly for JCB machinery. ' +
       'Designed to provide stable electrical power for all vehicle systems and battery charging. ' +
@@ -226,103 +227,100 @@ export const products: Product[] = [
     }
   },
 
-  // Accessories
+  // Tools & Attachments
   {
     id: '10',
-    name: 'LED Work Light Kit',
-    category: 'accessories',
-    subCategory: 'Lighting',
+    name: 'Excavator Bucket Assembly',
+    category: 'tools-attachments',
+    subCategory: 'Buckets',
     description: 
-      'High-intensity LED work light kit specifically designed for JCB machinery. ' +
-      'Provides exceptional illumination for safe operation in low-light conditions. ' +
-      'Features rugged housing with IP68 waterproof rating for all-weather reliability. ' +
-      'Low power consumption with high light output for extended operation without battery drain.',
-    shortDescription: 'High-intensity LED lights for JCB equipment with waterproof construction.',
+      'Heavy-duty excavator bucket assembly specifically designed for JCB machinery. ' +
+      'Constructed from high-strength steel with reinforced cutting edge and side plates. ' +
+      'Features optimized shape for maximum digging efficiency and material retention. ' +
+      'Built to withstand the most demanding excavation and loading applications.',
+    shortDescription: 'Heavy-duty excavator bucket with reinforced steel construction.',
     imageUrl: 'https://images.pexels.com/photos/760110/pexels-photo-760110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'ACC-92745',
+    partNumber: 'TA-BK-92745',
     compatibleWith: ['All JCB models'],
     inStock: true,
     specifications: {
-      'Light Output': '5000 lumens',
-      'Power Consumption': '48W',
-      'Voltage': '12-24V DC',
-      'Beam Pattern': 'Flood/Spot combo',
-      'IP Rating': 'IP68'
+      'Capacity': '1.2 m³',
+      'Weight': '850 kg',
+      'Width': '1800mm',
+      'Material': 'High-tensile steel',
+      'Cutting Edge': 'Replaceable hardened steel'
     }
   },
   {
     id: '11',
-    name: 'Premium Operator Seat',
-    category: 'accessories',
-    subCategory: 'Cab Components',
+    name: 'Quick Coupler System',
+    category: 'tools-attachments',
+    subCategory: 'Quick Couplers',
     description: 
-      'Ergonomically designed operator seat for JCB equipment. ' +
-      'Features adjustable lumbar support and multi-position armrests for all-day comfort. ' +
-      'Built with heavy-duty suspension system to absorb vibration and shock during operation. ' +
-      'Covered with durable, stain-resistant fabric for long-lasting appearance and easy maintenance.',
-    shortDescription: 'Ergonomic operator seat for JCB machines with advanced suspension system.',
+      'Universal quick coupler system for JCB excavating equipment. ' +
+      'Allows rapid attachment changes without leaving the operator cab. ' +
+      'Features dual safety locking system and visual indicators for secure attachment. ' +
+      'Built with high-strength steel for maximum safety and reliability in demanding applications.',
+    shortDescription: 'Universal quick coupler with dual safety locking for JCB excavators.',
     imageUrl: 'https://images.pexels.com/photos/4032580/pexels-photo-4032580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'ACC-68132',
+    partNumber: 'TA-QC-68132',
     compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB JS130', 'JCB JS220'],
     inStock: true,
     featured: true,
     specifications: {
-      'Weight Capacity': '150 kg',
-      'Suspension Type': 'Air suspension',
-      'Adjustment': '12-way adjustable',
-      'Upholstery': 'Premium fabric',
-      'Headrest': 'Integrated, adjustable'
+      'Weight': '120 kg',
+      'Load Capacity': '8 tons',
+      'Pin Sizes': '45mm/50mm',
+      'Safety System': 'Dual locking mechanism',
+      'Material': 'High-strength steel'
     }
   },
   {
     id: '12',
-    name: 'Quick Hitch Attachment',
-    category: 'accessories',
-    subCategory: 'Attachments',
+    name: 'Hydraulic Breaker Assembly',
+    category: 'tools-attachments',
+    subCategory: 'Hydraulic Breaker Parts',
     description: 
-      'Universal quick hitch attachment for JCB excavators. ' +
-      'Allows for rapid switching between buckets and attachments without leaving the cab. ' +
-      'Features double-locking safety system to secure attachments during operation. ' +
-      'Constructed from high-strength steel for durability in demanding applications.',
-    shortDescription: 'Universal quick hitch for JCB excavators with safety locking system.',
+      'Heavy-duty hydraulic breaker assembly for JCB excavators. ' +
+      'Designed for demolition, quarrying, and heavy construction applications. ' +
+      'Features auto-greasing system and anti-blank firing protection. ' +
+      'Constructed from hardened steel components for maximum durability and impact resistance.',
+    shortDescription: 'Heavy-duty hydraulic breaker with auto-greasing and protection systems.',
     imageUrl: 'https://images.pexels.com/photos/6517112/pexels-photo-6517112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'ACC-41587',
+    partNumber: 'TA-HB-41587',
     compatibleWith: ['JCB JS130', 'JCB JS145', 'JCB JS160', 'JCB JS220'],
     inStock: true,
     specifications: {
-      'Weight': '120 kg',
-      'Maximum Load': '5 tons',
-      'Pin Diameter': '45mm/50mm',
-      'Safety System': 'Dual locking pins',
-      'Material': 'Hardened steel'
+      'Weight': '850 kg',
+      'Impact Energy': '2500 J',
+      'Blow Rate': '400-700 bpm',
+      'Tool Diameter': '155mm',
+      'Auto-Greasing': 'Integrated system'
     }
   }
 ];
 
 // Generate 8 more products to have 20 in total
 for (let i = 13; i <= 20; i++) {
-  const categories: ProductCategory[] = ['hydraulic', 'engine', 'filters', 'electrical', 'accessories'];
+  const categories: ProductCategory[] = ['power-parts', 'drive-motion', 'tools-attachments', 'body-maintenance', 'case-parts'];
   const randomCategory = categories[Math.floor(Math.random() * categories.length)];
   
   let subCategory = '';
   switch (randomCategory) {
-    case 'hydraulic':
-      subCategory = ['Cylinders', 'Pumps', 'Valves', 'Hoses'][Math.floor(Math.random() * 4)];
+    case 'power-parts':
+      subCategory = ['Hydraulic Rams', 'Hydraulic Pumps', 'Ram Repair Kits', 'Seal Kits & O-Rings'][Math.floor(Math.random() * 4)];
       break;
-    case 'bearings':
-      subCategory = ['Tapered Bearings', 'Ball Bearings', 'Needle Bearings', 'Thrust Bearings'][Math.floor(Math.random() * 4)];
+    case 'drive-motion':
+      subCategory = ['Axle Parts', 'Transmission', 'Pin & Bush Kits', '🔩 Bearings – Taper, Ball, Needle'][Math.floor(Math.random() * 4)];
       break;
-    case 'engine':
-      subCategory = ['Pistons', 'Turbochargers', 'Gaskets', 'Cooling'][Math.floor(Math.random() * 4)];
+    case 'tools-attachments':
+      subCategory = ['Buckets', 'Quick Couplers', 'Hydraulic Breaker Parts', 'Ground Engaging Tools (GET)'][Math.floor(Math.random() * 4)];
       break;
-    case 'filters':
-      subCategory = ['Oil Filters', 'Air Filters', 'Fuel Filters', 'Hydraulic Filters'][Math.floor(Math.random() * 4)];
+    case 'body-maintenance':
+      subCategory = ['Electrical', 'Filters', 'Fasteners', 'Miscellaneous'][Math.floor(Math.random() * 4)];
       break;
-    case 'electrical':
-      subCategory = ['Starters', 'Charging System', 'Sensors', 'Control Modules'][Math.floor(Math.random() * 4)];
-      break;
-    case 'accessories':
-      subCategory = ['Lighting', 'Cab Components', 'Attachments', 'Safety Equipment'][Math.floor(Math.random() * 4)];
+    case 'case-parts':
+      subCategory = ['Transmission Casing', 'Axle Housing', 'Hydraulic Tank', 'Gearbox Housing'][Math.floor(Math.random() * 4)];
       break;
   }
   
@@ -532,12 +530,10 @@ export const getCategoriesWithCounts = (): { label: string; value: ProductCatego
   });
   
   return [
-    { label: 'Hydraulic Parts', value: 'hydraulic', count: categoryCounts['hydraulic'] || 0 },
-    { label: 'Engine Components', value: 'engine', count: categoryCounts['engine'] || 0 },
-    { label: 'Filters & Fluids', value: 'filters', count: categoryCounts['filters'] || 0 },
-    { label: 'Electrical Systems', value: 'electrical', count: categoryCounts['electrical'] || 0 },
-    { label: 'Accessories', value: 'accessories', count: categoryCounts['accessories'] || 0 },
-    { label: 'Bearings (Rapid Bearing)', value: 'bearings', count: categoryCounts['bearings'] || 0 },
+    { label: '⚡ Power Parts', value: 'power-parts', count: categoryCounts['power-parts'] || 0 },
+    { label: '🚜 Drive & Motion', value: 'drive-motion', count: categoryCounts['drive-motion'] || 0 },
+    { label: '🔨 Tools & Attachments', value: 'tools-attachments', count: categoryCounts['tools-attachments'] || 0 },
+    { label: '🛡️ Body & Maintenance', value: 'body-maintenance', count: categoryCounts['body-maintenance'] || 0 },
     { label: 'Case Parts', value: 'case-parts', count: categoryCounts['case-parts'] || 0 },
   ];
 };

@@ -15,16 +15,28 @@ export interface Product {
 }
 
 export type ProductCategory = 
-  | 'hydraulic' 
-  | 'engine' 
-  | 'filters' 
-  | 'electrical' 
-  | 'accessories'
-  | 'bearings'
+  | 'power-parts'
+  | 'drive-motion' 
+  | 'tools-attachments'
+  | 'body-maintenance'
   | 'case-parts';
 
 export interface CategoryFilter {
   label: string;
   value: ProductCategory;
   count: number;
+}
+
+export interface SubCategory {
+  name: string;
+  description?: string;
+  icon?: string;
+}
+
+export interface CategoryWithSubcategories {
+  id: ProductCategory;
+  name: string;
+  icon: string;
+  description: string;
+  subcategories: SubCategory[];
 }

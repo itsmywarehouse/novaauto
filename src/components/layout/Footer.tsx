@@ -52,39 +52,37 @@ Trusted by professionals across India for unmatched reliability, durability, and
             <h3 className="font-semibold text-lg mb-6">Product Categories</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/catalog?category=hydraulic" className="text-gray-300 hover:text-accent transition-colors">
-                  Hydraulic Parts
+                <Link to="/catalog?category=power-parts" className="text-gray-300 hover:text-accent transition-colors">
+                  ⚡ Power Parts
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=bearings" className="text-gray-300 hover:text-accent transition-colors">
-                  🔩 Bearings (Rapid Bearing)
+                <Link to="/catalog?category=drive-motion" className="text-gray-300 hover:text-accent transition-colors">
+                  🚜 Drive & Motion
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=engine" className="text-gray-300 hover:text-accent transition-colors">
-                  Engine Components
+                <Link to="/catalog?category=tools-attachments" className="text-gray-300 hover:text-accent transition-colors">
+                  🔨 Tools & Attachments
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=filters" className="text-gray-300 hover:text-accent transition-colors">
-                  Filters & Fluids
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=electrical" className="text-gray-300 hover:text-accent transition-colors">
-                  Electrical Systems
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=accessories" className="text-gray-300 hover:text-accent transition-colors">
-                  Accessories
+                <Link to="/catalog?category=body-maintenance" className="text-gray-300 hover:text-accent transition-colors">
+                  🛡️ Body & Maintenance
                 </Link>
               </li>
               <li>
                 <Link to="/catalog?category=case-parts" className="text-gray-300 hover:text-accent transition-colors">
                   🧱 Case Parts
                 </Link>
+              </li>
+              <li className="pt-2 border-t border-gray-600">
+                <div className="text-accent font-medium text-sm">
+                  🔩 Featured: Bearings by Rapid Bearing
+                </div>
+                <div className="text-gray-400 text-xs">
+                  Taper, Ball & Needle Bearings
+                </div>
               </li>
             </ul>
           </div>
