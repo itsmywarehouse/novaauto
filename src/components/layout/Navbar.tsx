@@ -232,7 +232,9 @@ const Navbar: React.FC = () => {
                         </Link>
                         <button
                           onClick={() => toggleCategory('products')}
-                          className="ml-2 p-1 rounded transition-transform duration-200"
+                          className={`ml-2 p-1 rounded transition-transform duration-200 ${
+                            isActiveRoute('/catalog') ? 'text-white' : 'text-gray-700'
+                          }`}
                         >
                           {expandedCategories.has('products') ? (
                             <ChevronDown size={16} />
@@ -249,13 +251,21 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=power-parts"
-                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
+                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 ⚡ Power Parts
                               </Link>
                               <button
                                 onClick={() => toggleCategory('power-parts')}
-                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
+                                className={`p-3 transition-colors ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 {expandedCategories.has('power-parts') ? (
                                   <ChevronDown size={14} />
@@ -265,7 +275,9 @@ const Navbar: React.FC = () => {
                               </button>
                             </div>
                             {expandedCategories.has('power-parts') && (
-                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
+                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
+                              }`}>
                                 <li>• Hydraulic Rams</li>
                                 <li>• Hydraulic Pumps</li>
                                 <li>• Ram Repair Kits (Piston, Rod, Gland)</li>
@@ -281,13 +293,21 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=drive-motion"
-                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
+                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 🚜 Drive & Motion
                               </Link>
                               <button
                                 onClick={() => toggleCategory('drive-motion')}
-                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
+                                className={`p-3 transition-colors ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 {expandedCategories.has('drive-motion') ? (
                                   <ChevronDown size={14} />
@@ -297,14 +317,18 @@ const Navbar: React.FC = () => {
                               </button>
                             </div>
                             {expandedCategories.has('drive-motion') && (
-                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
+                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
+                              }`}>
                                 <li>• Axle Parts – Crown Pinion, Differential, Shafts</li>
                                 <li>• Transmission – Gears, Clutch Plates, Torque Converter</li>
                                 <li>• Pin & Bush Kits</li>
                                 <li>• Shims & Thrust Washers</li>
                                 <li>
                                   • Bearings – Taper, Ball, Needle<br />
-                                  <span className="text-accent font-bold text-xs">🔧 Powered by Rapid Bearing</span>
+                                  <span className={`font-bold text-xs ${
+                                    isActiveRoute('/catalog') ? 'text-accent' : 'text-accent'
+                                  }`}>🔧 Powered by Rapid Bearing</span>
                                 </li>
                               </ul>
                             )}
@@ -315,13 +339,21 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=tools-attachments"
-                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
+                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 🔨 Tools & Attachments
                               </Link>
                               <button
                                 onClick={() => toggleCategory('tools-attachments')}
-                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
+                                className={`p-3 transition-colors ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 {expandedCategories.has('tools-attachments') ? (
                                   <ChevronDown size={14} />
@@ -331,7 +363,9 @@ const Navbar: React.FC = () => {
                               </button>
                             </div>
                             {expandedCategories.has('tools-attachments') && (
-                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
+                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
+                              }`}>
                                 <li>• Buckets, Forks, Quick Couplers</li>
                                 <li>• Hydraulic Breaker Parts – Chisels, Seal Kits, Pistons</li>
                                 <li>• GET (Ground Engaging Tools) – Teeth, Side Cutters</li>
@@ -347,13 +381,21 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=body-maintenance"
-                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
+                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 🛡️ Body & Maintenance
                               </Link>
                               <button
                                 onClick={() => toggleCategory('body-maintenance')}
-                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
+                                className={`p-3 transition-colors ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 {expandedCategories.has('body-maintenance') ? (
                                   <ChevronDown size={14} />
@@ -363,7 +405,9 @@ const Navbar: React.FC = () => {
                               </button>
                             </div>
                             {expandedCategories.has('body-maintenance') && (
-                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
+                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
+                              }`}>
                                 <li>• Cabin, Bonnet, Mudguard, Glass</li>
                                 <li>• Electrical – Wiring, Lights, Switches, Sensors</li>
                                 <li>• Filters – Oil, Fuel, Hydraulic, Air</li>
@@ -379,13 +423,21 @@ const Navbar: React.FC = () => {
                             <div className="flex items-center justify-between">
                               <Link 
                                 to="/catalog?category=case-parts"
-                                className="flex-1 p-3 text-sm font-medium bg-primary/5 hover:bg-primary/10 transition-colors flex items-center text-primary"
+                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 🧱 Case Parts
                               </Link>
                               <button
                                 onClick={() => toggleCategory('case-parts')}
-                                className="p-3 bg-primary/5 hover:bg-primary/10 transition-colors text-primary"
+                                className={`p-3 transition-colors ${
+                                  isActiveRoute('/catalog') 
+                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
+                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
+                                }`}
                               >
                                 {expandedCategories.has('case-parts') ? (
                                   <ChevronDown size={14} />
@@ -395,7 +447,9 @@ const Navbar: React.FC = () => {
                               </button>
                             </div>
                             {expandedCategories.has('case-parts') && (
-                              <ul className="p-2 text-xs space-y-1 bg-white animate-fade-in">
+                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
+                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
+                              }`}>
                                 <li>• Transmission Casing</li>
                                 <li>• Axle Housing</li>
                                 <li>• Hydraulic Tank</li>
