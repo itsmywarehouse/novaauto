@@ -208,7 +208,87 @@ const Navbar: React.FC = () => {
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
                     }`}
                   >
-                    🛠️ Products / Catalog
+                    <details className="w-full">
+                      <summary className="flex items-center justify-between cursor-pointer list-none">
+                        <span>🛠️ Products / Catalog</span>
+                        <svg className="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </summary>
+                      
+                      <div className="mt-3 pl-4 space-y-2">
+                        <details className="border border-gray-200 rounded-md">
+                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                            ⚡ Power Parts
+                          </summary>
+                          <ul className="p-2 text-xs space-y-1 bg-white">
+                            <li>• Hydraulic Rams</li>
+                            <li>• Hydraulic Pumps</li>
+                            <li>• Ram Repair Kits (Piston, Rod, Gland)</li>
+                            <li>• Seal Kits & O-Rings</li>
+                            <li>• Lubricants & Grease</li>
+                            <li>• Hydraulic Hoses & Fittings</li>
+                          </ul>
+                        </details>
+                        
+                        <details className="border border-gray-200 rounded-md">
+                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                            🚜 Drive & Motion
+                          </summary>
+                          <ul className="p-2 text-xs space-y-1 bg-white">
+                            <li>• Axle Parts – Crown Pinion, Differential, Shafts</li>
+                            <li>• Transmission – Gears, Clutch Plates, Torque Converter</li>
+                            <li>• Pin & Bush Kits</li>
+                            <li>• Shims & Thrust Washers</li>
+                            <li>
+                              • Bearings – Taper, Ball, Needle<br />
+                              <span className="text-accent font-bold text-xs">🔧 Powered by Rapid Bearing</span>
+                            </li>
+                          </ul>
+                        </details>
+                        
+                        <details className="border border-gray-200 rounded-md">
+                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                            🔨 Tools & Attachments
+                          </summary>
+                          <ul className="p-2 text-xs space-y-1 bg-white">
+                            <li>• Buckets, Forks, Quick Couplers</li>
+                            <li>• Hydraulic Breaker Parts – Chisels, Seal Kits, Pistons</li>
+                            <li>• GET (Ground Engaging Tools) – Teeth, Side Cutters</li>
+                            <li>• Wear Parts – Cutting Edges, Liners</li>
+                            <li>• Control & Throttle Cables</li>
+                            <li>• Assembly Kits – Hose, Pins, Cylinders</li>
+                          </ul>
+                        </details>
+                        
+                        <details className="border border-gray-200 rounded-md">
+                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                            🛡️ Body & Maintenance
+                          </summary>
+                          <ul className="p-2 text-xs space-y-1 bg-white">
+                            <li>• Cabin, Bonnet, Mudguard, Glass</li>
+                            <li>• Electrical – Wiring, Lights, Switches, Sensors</li>
+                            <li>• Filters – Oil, Fuel, Hydraulic, Air</li>
+                            <li>• Fasteners – Nuts, Bolts, U-Clamps</li>
+                            <li>• Fabrication – Boom/Dipper Repair, Custom Metal</li>
+                            <li>• Misc. – Rubber Parts, Seats, Paints</li>
+                          </ul>
+                        </details>
+                        
+                        <details className="border border-gray-200 rounded-md">
+                          <summary className="p-2 text-sm font-medium cursor-pointer bg-gray-50 rounded-md">
+                            🧱 Case Parts
+                          </summary>
+                          <ul className="p-2 text-xs space-y-1 bg-white">
+                            <li>• Transmission Casing</li>
+                            <li>• Axle Housing</li>
+                            <li>• Hydraulic Tank</li>
+                            <li>• Gearbox Housing</li>
+                            <li>• Boom & Dipper Body</li>
+                          </ul>
+                        </details>
+                      </div>
+                    </details>
                   </Link>
                   <Link 
                     to="/contact" 
