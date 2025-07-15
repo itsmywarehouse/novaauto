@@ -356,6 +356,154 @@ for (let i = 13; i <= 20; i++) {
   });
 }
 
+// Add Case Parts products
+const casePartsProducts: Product[] = [
+  {
+    id: 'cp-1',
+    name: 'Transmission Casing Assembly',
+    category: 'case-parts',
+    subCategory: 'Transmission Housing',
+    description: 
+      'Heavy-duty transmission casing assembly for JCB backhoe loaders. ' +
+      'Precision-cast from high-grade aluminum alloy for optimal strength-to-weight ratio. ' +
+      'Features integrated mounting points and sealed bearing housings for reliable operation. ' +
+      'Designed to withstand the high torque loads and vibrations of heavy equipment operation.',
+    shortDescription: 'Heavy-duty transmission casing for JCB equipment with precision-cast construction.',
+    imageUrl: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-TX-4521',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB 5CX'],
+    inStock: true,
+    featured: true,
+    specifications: {
+      'Material': 'Cast aluminum alloy',
+      'Weight': '85 kg',
+      'Mounting Points': '8 precision-machined',
+      'Bearing Seats': 'Sealed design',
+      'Finish': 'Powder coated'
+    }
+  },
+  {
+    id: 'cp-2',
+    name: 'Axle Housing Complete',
+    category: 'case-parts',
+    subCategory: 'Axle Housing',
+    description: 
+      'Complete axle housing assembly for JCB backhoe loaders. ' +
+      'Manufactured from high-strength steel with reinforced mounting brackets. ' +
+      'Includes differential housing and all necessary mounting hardware. ' +
+      'Heat-treated for maximum durability and resistance to stress fractures.',
+    shortDescription: 'Complete axle housing for JCB equipment with reinforced steel construction.',
+    imageUrl: 'https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-AX-7834',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB TM320'],
+    inStock: true,
+    specifications: {
+      'Material': 'High-strength steel',
+      'Weight': '120 kg',
+      'Load Capacity': '15 tons',
+      'Treatment': 'Heat-treated',
+      'Mounting': 'Reinforced brackets'
+    }
+  },
+  {
+    id: 'cp-3',
+    name: 'Hydraulic Tank Assembly',
+    category: 'case-parts',
+    subCategory: 'Hydraulic Tank',
+    description: 
+      'High-capacity hydraulic tank assembly for JCB machinery. ' +
+      'Features integrated filtration system and temperature monitoring. ' +
+      'Constructed from corrosion-resistant steel with internal baffles for fluid stability. ' +
+      'Includes sight gauge, drain valve, and breather cap for easy maintenance.',
+    shortDescription: 'High-capacity hydraulic tank with integrated filtration and monitoring.',
+    imageUrl: 'https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-HT-2156',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB 5CX', 'JCB JS220'],
+    inStock: true,
+    featured: true,
+    specifications: {
+      'Capacity': '180 liters',
+      'Material': 'Corrosion-resistant steel',
+      'Filtration': 'Integrated return filter',
+      'Monitoring': 'Temperature gauge',
+      'Accessories': 'Sight gauge, drain valve, breather'
+    }
+  },
+  {
+    id: 'cp-4',
+    name: 'Gearbox Housing',
+    category: 'case-parts',
+    subCategory: 'Gearbox Housing',
+    description: 
+      'Precision-machined gearbox housing for JCB transmission systems. ' +
+      'Features accurate bearing seats and gear mounting surfaces for optimal alignment. ' +
+      'Manufactured from high-grade cast iron for superior strength and vibration dampening. ' +
+      'Includes integrated oil passages and drain plugs for proper lubrication.',
+    shortDescription: 'Precision gearbox housing with accurate bearing seats and oil passages.',
+    imageUrl: 'https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-GB-9273',
+    compatibleWith: ['JCB 3CX', 'JCB 4CX', 'JCB Fastrac'],
+    inStock: false,
+    specifications: {
+      'Material': 'High-grade cast iron',
+      'Weight': '65 kg',
+      'Bearing Seats': 'Precision-machined',
+      'Oil Capacity': '12 liters',
+      'Mounting': 'Standard SAE pattern'
+    }
+  },
+  {
+    id: 'cp-5',
+    name: 'Boom Body Structure',
+    category: 'case-parts',
+    subCategory: 'Boom & Dipper Body',
+    description: 
+      'Heavy-duty boom body structure for JCB excavators and backhoes. ' +
+      'Welded from high-tensile steel plates for maximum strength and durability. ' +
+      'Features reinforced pivot points and hydraulic cylinder mounting brackets. ' +
+      'Stress-relieved and painted for long-term corrosion resistance.',
+    shortDescription: 'Heavy-duty boom structure with reinforced pivot points and mounting brackets.',
+    imageUrl: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-BM-5647',
+    compatibleWith: ['JCB JS130', 'JCB JS145', 'JCB JS160'],
+    inStock: true,
+    specifications: {
+      'Material': 'High-tensile steel',
+      'Weight': '450 kg',
+      'Reach': '6.2 meters',
+      'Lift Capacity': '3.5 tons',
+      'Finish': 'Primer and topcoat'
+    }
+  },
+  {
+    id: 'cp-6',
+    name: 'Dipper Arm Assembly',
+    category: 'case-parts',
+    subCategory: 'Boom & Dipper Body',
+    description: 
+      'Robust dipper arm assembly for JCB excavating equipment. ' +
+      'Fabricated from high-strength steel with reinforced attachment points. ' +
+      'Features integrated hydraulic lines and protective guards. ' +
+      'Designed for maximum digging force and precise bucket control.',
+    shortDescription: 'Robust dipper arm with integrated hydraulics and reinforced attachment points.',
+    imageUrl: 'https://images.pexels.com/photos/6517112/pexels-photo-6517112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'CP-DP-8912',
+    compatibleWith: ['JCB JS130', 'JCB JS145', 'JCB JS220'],
+    inStock: true,
+    featured: true,
+    specifications: {
+      'Material': 'High-strength steel',
+      'Weight': '280 kg',
+      'Length': '2.8 meters',
+      'Digging Force': '85 kN',
+      'Hydraulic Lines': 'Integrated routing'
+    }
+  }
+];
+
+// Add case parts to main products array
+products.push(...casePartsProducts);
+
 // Function to get products by category
 export const getProductsByCategory = (category: ProductCategory): Product[] => {
   return products.filter(product => product.category === category);
@@ -389,5 +537,7 @@ export const getCategoriesWithCounts = (): { label: string; value: ProductCatego
     { label: 'Filters & Fluids', value: 'filters', count: categoryCounts['filters'] || 0 },
     { label: 'Electrical Systems', value: 'electrical', count: categoryCounts['electrical'] || 0 },
     { label: 'Accessories', value: 'accessories', count: categoryCounts['accessories'] || 0 },
+    { label: 'Bearings (Rapid Bearing)', value: 'bearings', count: categoryCounts['bearings'] || 0 },
+    { label: 'Case Parts', value: 'case-parts', count: categoryCounts['case-parts'] || 0 },
   ];
 };

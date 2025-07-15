@@ -81,6 +81,11 @@ Trusted by professionals across India for unmatched reliability, durability, and
                   Accessories
                 </Link>
               </li>
+              <li>
+                <Link to="/catalog?category=case-parts" className="text-gray-300 hover:text-accent transition-colors">
+                  🧱 Case Parts
+                </Link>
+              </li>
             </ul>
           </div>
 

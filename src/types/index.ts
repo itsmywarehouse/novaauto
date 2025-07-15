@@ -19,7 +19,9 @@ export type ProductCategory =
   | 'engine' 
   | 'filters' 
   | 'electrical' 
-  | 'accessories';
+  | 'accessories'
+  | 'bearings'
+  | 'case-parts';
 
 export interface CategoryFilter {
   label: string;
