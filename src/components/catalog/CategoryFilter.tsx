@@ -98,30 +98,51 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-custom p-5">
-      <h3 className="font-semibold text-lg text-primary mb-4">Categories</h3>
+    <div className="bg-white rounded-xl shadow-custom border border-gray-100 p-6 transition-all duration-300 hover:shadow-custom-lg">
+      <div className="flex items-center mb-6">
+        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
+          <Settings size={16} className="text-white" />
+        </div>
+        <h3 className="font-bold text-xl text-primary">Categories</h3>
+      </div>
       
       {/* All Products Button */}
       <button
         onClick={() => handleCategoryClick(null)}
-        className={`w-full text-left px-3 py-2 rounded transition-colors flex justify-between items-center mb-4 ${
+        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex justify-between items-center mb-6 border-2 ${
           selectedCategory === null 
-            ? 'bg-primary text-white font-medium' 
-            : 'text-gray-700 hover:bg-gray-100'
+            ? 'bg-primary text-white font-semibold border-primary shadow-md' 
+            : 'text-gray-700 hover:bg-gray-50 border-gray-200 hover:border-primary hover:shadow-sm'
         }`}
       >
-        <span>All Products</span>
-        <span className={`text-sm rounded-full px-2 py-0.5 ${
+        <div className="flex items-center">
+          <Package size={18} className={`mr-3 ${selectedCategory === null ? 'text-white' : 'text-gray-500'}`} />
+          <span className="font-medium">All Products</span>
+        </div>
+        <span className={`text-sm rounded-full px-3 py-1 font-semibold ${
           selectedCategory === null 
-            ? 'bg-white text-primary' 
-            : 'bg-gray-100 text-gray-700'
+            ? 'bg-white text-primary shadow-sm' 
+            : 'bg-gray-100 text-gray-600'
         }`}>
           {categories.reduce((sum, cat) => sum + cat.count, 0)}
         </span>
       </button>
       
+      {/* Divider */}
+      <div className="border-t border-gray-200 mb-6"></div>
+      
       {/* Category Dropdowns */}
       <DropdownMenu items={dropdownItems} />
+      
+      {/* Footer Note */}
+      <div className="mt-6 pt-4 border-t border-gray-100">
+        <p className="text-xs text-gray-500 text-center leading-relaxed">
+          Can't find what you're looking for?<br />
+          <a href="tel:+918140251789" className="text-accent hover:text-accent-600 font-medium">
+            Call us at +91 8140251789
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
