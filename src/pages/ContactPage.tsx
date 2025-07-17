@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '../components/contact/ContactForm';
+import FAQDropdown from '../components/common/FAQDropdown';
 
 const ContactPage: React.FC = () => {
   useEffect(() => {
@@ -140,47 +141,8 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-custom p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-primary mb-6 text-center">Frequently Asked Questions</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-medium text-primary mb-2">
-                Do you ship across India?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we ship across India. Shipping rates and delivery times vary depending on the destination. We offer express delivery for urgent requirements. Please contact us for specific details.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium text-primary mb-2">
-                What is your return policy?
-              </h3>
-              <p className="text-gray-600">
-                We accept returns within 30 days of purchase for most items in original, unused condition. Custom orders may have different return policies. A restocking fee may apply.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium text-primary mb-2">
-                How can I check the status of my order?
-              </h3>
-              <p className="text-gray-600">
-                Once your order ships, you will receive a tracking number via email. You can also contact our customer service team with your order number for updates.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium text-primary mb-2">
-                Do you offer bulk discounts?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we offer tiered discounts for bulk orders. Please contact our sales team for a custom quote based on your specific requirements.
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* FAQ Dropdown Section */}
+        <FAQDropdown />
       </div>
       </div>
     </>
