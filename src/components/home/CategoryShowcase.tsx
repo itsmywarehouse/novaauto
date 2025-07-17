@@ -7,14 +7,14 @@ const categories = [
     id: 'power-parts',
     name: '⚡ Power Parts',
     description: 'Hydraulic rams, pumps, repair kits, seals, lubricants, and hoses',
-    image: 'https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'public/Category/power parts.png',
     count: 28
   },
   {
     id: 'drive-motion',
     name: '🚜 Drive & Motion',
     description: 'Axle parts, transmission, pins, bushes, and premium bearings',
-    image: 'https://images.pexels.com/photos/159298/gears-cogs-machine-machinery-159298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'public/Category/Drive & motion.jpg',
     count: 32,
     specialFeature: {
       title: '🔩 Bearings – Taper, Ball, Needle',
