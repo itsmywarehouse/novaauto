@@ -7,14 +7,14 @@ const categories = [
     id: 'power-parts',
     name: '⚡ Power Parts',
     description: 'Hydraulic rams, pumps, repair kits, seals, lubricants, and hoses',
-    image: 'public/Category/power parts.png',
+    image: '/Category/power parts.png',
     count: 28
   },
   {
     id: 'drive-motion',
     name: '🚜 Drive & Motion',
     description: 'Axle parts, transmission, pins, bushes, and premium bearings',
-    image: 'public/Category/Drive & motion.jpg',
+    image: '/Category/Drive & motion.jpg',
     count: 32,
     specialFeature: {
       title: '🔩 Bearings – Taper, Ball, Needle',
