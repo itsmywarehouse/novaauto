@@ -99,13 +99,6 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
 
   return (
     <div className="bg-white rounded-xl shadow-custom border border-gray-100 p-6 transition-all duration-300 hover:shadow-custom-lg">
-      <div className="flex items-center mb-6">
-        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
-          <Settings size={16} className="text-white" />
-        </div>
-        <h3 className="font-bold text-xl text-primary">Categories</h3>
-      </div>
-      
       {/* All Products Button */}
       <button
         onClick={() => handleCategoryClick(null)}
@@ -128,21 +121,8 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
         </span>
       </button>
       
-      {/* Divider */}
-      <div className="border-t border-gray-200 mb-6"></div>
-      
       {/* Category Dropdowns */}
       <DropdownMenu items={dropdownItems} />
-      
-      {/* Footer Note */}
-      <div className="mt-6 pt-4 border-t border-gray-100">
-        <p className="text-xs text-gray-500 text-center leading-relaxed">
-          Can't find what you're looking for?<br />
-          <a href="tel:+918140251789" className="text-accent hover:text-accent-600 font-medium">
-            Call us at +91 8140251789
-          </a>
-        </p>
-      </div>
     </div>
   );
 };
