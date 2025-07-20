@@ -246,215 +246,128 @@ const Navbar: React.FC = () => {
                       
                       {expandedCategories.has('products') && (
                         <div className="mt-3 pl-4 space-y-2 animate-fade-in">
-                          {/* Power Parts */}
+                          {/* JCB 3DX */}
                           <div className="border border-gray-200 rounded-md overflow-hidden">
                             <div className="flex items-center justify-between">
                               <Link 
-                                to="/catalog?category=power-parts"
+                                to="/catalog?category=jcb-3dx"
                                 className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                ⚡ Power Parts
+                                🚜 JCB 3DX
                               </Link>
                               <button
-                                onClick={() => toggleCategory('power-parts')}
+                                onClick={() => toggleCategory('jcb-3dx')}
                                 className={`p-3 transition-colors ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                {expandedCategories.has('power-parts') ? (
+                                {expandedCategories.has('jcb-3dx') ? (
                                   <ChevronDown size={14} />
                                 ) : (
                                   <ChevronRight size={14} />
                                 )}
                               </button>
                             </div>
-                            {expandedCategories.has('power-parts') && (
+                            {expandedCategories.has('jcb-3dx') && (
                               <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
                                 isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
                               }`}>
-                                <li>• Hydraulic Rams</li>
-                                <li>• Hydraulic Pumps</li>
-                                <li>• Ram Repair Kits (Piston, Rod, Gland)</li>
-                                <li>• Seal Kits & O-Rings</li>
-                                <li>• Lubricants & Grease</li>
-                                <li>• Hydraulic Hoses & Fittings</li>
+                                <li>• Hydraulic Ram</li>
+                                <li>• Transmission</li>
+                                <li>• Bearing (Powered by Rapid Bearing)</li>
+                                <li>• Filters</li>
+                                <li>• Engine Parts</li>
+                                <li>• + 9 more categories</li>
                               </ul>
                             )}
                           </div>
                           
-                          {/* Drive & Motion */}
+                          {/* JCB 3D */}
                           <div className="border border-gray-200 rounded-md overflow-hidden">
                             <div className="flex items-center justify-between">
                               <Link 
-                                to="/catalog?category=drive-motion"
+                                to="/catalog?category=jcb-3d"
                                 className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                🚜 Drive & Motion
+                                🔧 JCB 3D
                               </Link>
                               <button
-                                onClick={() => toggleCategory('drive-motion')}
+                                onClick={() => toggleCategory('jcb-3d')}
                                 className={`p-3 transition-colors ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                {expandedCategories.has('drive-motion') ? (
+                                {expandedCategories.has('jcb-3d') ? (
                                   <ChevronDown size={14} />
                                 ) : (
                                   <ChevronRight size={14} />
                                 )}
                               </button>
                             </div>
-                            {expandedCategories.has('drive-motion') && (
+                            {expandedCategories.has('jcb-3d') && (
                               <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
                                 isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
                               }`}>
-                                <li>• Axle Parts – Crown Pinion, Differential, Shafts</li>
-                                <li>• Transmission – Gears, Clutch Plates, Torque Converter</li>
-                                <li>• Pin & Bush Kits</li>
-                                <li>• Shims & Thrust Washers</li>
-                                <li>
-                                  • Bearings – Taper, Ball, Needle<br />
-                                  <span className={`font-bold text-xs ${
-                                    isActiveRoute('/catalog') ? 'text-accent' : 'text-accent'
-                                  }`}>🔧 Powered by Rapid Bearing</span>
-                                </li>
+                                <li>• Pivot Pins</li>
+                                <li>• Electrical Parts</li>
+                                <li>• Cabin Parts</li>
+                                <li>• Seals & O-Rings</li>
+                                <li>• Bushes</li>
+                                <li>• + 9 more categories</li>
                               </ul>
                             )}
                           </div>
                           
-                          {/* Tools & Attachments */}
+                          {/* JCB N/M */}
                           <div className="border border-gray-200 rounded-md overflow-hidden">
                             <div className="flex items-center justify-between">
                               <Link 
-                                to="/catalog?category=tools-attachments"
+                                to="/catalog?category=jcb-nm"
                                 className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                🔨 Tools & Attachments
+                                ⚡ JCB N/M (New Model)
                               </Link>
                               <button
-                                onClick={() => toggleCategory('tools-attachments')}
+                                onClick={() => toggleCategory('jcb-nm')}
                                 className={`p-3 transition-colors ${
                                   isActiveRoute('/catalog') 
                                     ? 'bg-white/20 hover:bg-white/30 text-white' 
                                     : 'bg-primary/5 hover:bg-primary/10 text-primary'
                                 }`}
                               >
-                                {expandedCategories.has('tools-attachments') ? (
+                                {expandedCategories.has('jcb-nm') ? (
                                   <ChevronDown size={14} />
                                 ) : (
                                   <ChevronRight size={14} />
                                 )}
                               </button>
                             </div>
-                            {expandedCategories.has('tools-attachments') && (
+                            {expandedCategories.has('jcb-nm') && (
                               <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
                                 isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
                               }`}>
-                                <li>• Buckets, Forks, Quick Couplers</li>
-                                <li>• Hydraulic Breaker Parts – Chisels, Seal Kits, Pistons</li>
-                                <li>• GET (Ground Engaging Tools) – Teeth, Side Cutters</li>
-                                <li>• Wear Parts – Cutting Edges, Liners</li>
-                                <li>• Control & Throttle Cables</li>
-                                <li>• Assembly Kits – Hose, Pins, Cylinders</li>
-                              </ul>
-                            )}
-                          </div>
-                          
-                          {/* Body & Maintenance */}
-                          <div className="border border-gray-200 rounded-md overflow-hidden">
-                            <div className="flex items-center justify-between">
-                              <Link 
-                                to="/catalog?category=body-maintenance"
-                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                🛡️ Body & Maintenance
-                              </Link>
-                              <button
-                                onClick={() => toggleCategory('body-maintenance')}
-                                className={`p-3 transition-colors ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                {expandedCategories.has('body-maintenance') ? (
-                                  <ChevronDown size={14} />
-                                ) : (
-                                  <ChevronRight size={14} />
-                                )}
-                              </button>
-                            </div>
-                            {expandedCategories.has('body-maintenance') && (
-                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
-                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
-                              }`}>
-                                <li>• Cabin, Bonnet, Mudguard, Glass</li>
-                                <li>• Electrical – Wiring, Lights, Switches, Sensors</li>
-                                <li>• Filters – Oil, Fuel, Hydraulic, Air</li>
-                                <li>• Fasteners – Nuts, Bolts, U-Clamps</li>
-                                <li>• Fabrication – Boom/Dipper Repair, Custom Metal</li>
-                                <li>• Misc. – Rubber Parts, Seats, Paints</li>
-                              </ul>
-                            )}
-                          </div>
-                          
-                          {/* Case Parts */}
-                          <div className="border border-gray-200 rounded-md overflow-hidden">
-                            <div className="flex items-center justify-between">
-                              <Link 
-                                to="/catalog?category=case-parts"
-                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                🧱 Case Parts
-                              </Link>
-                              <button
-                                onClick={() => toggleCategory('case-parts')}
-                                className={`p-3 transition-colors ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                {expandedCategories.has('case-parts') ? (
-                                  <ChevronDown size={14} />
-                                ) : (
-                                  <ChevronRight size={14} />
-                                )}
-                              </button>
-                            </div>
-                            {expandedCategories.has('case-parts') && (
-                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
-                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
-                              }`}>
-                                <li>• Transmission Casing</li>
-                                <li>• Axle Housing</li>
-                                <li>• Hydraulic Tank</li>
-                                <li>• Gearbox Housing</li>
-                                <li>• Boom & Dipper Body</li>
+                                <li>• Bearing (Powered by Rapid Bearing)</li>
+                                <li>• Hydraulic System</li>
+                                <li>• Fabrication Parts</li>
+                                <li>• Bolts & Nuts</li>
+                                <li>• Miscellaneous</li>
+                                <li>• + 9 more categories</li>
                               </ul>
                             )}
                           </div>
