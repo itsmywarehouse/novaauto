@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Grid, List, Filter, X } from 'lucide-react';
+import { Grid, List, Filter } from 'lucide-react';
 import { products, getCategoriesWithCounts, getSubCategoriesWithCounts } from '../data/products';
 import ProductCard from '../components/catalog/ProductCard';
-import CategoryFilterComponent from '../components/catalog/CategoryFilter';
+import CategorySidebar from '../components/catalog/CategorySidebar';
+import SubCategoryFilters from '../components/catalog/SubCategoryFilters';
+import MobileFilterDrawer from '../components/catalog/MobileFilterDrawer';
 import SearchBar from '../components/catalog/SearchBar';
 import SortOptions from '../components/catalog/SortOptions';
 import { Product, ProductCategory, SubCategory } from '../types';
@@ -23,13 +25,16 @@ const CatalogPage: React.FC = () => {
 
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>(products);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(initialCategory);
-  const [selectedSubCategory, setSelectedSubCategory] = useState<string | null>(initialSubCategory);
+  const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>(
+    initialSubCategory ? [initialSubCategory] : []
+  );
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [sortOption, setSortOption] = useState('default');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
   const categories = getCategoriesWithCounts();
+  const subCategories = getSubCategoriesWithCounts(selectedCategory as any);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -44,10 +49,10 @@ const CatalogPage: React.FC = () => {
     // Update URL params
     const params = new URLSearchParams();
     if (selectedCategory) params.set('category', selectedCategory);
-    if (selectedSubCategory) params.set('subcategory', selectedSubCategory);
+    if (selectedSubCategories.length === 1) params.set('subcategory', selectedSubCategories[0]);
     if (searchQuery) params.set('search', searchQuery);
     setSearchParams(params);
-  }, [selectedCategory, selectedSubCategory, searchQuery, sortOption]);
+  }, [selectedCategory, selectedSubCategories, searchQuery, sortOption]);
 
   const filterAndSortProducts = () => {
     let filteredProducts = [...products];
@@ -60,11 +65,11 @@ const CatalogPage: React.FC = () => {
     }
     
     // Apply sub-category filter
-    if (selectedSubCategory) {
+    if (selectedSubCategories.length > 0) {
       filteredProducts = filteredProducts.filter(product => {
         if (!product.subCategory) return false;
         const normalizedSubCategory = product.subCategory.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-        return normalizedSubCategory === selectedSubCategory;
+        return selectedSubCategories.includes(normalizedSubCategory);
       });
     }
     
@@ -108,12 +113,22 @@ const CatalogPage: React.FC = () => {
     setSelectedCategory(category);
     // Reset sub-category when main category changes
     if (category !== selectedCategory) {
-      setSelectedSubCategory(null);
+      setSelectedSubCategories([]);
     }
   };
 
-  const handleSubCategorySelect = (subCategory: string | null) => {
-    setSelectedSubCategory(subCategory);
+  const handleToggleSubCategory = (subCategory: string) => {
+    setSelectedSubCategories(prev => {
+      if (prev.includes(subCategory)) {
+        return prev.filter(sc => sc !== subCategory);
+      } else {
+        return [...prev, subCategory];
+      }
+    });
+  };
+
+  const handleClearSubCategories = () => {
+    setSelectedSubCategories([]);
   };
 
   const handleSearch = (query: string) => {
@@ -127,6 +142,8 @@ const CatalogPage: React.FC = () => {
   const toggleFilterSidebar = () => {
     setIsFilterOpen(!isFilterOpen);
   };
+
+  const selectedCategoryLabel = categories.find(c => c.value === selectedCategory)?.label;
 
   return (
     <>
@@ -149,51 +166,56 @@ const CatalogPage: React.FC = () => {
           <div className="md:hidden mb-4">
             <button
               onClick={toggleFilterSidebar}
-              className="flex items-center bg-primary text-white px-4 py-2 rounded-md"
+              className="flex items-center bg-primary text-white px-4 py-3 rounded-lg shadow-md"
             >
-              {isFilterOpen ? (
-                <>
-                  <X size={18} className="mr-2" />
-                  Close Filters
-                </>
-              ) : (
-                <>
-                  <Filter size={18} className="mr-2" />
-                  Show Filters
-                </>
+              <Filter size={18} className="mr-2" />
+              Filters
+              {(selectedCategory || selectedSubCategories.length > 0) && (
+                <span className="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-full">
+                  {(selectedCategory ? 1 : 0) + selectedSubCategories.length}
+                </span>
               )}
             </button>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-6">
-            {/* Sidebar Filters - Desktop */}
-            <div className="hidden md:block md:w-1/4 lg:w-1/5">
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Left Sidebar - Desktop Only */}
+            <div className="hidden lg:block lg:w-1/4">
               <div className="sticky top-24">
-                <CategoryFilterComponent 
+                <CategorySidebar
                   categories={categories} 
                   selectedCategory={selectedCategory} 
-                  selectedSubCategory={selectedSubCategory}
                   onSelectCategory={handleCategorySelect} 
-                  onSelectSubCategory={handleSubCategorySelect}
                 />
               </div>
             </div>
             
-            {/* Mobile Filters */}
-            {isFilterOpen && (
-              <div className="md:hidden">
-                <CategoryFilterComponent 
-                  categories={categories} 
-                  selectedCategory={selectedCategory} 
-                  selectedSubCategory={selectedSubCategory}
-                  onSelectCategory={handleCategorySelect} 
-                  onSelectSubCategory={handleSubCategorySelect}
-                />
-              </div>
-            )}
+            {/* Mobile Filter Drawer */}
+            <MobileFilterDrawer
+              isOpen={isFilterOpen}
+              onClose={() => setIsFilterOpen(false)}
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleCategorySelect}
+              subCategories={subCategories}
+              selectedSubCategories={selectedSubCategories}
+              onToggleSubCategory={handleToggleSubCategory}
+              onClearSubCategories={handleClearSubCategories}
+              selectedCategoryLabel={selectedCategoryLabel}
+            />
             
             {/* Product Listing */}
-            <div className="md:w-3/4 lg:w-4/5">
+            <div className="lg:w-3/4">
+              {/* Subcategory Filters - Horizontal Bar */}
+              <SubCategoryFilters
+                subCategories={subCategories}
+                selectedSubCategories={selectedSubCategories}
+                onToggleSubCategory={handleToggleSubCategory}
+                onClearAll={handleClearSubCategories}
+                selectedCategoryLabel={selectedCategoryLabel}
+              />
+
+              {/* Search and Sort Controls */}
               <div className="bg-white rounded-lg shadow-custom p-4 mb-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="flex-grow">
@@ -243,10 +265,10 @@ const CatalogPage: React.FC = () => {
                 <p className="text-gray-600">
                   Showing {displayedProducts.length} {displayedProducts.length === 1 ? 'product' : 'products'}
                   {selectedCategory && (
-                    <> in <span className="font-medium">{categories.find(c => c.value === selectedCategory)?.label}</span></>
+                    <> in <span className="font-medium">{selectedCategoryLabel}</span></>
                   )}
-                  {selectedSubCategory && (
-                    <> → <span className="font-medium">{getSubCategoriesWithCounts(selectedCategory).find(s => s.value === selectedSubCategory)?.label}</span></>
+                  {selectedSubCategories.length > 0 && (
+                    <> with {selectedSubCategories.length} subcategor{selectedSubCategories.length === 1 ? 'y' : 'ies'} selected</>
                   )}
                   {searchQuery && (
                     <> matching <span className="font-medium">"{searchQuery}"</span></>
@@ -264,7 +286,7 @@ const CatalogPage: React.FC = () => {
                   <button
                     onClick={() => {
                       setSelectedCategory(null);
-                      setSelectedSubCategory(null);
+                      setSelectedSubCategories([]);
                       setSearchQuery('');
                       setSortOption('default');
                     }}
