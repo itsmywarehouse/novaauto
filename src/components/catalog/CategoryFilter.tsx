@@ -1,39 +1,50 @@
 import React, { useState } from 'react';
-import { Settings, Zap, Hammer, Shield, Package } from 'lucide-react';
+import { Settings, Wrench, Zap } from 'lucide-react';
 import { CategoryFilter } from '../../types';
-import { getAllCategories } from '../../data/categories';
+import { getAllCategories, getSubCategoriesWithCounts } from '../../data/categories';
 import DropdownMenu from '../common/DropdownMenu';
 
 interface CategoryFilterProps {
   categories: CategoryFilter[];
   selectedCategory: string | null;
+  selectedSubCategory: string | null;
   onSelectCategory: (category: string | null) => void;
+  onSelectSubCategory: (subCategory: string | null) => void;
 }
 
 const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({ 
   categories,
   selectedCategory,
-  onSelectCategory
+  selectedSubCategory,
+  onSelectCategory,
+  onSelectSubCategory
 }) => {
   const categoryData = getAllCategories();
+  const subCategories = getSubCategoriesWithCounts(selectedCategory as any);
 
   const handleCategoryClick = (categoryId: string | null) => {
     onSelectCategory(categoryId);
+    // Reset sub-category when main category changes
+    if (categoryId !== selectedCategory) {
+      onSelectSubCategory(null);
+    }
+  };
+
+  const handleSubCategoryClick = (subCategoryId: string | null) => {
+    onSelectSubCategory(subCategoryId);
   };
 
   const getCategoryIcon = (categoryId: string) => {
     switch (categoryId) {
-      case 'power-parts': return <Zap size={16} />;
-      case 'drive-motion': return <Settings size={16} />;
-      case 'tools-attachments': return <Hammer size={16} />;
-      case 'body-maintenance': return <Shield size={16} />;
-      case 'case-parts': return <Package size={16} />;
+      case 'jcb-3dx': return <Wrench size={16} />;
+      case 'jcb-3d': return <Settings size={16} />;
+      case 'jcb-nm': return <Zap size={16} />;
       default: return null;
     }
   };
 
-  // Create dropdown items from categories
-  const dropdownItems = categories.map((category) => {
+  // Create dropdown items from main categories
+  const mainCategoryItems = categories.map((category) => {
     const categoryInfo = categoryData.find(cat => cat.id === category.value);
     const isSelected = selectedCategory === category.value;
     
@@ -42,10 +53,6 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       title: category.label,
       icon: getCategoryIcon(category.value),
       badge: category.count,
-      specialFeature: category.value === 'drive-motion' ? {
-        title: '🔩 Includes Rapid Bearing Products',
-        subtitle: '🛠️ Powered by ✨ Rapid Bearing'
-      } : undefined,
       content: (
         <div className="space-y-2">
           <button
@@ -61,34 +68,31 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
           
           {categoryInfo && (
             <div className="border-t border-gray-200 pt-2">
-              <p className="text-xs text-gray-500 mb-2 font-medium">Subcategories:</p>
+              <p className="text-xs text-gray-500 mb-2 font-medium">Sub-Categories:</p>
               <ul className="space-y-1">
-                {categoryInfo.subcategories.map((subcategory, index) => (
+                {categoryInfo.subcategories.slice(0, 6).map((subcategory, index) => (
                   <li key={index}>
                     <button
-                      onClick={() => handleCategoryClick(category.value)}
+                      onClick={() => {
+                        handleCategoryClick(category.value);
+                        handleSubCategoryClick(subcategory.name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, ''));
+                      }}
                       className="w-full text-left px-2 py-1 text-xs text-gray-600 hover:bg-gray-100 hover:text-primary transition-colors rounded"
                     >
-                      {subcategory.name === '🔩 Bearings – Taper, Ball, Needle' ? (
-                        <div>
-                          <div className="font-medium">{subcategory.name}</div>
-                          <div className="text-xs text-accent font-bold">
-                            🛠️ Powered by ✨ Rapid Bearing
-                          </div>
-                        </div>
-                      ) : (
-                        <div>
-                          <div className="font-medium">{subcategory.name}</div>
-                          {subcategory.description && (
-                            <div className="text-xs text-gray-500 mt-1">
-                              {subcategory.description}
-                            </div>
-                          )}
+                      <div className="font-medium">{subcategory.name}</div>
+                      {subcategory.description && (
+                        <div className="text-xs text-gray-500 mt-1">
+                          {subcategory.description}
                         </div>
                       )}
                     </button>
                   </li>
                 ))}
+                {categoryInfo.subcategories.length > 6 && (
+                  <li className="text-xs text-gray-500 px-2 py-1">
+                    +{categoryInfo.subcategories.length - 6} more categories...
+                  </li>
+                )}
               </ul>
             </div>
           )}
@@ -103,12 +107,15 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
         <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
           <Settings size={16} className="text-white" />
         </div>
-        <h3 className="font-bold text-xl text-primary">Categories</h3>
+        <h3 className="font-bold text-xl text-primary">Filter Products</h3>
       </div>
       
       {/* All Products Button */}
       <button
-        onClick={() => handleCategoryClick(null)}
+        onClick={() => {
+          handleCategoryClick(null);
+          handleSubCategoryClick(null);
+        }}
         className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex justify-between items-center mb-6 border-2 ${
           selectedCategory === null 
             ? 'bg-primary text-white font-semibold border-primary shadow-md' 
@@ -116,7 +123,7 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
         }`}
       >
         <div className="flex items-center">
-          <Package size={18} className={`mr-3 ${selectedCategory === null ? 'text-white' : 'text-gray-500'}`} />
+          <Settings size={18} className={`mr-3 ${selectedCategory === null ? 'text-white' : 'text-gray-500'}`} />
           <span className="font-medium">All Products</span>
         </div>
         <span className={`text-sm rounded-full px-3 py-1 font-semibold ${
@@ -131,8 +138,54 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       {/* Divider */}
       <div className="border-t border-gray-200 mb-6"></div>
       
-      {/* Category Dropdowns */}
-      <DropdownMenu items={dropdownItems} />
+      {/* Main Category Filters */}
+      <div className="mb-6">
+        <h4 className="font-semibold text-sm text-gray-700 mb-3">JCB Models</h4>
+        <DropdownMenu items={mainCategoryItems} />
+      </div>
+      
+      {/* Sub-Category Filters */}
+      {selectedCategory && subCategories.length > 0 && (
+        <>
+          <div className="border-t border-gray-200 mb-6"></div>
+          <div className="mb-6">
+            <h4 className="font-semibold text-sm text-gray-700 mb-3">Sub-Categories</h4>
+            <div className="space-y-2">
+              <button
+                onClick={() => handleSubCategoryClick(null)}
+                className={`w-full text-left px-3 py-2 rounded-md transition-colors text-sm ${
+                  selectedSubCategory === null 
+                    ? 'bg-accent text-white font-medium' 
+                    : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                }`}
+              >
+                All Sub-Categories
+              </button>
+              
+              {subCategories.filter(sub => sub.count > 0).map((subCategory) => (
+                <button
+                  key={subCategory.value}
+                  onClick={() => handleSubCategoryClick(subCategory.value)}
+                  className={`w-full text-left px-3 py-2 rounded-md transition-colors text-sm flex justify-between items-center ${
+                    selectedSubCategory === subCategory.value 
+                      ? 'bg-accent text-white font-medium' 
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                  }`}
+                >
+                  <span>{subCategory.label}</span>
+                  <span className={`text-xs rounded-full px-2 py-0.5 ${
+                    selectedSubCategory === subCategory.value 
+                      ? 'bg-white text-accent' 
+                      : 'bg-gray-200 text-gray-600'
+                  }`}>
+                    {subCategory.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
       
       {/* Footer Note */}
       <div className="mt-6 pt-4 border-t border-gray-100">

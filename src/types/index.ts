@@ -15,11 +15,25 @@ export interface Product {
 }
 
 export type ProductCategory = 
-  | 'power-parts'
-  | 'drive-motion' 
-  | 'tools-attachments'
-  | 'body-maintenance'
-  | 'case-parts';
+  | 'jcb-3dx'
+  | 'jcb-3d'
+  | 'jcb-nm';
+
+export type SubCategory = 
+  | 'bushes'
+  | 'pivot-pins'
+  | 'transmission'
+  | 'hydraulic-system'
+  | 'fabrication-casting'
+  | 'bearing'
+  | 'electrical-parts'
+  | 'seals-o-rings'
+  | 'engine-parts'
+  | 'cabin-parts'
+  | 'filters'
+  | 'miscellaneous-parts'
+  | 'bolts-nuts'
+  | 'hydraulic-ram';
 
 export interface CategoryFilter {
   label: string;
@@ -27,7 +41,13 @@ export interface CategoryFilter {
   count: number;
 }
 
-export interface SubCategory {
+export interface SubCategoryFilter {
+  label: string;
+  value: SubCategory;
+  count: number;
+}
+
+export interface SubCategoryInfo {
   name: string;
   description?: string;
   icon?: string;
@@ -38,5 +58,5 @@ export interface CategoryWithSubcategories {
   name: string;
   icon: string;
   description: string;
-  subcategories: SubCategory[];
+  subcategories: SubCategoryInfo[];
 }

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Grid, List, Filter, X } from 'lucide-react';
-import { products, getCategoriesWithCounts } from '../data/products';
+import { products, getCategoriesWithCounts, getSubCategoriesWithCounts } from '../data/products';
 import ProductCard from '../components/catalog/ProductCard';
 import CategoryFilterComponent from '../components/catalog/CategoryFilter';
 import SearchBar from '../components/catalog/SearchBar';
 import SortOptions from '../components/catalog/SortOptions';
-import { Product, ProductCategory } from '../types';
+import { Product, ProductCategory, SubCategory } from '../types';
 
 const sortOptions = [
   { label: 'Default Sorting', value: 'default' },
@@ -18,10 +18,12 @@ const sortOptions = [
 const CatalogPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') as ProductCategory | null;
+  const initialSubCategory = searchParams.get('subcategory') || null;
   const initialSearch = searchParams.get('search') || '';
 
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>(products);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(initialCategory);
+  const [selectedSubCategory, setSelectedSubCategory] = useState<string | null>(initialSubCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [sortOption, setSortOption] = useState('default');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -42,9 +44,10 @@ const CatalogPage: React.FC = () => {
     // Update URL params
     const params = new URLSearchParams();
     if (selectedCategory) params.set('category', selectedCategory);
+    if (selectedSubCategory) params.set('subcategory', selectedSubCategory);
     if (searchQuery) params.set('search', searchQuery);
     setSearchParams(params);
-  }, [selectedCategory, searchQuery, sortOption]);
+  }, [selectedCategory, selectedSubCategory, searchQuery, sortOption]);
 
   const filterAndSortProducts = () => {
     let filteredProducts = [...products];
@@ -56,6 +59,15 @@ const CatalogPage: React.FC = () => {
       );
     }
     
+    // Apply sub-category filter
+    if (selectedSubCategory) {
+      filteredProducts = filteredProducts.filter(product => {
+        if (!product.subCategory) return false;
+        const normalizedSubCategory = product.subCategory.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        return normalizedSubCategory === selectedSubCategory;
+      });
+    }
+    
     // Apply search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
@@ -63,6 +75,7 @@ const CatalogPage: React.FC = () => {
         product.name.toLowerCase().includes(query) || 
         product.description.toLowerCase().includes(query) ||
         product.category.toLowerCase().includes(query) ||
+        (product.subCategory && product.subCategory.toLowerCase().includes(query)) ||
         product.partNumber.toLowerCase().includes(query)
       );
     }
@@ -93,6 +106,14 @@ const CatalogPage: React.FC = () => {
 
   const handleCategorySelect = (category: ProductCategory | null) => {
     setSelectedCategory(category);
+    // Reset sub-category when main category changes
+    if (category !== selectedCategory) {
+      setSelectedSubCategory(null);
+    }
+  };
+
+  const handleSubCategorySelect = (subCategory: string | null) => {
+    setSelectedSubCategory(subCategory);
   };
 
   const handleSearch = (query: string) => {
@@ -151,7 +172,9 @@ const CatalogPage: React.FC = () => {
                 <CategoryFilterComponent 
                   categories={categories} 
                   selectedCategory={selectedCategory} 
+                  selectedSubCategory={selectedSubCategory}
                   onSelectCategory={handleCategorySelect} 
+                  onSelectSubCategory={handleSubCategorySelect}
                 />
               </div>
             </div>
@@ -162,7 +185,9 @@ const CatalogPage: React.FC = () => {
                 <CategoryFilterComponent 
                   categories={categories} 
                   selectedCategory={selectedCategory} 
+                  selectedSubCategory={selectedSubCategory}
                   onSelectCategory={handleCategorySelect} 
+                  onSelectSubCategory={handleSubCategorySelect}
                 />
               </div>
             )}
@@ -218,7 +243,10 @@ const CatalogPage: React.FC = () => {
                 <p className="text-gray-600">
                   Showing {displayedProducts.length} {displayedProducts.length === 1 ? 'product' : 'products'}
                   {selectedCategory && (
-                    <> in <span className="font-medium">{selectedCategory}</span></>
+                    <> in <span className="font-medium">{categories.find(c => c.value === selectedCategory)?.label}</span></>
+                  )}
+                  {selectedSubCategory && (
+                    <> → <span className="font-medium">{getSubCategoriesWithCounts(selectedCategory).find(s => s.value === selectedSubCategory)?.label}</span></>
                   )}
                   {searchQuery && (
                     <> matching <span className="font-medium">"{searchQuery}"</span></>
@@ -236,6 +264,7 @@ const CatalogPage: React.FC = () => {
                   <button
                     onClick={() => {
                       setSelectedCategory(null);
+                      setSelectedSubCategory(null);
                       setSearchQuery('');
                       setSortOption('default');
                     }}

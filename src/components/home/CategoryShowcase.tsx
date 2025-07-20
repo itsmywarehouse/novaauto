@@ -4,43 +4,32 @@ import { ArrowRight } from 'lucide-react';
 
 const categories = [
   {
-    id: 'power-parts',
-    name: '⚡ Power Parts',
-    description: 'Hydraulic rams, pumps, repair kits, seals, lubricants, and hoses',
-    image: '/Category/power_parts.png',
-    count: 28
-  },
-  {
-    id: 'drive-motion',
-    name: '🚜 Drive & Motion',
-    description: 'Axle parts, transmission, pins, bushes, and premium bearings',
-    image: '/Category/Drive_motion.jpg',
-    count: 32,
-    specialFeature: {
-      title: '🔩 Bearings – Taper, Ball, Needle',
-      subtitle: '🛠️ Powered by ✨ Rapid Bearing'
-    }
-  },
-  {
-    id: 'tools-attachments',
-    name: '🔨 Tools & Attachments',
-    description: 'Buckets, forks, couplers, breakers, GET, wear parts, and assembly kits',
-    image: 'https://images.pexels.com/photos/6517112/pexels-photo-6517112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    count: 45
-  },
-  {
-    id: 'body-maintenance',
-    name: '🛡️ Body & Maintenance',
-    description: 'Cabin parts, electrical, filters, fasteners, fabrication, and misc items',
-    image: 'https://images.pexels.com/photos/11002456/pexels-photo-11002456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    count: 38
-  },
-  {
-    id: 'case-parts',
-    name: '🧱 Case Parts',
-    description: 'Transmission casings, axle housings, hydraulic tanks, and structural components',
+    id: 'jcb-3dx',
+    name: '🚜 JCB 3DX',
+    description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
     image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    count: 22
+    count: 14,
+    subCategories: ['Hydraulic Ram', 'Transmission', 'Bearing', 'Filters', 'Engine Parts']
+  },
+  {
+    id: 'jcb-3d',
+    name: '🔧 JCB 3D',
+    description: 'Genuine parts and accessories for JCB 3D series machines',
+    image: 'https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    count: 14,
+    subCategories: ['Pivot Pins', 'Electrical Parts', 'Cabin Parts', 'Seals & O-Rings', 'Bushes']
+  },
+  {
+    id: 'jcb-nm',
+    name: '⚡ JCB N/M (New Model)',
+    description: 'Latest generation parts for JCB New Model series',
+    image: 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    count: 14,
+    specialFeature: {
+      title: '🔩 Premium Bearings Available',
+      subtitle: '🛠️ Powered by ✨ Rapid Bearing'
+    },
+    subCategories: ['Bearing', 'Hydraulic System', 'Fabrication Parts', 'Bolts & Nuts', 'Miscellaneous']
   }
 ];
 
@@ -50,10 +39,10 @@ const CategoryShowcase: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-primary text-center mb-4">Browse By Category</h2>
         <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-          Explore our extensive range of JCB parts and accessories, organized by category for easy navigation and quick access to exactly what you need.
+          Explore our extensive range of JCB parts and accessories, organized by model for easy navigation and quick access to exactly what you need.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
             <Link 
               key={category.id}
@@ -72,7 +61,7 @@ const CategoryShowcase: React.FC = () => {
                     {category.name}
                   </h3>
                   
-                  {/* Special feature for Drive & Motion (Bearings) */}
+                  {/* Special feature for JCB N/M (Bearings) */}
                   {category.specialFeature && (
                     <div className="mb-3 p-2 bg-accent/20 backdrop-blur-sm rounded-md border border-accent/30">
                       <div className="text-accent font-bold text-sm">
@@ -88,9 +77,26 @@ const CategoryShowcase: React.FC = () => {
                     {category.description}
                   </p>
                   
+                  {/* Sub-categories preview */}
+                  {category.subCategories && (
+                    <div className="mb-4">
+                      <p className="text-white/70 text-xs mb-2">Popular sub-categories:</p>
+                      <div className="flex flex-wrap gap-1">
+                        {category.subCategories.slice(0, 3).map((subCat, idx) => (
+                          <span key={idx} className="text-xs bg-white/20 text-white px-2 py-1 rounded">
+                            {subCat}
+                          </span>
+                        ))}
+                        {category.subCategories.length > 3 && (
+                          <span className="text-xs text-white/70">+{category.subCategories.length - 3} more</span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  
                   <div className="flex justify-between items-center">
                     <span className="text-accent font-medium text-sm">
-                      {category.count} products
+                      {category.count} sub-categories
                     </span>
                     <div className="flex items-center text-white group-hover:text-accent transition-colors text-sm">
                       Explore

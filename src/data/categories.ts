@@ -1,79 +1,44 @@
-import { CategoryWithSubcategories, ProductCategory } from '../types';
+import { CategoryWithSubcategories, ProductCategory, SubCategoryInfo } from '../types';
+
+// Shared sub-categories for all JCB models
+const sharedSubCategories: SubCategoryInfo[] = [
+  { name: 'Bushes', description: 'High-quality bushes for pivot points and joints' },
+  { name: 'Pivot Pins', description: 'Precision-machined pivot pins for smooth operation' },
+  { name: 'Transmission', description: 'Gears, clutch plates, and transmission components' },
+  { name: 'Hydraulic System', description: 'Pumps, valves, and hydraulic control components' },
+  { name: 'Fabrication / Casting Parts', description: 'Custom fabricated and cast components' },
+  { name: 'Bearing', description: 'Premium bearings - Taper, Ball, Needle (Powered by Rapid Bearing)' },
+  { name: 'Electrical Parts', description: 'Wiring, lights, switches, and electrical components' },
+  { name: 'Seals, O-Rings & Seal Kits', description: 'Complete sealing solutions for all systems' },
+  { name: 'Engine Parts', description: 'Engine components and replacement parts' },
+  { name: 'Cabin Parts', description: 'Cabin components, glass, and interior parts' },
+  { name: 'Filters', description: 'Oil, fuel, hydraulic, and air filtration systems' },
+  { name: 'Miscellaneous Parts', description: 'Various accessories and miscellaneous components' },
+  { name: 'Bolts & Nuts', description: 'Fasteners, hardware, and mounting components' },
+  { name: 'Hydraulic Ram', description: 'Hydraulic cylinders and ram assemblies' }
+];
 
 export const categoryData: CategoryWithSubcategories[] = [
   {
-    id: 'power-parts',
-    name: '⚡ Power Parts',
-    icon: '⚡',
-    description: 'Hydraulic systems, pumps, rams, and power transmission components',
-    subcategories: [
-      { name: 'Hydraulic Rams', description: 'High-performance hydraulic cylinders and rams' },
-      { name: 'Hydraulic Pumps', description: 'Reliable hydraulic pumps for all JCB models' },
-      { name: 'Ram Repair Kits', description: 'Complete kits with pistons, rods, and glands' },
-      { name: 'Seal Kits & O-Rings', description: 'Premium sealing solutions for hydraulic systems' },
-      { name: 'Lubricants & Grease', description: 'High-quality lubricants and maintenance fluids' },
-      { name: 'Hydraulic Hoses & Fittings', description: 'Durable hoses and precision fittings' }
-    ]
-  },
-  {
-    id: 'drive-motion',
-    name: '🚜 Drive & Motion',
+    id: 'jcb-3dx',
+    name: '🚜 JCB 3DX',
     icon: '🚜',
-    description: 'Transmission, axle parts, bearings, and motion control components',
-    subcategories: [
-      { name: 'Axle Parts', description: 'Crown pinion, differential, and drive shafts' },
-      { name: 'Transmission', description: 'Gears, clutch plates, and torque converters' },
-      { name: 'Pin & Bush Kits', description: 'Precision pins and bushings for smooth operation' },
-      { name: 'Shims & Thrust Washers', description: 'Precision shims and washers for proper alignment' },
-      { 
-        name: '🔩 Bearings – Taper, Ball, Needle', 
-        description: '🛠️ Powered by ✨ Rapid Bearing',
-        icon: '🔩'
-      }
-    ]
+    description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
+    subcategories: sharedSubCategories
   },
   {
-    id: 'tools-attachments',
-    name: '🔨 Tools & Attachments',
-    icon: '🔨',
-    description: 'Buckets, breakers, ground engaging tools, and attachment systems',
-    subcategories: [
-      { name: 'Buckets', description: 'Various bucket types for different applications' },
-      { name: 'Forks', description: 'Heavy-duty forks for material handling' },
-      { name: 'Quick Couplers', description: 'Fast attachment changing systems' },
-      { name: 'Hydraulic Breaker Parts', description: 'Chisels, seal kits, and pistons for breakers' },
-      { name: 'Ground Engaging Tools (GET)', description: 'Teeth, side cutters, and cutting tools' },
-      { name: 'Wear Parts', description: 'Cutting edges, liners, and wear protection' },
-      { name: 'Control & Throttle Cables', description: 'Precision control cables and throttle systems' },
-      { name: 'Assembly Kits', description: 'Complete kits with hoses, pins, and cylinders' }
-    ]
+    id: 'jcb-3d',
+    name: '🔧 JCB 3D',
+    icon: '🔧',
+    description: 'Genuine parts and accessories for JCB 3D series machines',
+    subcategories: sharedSubCategories
   },
   {
-    id: 'body-maintenance',
-    name: '🛡️ Body & Maintenance',
-    icon: '🛡️',
-    description: 'Cabin parts, electrical systems, filters, and maintenance components',
-    subcategories: [
-      { name: 'Cabin, Bonnet, Mudguard, Glass', description: 'Body panels and glass components' },
-      { name: 'Electrical', description: 'Wiring, lights, switches, and sensors' },
-      { name: 'Filters', description: 'Oil, fuel, hydraulic, and air filtration systems' },
-      { name: 'Fasteners', description: 'Nuts, bolts, U-clamps, and hardware' },
-      { name: 'Fabrication', description: 'Boom/dipper repair and custom metal work' },
-      { name: 'Miscellaneous', description: 'Rubber parts, seats, paints, and accessories' }
-    ]
-  },
-  {
-    id: 'case-parts',
-    name: '🧱 Case Parts',
-    icon: '🧱',
-    description: 'Structural components, casings, and heavy-duty housing assemblies',
-    subcategories: [
-      { name: 'Transmission Casing', description: 'Heavy-duty transmission housing assemblies' },
-      { name: 'Axle Housing', description: 'Complete axle housing and differential cases' },
-      { name: 'Hydraulic Tank', description: 'Hydraulic fluid tanks and reservoir systems' },
-      { name: 'Gearbox Housing', description: 'Precision gearbox casings and housings' },
-      { name: 'Boom & Dipper Body', description: 'Structural boom and dipper assemblies' }
-    ]
+    id: 'jcb-nm',
+    name: '⚡ JCB N/M (New Model)',
+    icon: '⚡',
+    description: 'Latest generation parts for JCB New Model series',
+    subcategories: sharedSubCategories
   }
 ];
 
@@ -83,4 +48,9 @@ export const getCategoryData = (categoryId: ProductCategory): CategoryWithSubcat
 
 export const getAllCategories = (): CategoryWithSubcategories[] => {
   return categoryData;
+};
+
+// Get all sub-categories (same for all main categories)
+export const getAllSubCategories = (): SubCategoryInfo[] => {
+  return sharedSubCategories;
 };

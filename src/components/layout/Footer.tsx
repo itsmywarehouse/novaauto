@@ -49,39 +49,29 @@ Trusted by professionals across India for unmatched reliability, durability, and
 
           {/* Product Categories */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">Product Categories</h3>
+            <h3 className="font-semibold text-lg mb-6">JCB Models</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/catalog?category=power-parts" className="text-gray-300 hover:text-accent transition-colors">
-                  ⚡ Power Parts
+                <Link to="/catalog?category=jcb-3dx" className="text-gray-300 hover:text-accent transition-colors">
+                  🚜 JCB 3DX
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=drive-motion" className="text-gray-300 hover:text-accent transition-colors">
-                  🚜 Drive & Motion
+                <Link to="/catalog?category=jcb-3d" className="text-gray-300 hover:text-accent transition-colors">
+                  🔧 JCB 3D
                 </Link>
               </li>
               <li>
-                <Link to="/catalog?category=tools-attachments" className="text-gray-300 hover:text-accent transition-colors">
-                  🔨 Tools & Attachments
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=body-maintenance" className="text-gray-300 hover:text-accent transition-colors">
-                  🛡️ Body & Maintenance
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=case-parts" className="text-gray-300 hover:text-accent transition-colors">
-                  🧱 Case Parts
+                <Link to="/catalog?category=jcb-nm" className="text-gray-300 hover:text-accent transition-colors">
+                  ⚡ JCB N/M (New Model)
                 </Link>
               </li>
               <li className="pt-2 border-t border-gray-600">
                 <div className="text-accent font-medium text-sm">
-                  🔩 Featured: Bearings by Rapid Bearing
+                  🔩 All Models: Premium Bearings
                 </div>
                 <div className="text-gray-400 text-xs">
-                  Taper, Ball & Needle Bearings
+                  Powered by Rapid Bearing
                 </div>
               </li>
             </ul>
