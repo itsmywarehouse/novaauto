@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Settings, Wrench, Zap } from 'lucide-react';
 import { CategoryFilter } from '../../types';
-import { getAllCategories, getSubCategoriesWithCounts } from '../../data/categories';
+import { getAllCategories } from '../../data/categories';
+import { getSubCategoriesWithCounts } from '../../data/products';
 import DropdownMenu from '../common/DropdownMenu';
 
 interface CategoryFilterProps {
