@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pt-0">
       <HeroBanner />
       <BrandShowcase />
       <FeaturedProducts products={featuredProducts} />

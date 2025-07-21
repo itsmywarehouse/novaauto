@@ -41,7 +41,7 @@ const categories = [
 
 const CategoryShowcase: React.FC = () => {
   return (
-    <section className="py-20 bg-gray-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 right-10 w-40 h-40 border border-primary rounded-full"></div>

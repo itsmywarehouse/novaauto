@@ -4,7 +4,7 @@ import { ArrowRight, Phone, MessageCircle, Search } from 'lucide-react';
 
 const HeroBanner: React.FC = () => {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden pt-20">
       {/* Background with subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-accent/80 z-10"></div>
       <div 
@@ -13,7 +13,7 @@ const HeroBanner: React.FC = () => {
           backgroundImage: `url('https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`
         }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-12 sm:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main Heading */}
             <div className="mb-8 animate-fade-in">

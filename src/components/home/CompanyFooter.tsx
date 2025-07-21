@@ -3,7 +3,7 @@ import { Award, Users, Globe, TrendingUp } from 'lucide-react';
 
 const CompanyFooter: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary via-primary-600 to-accent text-white relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary via-primary-600 to-accent text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>

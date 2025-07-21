@@ -4,7 +4,7 @@ import { ArrowRight, Phone, MessageCircle, Mail } from 'lucide-react';
 
 const CallToAction: React.FC = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-600 to-accent"></div>
       <div
