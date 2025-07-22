@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Grid, List, Filter } from 'lucide-react';
+import { Grid, List, Filter, ChevronDown } from 'lucide-react';
 import { products, getCategoriesWithCounts, getSubCategoriesWithCounts } from '../data/products';
 import ProductCard from '../components/catalog/ProductCard';
 import CategorySidebar from '../components/catalog/CategorySidebar';
@@ -32,6 +32,7 @@ const CatalogPage: React.FC = () => {
   const [sortOption, setSortOption] = useState('default');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
   
   const categories = getCategoriesWithCounts();
   const subCategories = getSubCategoriesWithCounts(selectedCategory as any);
@@ -149,17 +150,114 @@ const CatalogPage: React.FC = () => {
     <>    
       <div className="bg-gray-50 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Mobile Filter Toggle */}
-          <div className="md:hidden mb-4">
+          {/* Mobile Controls */}
+          <div className="md:hidden mb-4 space-y-3">
+            {/* Category Dropdown for Mobile */}
+            <div className="relative category-dropdown">
+              <button
+                onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                className="w-full flex items-center justify-between bg-white border border-gray-300 text-gray-700 px-4 py-3 rounded-lg shadow-sm"
+              >
+                <div className="flex items-center">
+                  <span className="text-sm font-medium">
+                    {selectedCategory 
+                      ? selectedCategoryLabel 
+                      : 'All Categories'
+                    }
+                  </span>
+                </div>
+                <ChevronDown 
+                  size={18} 
+                  className={`transition-transform duration-200 ${
+                    isCategoryDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                />
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isCategoryDropdownOpen && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto">
+                  {/* All Categories Option */}
+                  <button
+                    onClick={() => {
+                      handleCategorySelect(null);
+                      setIsCategoryDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 ${
+                      selectedCategory === null ? 'bg-primary text-white hover:bg-primary-600' : ''
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <span className="text-lg mr-2">🏠</span>
+                        <div>
+                          <div className="font-medium">All Categories</div>
+                          <div className={`text-xs ${selectedCategory === null ? 'text-white/80' : 'text-gray-500'}`}>
+                            View all products
+                          </div>
+                        </div>
+                      </div>
+                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${
+                        selectedCategory === null 
+                          ? 'bg-white/20 text-white' 
+                          : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        {categories.reduce((sum, cat) => sum + cat.count, 0)}
+                      </span>
+                    </div>
+                  </button>
+                  
+                  {/* Category Options */}
+                  {categories.map((category) => (
+                    <button
+                      key={category.value}
+                      onClick={() => {
+                        handleCategorySelect(category.value);
+                        setIsCategoryDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors ${
+                        selectedCategory === category.value ? 'bg-primary text-white hover:bg-primary-600' : ''
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <span className="text-lg mr-2">
+                            {category.value === 'jcb-3dx' ? '🚜' : 
+                             category.value === 'jcb-3d' ? '🔧' : '⚡'}
+                          </span>
+                          <div>
+                            <div className="font-medium">{category.label}</div>
+                            <div className={`text-xs ${
+                              selectedCategory === category.value ? 'text-white/80' : 'text-gray-500'
+                            }`}>
+                              JCB spare parts
+                            </div>
+                          </div>
+                        </div>
+                        <span className={`text-xs font-bold px-2 py-1 rounded-full ${
+                          selectedCategory === category.value 
+                            ? 'bg-white/20 text-white' 
+                            : 'bg-gray-100 text-gray-600'
+                        }`}>
+                          {category.count}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Filter Toggle Button */}
             <button
               onClick={toggleFilterSidebar}
               className="flex items-center bg-primary text-white px-4 py-3 rounded-lg shadow-md"
             >
               <Filter size={18} className="mr-2" />
-              Filters
-              {(selectedCategory || selectedSubCategories.length > 0) && (
+              Subcategory Filters
+              {selectedSubCategories.length > 0 && (
                 <span className="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-full">
-                  {(selectedCategory ? 1 : 0) + selectedSubCategories.length}
+                  {selectedSubCategories.length}
                 </span>
               )}
             </button>
