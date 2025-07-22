@@ -27,7 +27,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-4 mb-6">
+    <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-4">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
@@ -48,7 +48,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
       </div>
 
       {/* Filter Chips */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 pt-2 pb-4">
         {subCategories.map((subCategory) => {
           const isSelected = selectedSubCategories.includes(subCategory.value);
           
@@ -82,7 +82,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
 
       {/* Selected Count */}
       {selectedSubCategories.length > 0 && (
-        <div className="mt-3 pt-3 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-gray-200">
           <p className="text-sm text-gray-600">
             {selectedSubCategories.length} subcategor{selectedSubCategories.length === 1 ? 'y' : 'ies'} selected
           </p>
