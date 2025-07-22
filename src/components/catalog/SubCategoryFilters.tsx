@@ -21,7 +21,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
   selectedSubCategories,
   onToggleSubCategory,
   onClearAll,
-  selectedCategoryLabel
+  selectedCategoryLabel,
   onChangeCategory
 }) => {
   if (subCategories.length === 0) {
