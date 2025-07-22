@@ -68,7 +68,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
                      selectedCategoryLabel === '🔧 JCB 3D' ? 'jcb-3d' :
                      selectedCategoryLabel === '⚡ JCB N/M (New Model)' ? 'jcb-nm' : ''}
               onChange={(e) => onChangeCategory(e.target.value || null)}
-              className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              className="w-full appearance-none bg-gradient-to-r from-primary to-accent text-white font-semibold border-2 border-primary rounded-lg px-4 py-3 pr-10 focus:outline-none focus:ring-4 focus:ring-primary/30 focus:border-accent transition-all shadow-lg hover:shadow-xl"
             >
               {mainCategories.map((category) => (
                 <option key={category.value || 'all'} value={category.value || ''}>
