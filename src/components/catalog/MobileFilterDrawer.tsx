@@ -71,44 +71,14 @@ const MobileFilterDrawer: React.FC<MobileFilterDrawerProps> = ({
 
           {/* Subcategories */}
           {subCategories.length > 0 && (
-            <div>
-              <h3 className="font-semibold text-gray-800 mb-3">Subcategories</h3>
-              <div className="space-y-2">
-                {subCategories.map((subCategory) => {
-                  const isSelected = selectedSubCategories.includes(subCategory.value);
-                  
-                  return (
-                    <button
-                      key={subCategory.value}
-                      onClick={() => onToggleSubCategory(subCategory.value)}
-                      className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-all duration-200 ${
-                        isSelected
-                          ? 'bg-accent text-white shadow-md'
-                          : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                      }`}
-                    >
-                      <span className="font-medium">{subCategory.label}</span>
-                      <span className={`px-2 py-1 rounded-full text-xs font-bold ${
-                        isSelected 
-                          ? 'bg-white/20 text-white' 
-                          : 'bg-white text-gray-600'
-                      }`}>
-                        {subCategory.count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-              
-              {selectedSubCategories.length > 0 && (
-                <button
-                  onClick={onClearSubCategories}
-                  className="w-full mt-3 p-2 text-center text-red-500 hover:text-red-600 transition-colors text-sm"
-                >
-                  Clear All Subcategories
-                </button>
-              )}
-            </div>
+            <SubCategoryFilters
+              subCategories={subCategories}
+              selectedSubCategories={selectedSubCategories}
+              onToggleSubCategory={onToggleSubCategory}
+              onClearAll={onClearSubCategories}
+              selectedCategoryLabel={selectedCategoryLabel}
+              onChangeCategory={onSelectCategory}
+            />
           )}
         </div>
       </div>
