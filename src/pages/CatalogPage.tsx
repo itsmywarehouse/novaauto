@@ -200,6 +200,7 @@ const CatalogPage: React.FC = () => {
                 onToggleSubCategory={handleToggleSubCategory}
                 onClearAll={handleClearSubCategories}
                 selectedCategoryLabel={selectedCategoryLabel}
+                onChangeCategory={handleCategorySelect}
               />
 
               {/* Search and Sort Controls */}

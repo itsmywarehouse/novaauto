@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Filter } from 'lucide-react';
+import { X, Filter, ChevronDown } from 'lucide-react';
 
 interface SubCategoryFilter {
   label: string;
@@ -13,6 +13,7 @@ interface SubCategoryFiltersProps {
   onToggleSubCategory: (subCategory: string) => void;
   onClearAll: () => void;
   selectedCategoryLabel?: string;
+  onChangeCategory?: (category: string | null) => void;
 }
 
 const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
@@ -21,11 +22,18 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
   onToggleSubCategory,
   onClearAll,
   selectedCategoryLabel
+  onChangeCategory
 }) => {
   if (subCategories.length === 0) {
     return null;
   }
 
+  const mainCategories = [
+    { label: 'All Products', value: null },
+    { label: '🚜 JCB 3DX', value: 'jcb-3dx' },
+    { label: '🔧 JCB 3D', value: 'jcb-3d' },
+    { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm' }
+  ];
   return (
     <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-8 pt-8">
       {/* Header */}
@@ -46,6 +54,34 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
           </button>
         )}
       </div>
+
+      {/* Main Category Selector */}
+      {onChangeCategory && (
+        <div className="mb-6 pb-4 border-b border-gray-200">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Change Main Category:
+          </label>
+          <div className="relative">
+            <select
+              value={selectedCategoryLabel === 'All Products' ? '' : 
+                     selectedCategoryLabel === '🚜 JCB 3DX' ? 'jcb-3dx' :
+                     selectedCategoryLabel === '🔧 JCB 3D' ? 'jcb-3d' :
+                     selectedCategoryLabel === '⚡ JCB N/M (New Model)' ? 'jcb-nm' : ''}
+              onChange={(e) => onChangeCategory(e.target.value || null)}
+              className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            >
+              {mainCategories.map((category) => (
+                <option key={category.value || 'all'} value={category.value || ''}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+              <ChevronDown size={16} />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Filter Chips */}
       <div className="flex flex-wrap gap-2 pt-2 pb-4">
