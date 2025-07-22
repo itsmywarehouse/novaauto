@@ -24,7 +24,7 @@ const sliderProducts: SliderProduct[] = [
     id: '2',
     name: 'Precision Bearing Solutions',
     tagline: 'High-performance bearings for industrial applications',
-    image: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    image: '/slider/pin_bush.jpeg',
     category: 'bearing',
     link: '/catalog'
   },
