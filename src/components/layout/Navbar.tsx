@@ -218,163 +218,16 @@ const Navbar: React.FC = () => {
                   </Link>
                   
                   {/* Products/Catalog with Dropdown */}
-                  <div 
+                  <Link 
+                    to="/catalog"
                     className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
                       isActiveRoute('/catalog') 
                         ? 'bg-primary text-white shadow-md' 
                         : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
                     }`}
                   >
-                    <div className="w-full">
-                      <div className="flex items-center justify-between">
-                        <Link to="/catalog" className="flex-1 flex items-center">
-                          <span>🛠️ Products / Catalog</span>
-                        </Link>
-                        <button
-                          onClick={() => toggleCategory('products')}
-                          className={`ml-2 p-1 rounded transition-transform duration-200 ${
-                            isActiveRoute('/catalog') ? 'text-white' : 'text-gray-700'
-                          }`}
-                        >
-                          {expandedCategories.has('products') ? (
-                            <ChevronDown size={16} />
-                          ) : (
-                            <ChevronRight size={16} />
-                          )}
-                        </button>
-                      </div>
-                      
-                      {expandedCategories.has('products') && (
-                        <div className="mt-3 pl-4 space-y-2 animate-fade-in">
-                          {/* JCB 3DX */}
-                          <div className="border border-gray-200 rounded-md overflow-hidden">
-                            <div className="flex items-center justify-between">
-                              <Link 
-                                to="/catalog?category=jcb-3dx"
-                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                🚜 JCB 3DX
-                              </Link>
-                              <button
-                                onClick={() => toggleCategory('jcb-3dx')}
-                                className={`p-3 transition-colors ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                {expandedCategories.has('jcb-3dx') ? (
-                                  <ChevronDown size={14} />
-                                ) : (
-                                  <ChevronRight size={14} />
-                                )}
-                              </button>
-                            </div>
-                            {expandedCategories.has('jcb-3dx') && (
-                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
-                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
-                              }`}>
-                                <li>• Hydraulic Ram</li>
-                                <li>• Transmission</li>
-                                <li>• Bearing (Powered by Rapid Bearing)</li>
-                                <li>• Filters</li>
-                                <li>• Engine Parts</li>
-                                <li>• + 9 more categories</li>
-                              </ul>
-                            )}
-                          </div>
-                          
-                          {/* JCB 3D */}
-                          <div className="border border-gray-200 rounded-md overflow-hidden">
-                            <div className="flex items-center justify-between">
-                              <Link 
-                                to="/catalog?category=jcb-3d"
-                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                🔧 JCB 3D
-                              </Link>
-                              <button
-                                onClick={() => toggleCategory('jcb-3d')}
-                                className={`p-3 transition-colors ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                {expandedCategories.has('jcb-3d') ? (
-                                  <ChevronDown size={14} />
-                                ) : (
-                                  <ChevronRight size={14} />
-                                )}
-                              </button>
-                            </div>
-                            {expandedCategories.has('jcb-3d') && (
-                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
-                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
-                              }`}>
-                                <li>• Pivot Pins</li>
-                                <li>• Electrical Parts</li>
-                                <li>• Cabin Parts</li>
-                                <li>• Seals & O-Rings</li>
-                                <li>• Bushes</li>
-                                <li>• + 9 more categories</li>
-                              </ul>
-                            )}
-                          </div>
-                          
-                          {/* JCB N/M */}
-                          <div className="border border-gray-200 rounded-md overflow-hidden">
-                            <div className="flex items-center justify-between">
-                              <Link 
-                                to="/catalog?category=jcb-nm"
-                                className={`flex-1 p-3 text-sm font-medium transition-colors flex items-center ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                ⚡ JCB N/M (New Model)
-                              </Link>
-                              <button
-                                onClick={() => toggleCategory('jcb-nm')}
-                                className={`p-3 transition-colors ${
-                                  isActiveRoute('/catalog') 
-                                    ? 'bg-white/20 hover:bg-white/30 text-white' 
-                                    : 'bg-primary/5 hover:bg-primary/10 text-primary'
-                                }`}
-                              >
-                                {expandedCategories.has('jcb-nm') ? (
-                                  <ChevronDown size={14} />
-                                ) : (
-                                  <ChevronRight size={14} />
-                                )}
-                              </button>
-                            </div>
-                            {expandedCategories.has('jcb-nm') && (
-                              <ul className={`p-2 text-xs space-y-1 animate-fade-in ${
-                                isActiveRoute('/catalog') ? 'bg-white/10 text-white/90' : 'bg-white text-gray-700'
-                              }`}>
-                                <li>• Bearing (Powered by Rapid Bearing)</li>
-                                <li>• Hydraulic System</li>
-                                <li>• Fabrication Parts</li>
-                                <li>• Bolts & Nuts</li>
-                                <li>• Miscellaneous</li>
-                                <li>• + 9 more categories</li>
-                              </ul>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                    🛠️ Products / Catalog
+                  </Link>
                   
                   <Link 
                     to="/contact" 
