@@ -14,25 +14,25 @@ interface SliderProduct {
 const sliderProducts: SliderProduct[] = [
   {
     id: '1',
-    name: 'JCB 3DX Hydraulic System',
-    tagline: 'Premium hydraulic components for maximum performance',
-    image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    name: 'PIN/BUSH',
+    tagline: 'All Types of Pin Bushes for JCB 3D & 3DX – Precision Engineered for Performance',
+    image: '/slider/pin_bush.jpeg',
     category: 'jcb-3dx',
     link: '/catalog?category=jcb-3dx'
   },
   {
     id: '2',
-    name: 'Precision Bearing Solutions',
-    tagline: 'High-performance bearings for industrial applications',
-    image: '/slider/pin_bush.jpeg',
+    name: 'Rapid Bearings',
+    tagline: 'Complete Bearing Solutions for Every Industry',
+    image: '/slider/bearing.jpeg',
     category: 'bearing',
     link: '/catalog'
   },
   {
     id: '3',
-    name: 'JCB N/M Series Parts',
-    tagline: 'Latest generation components for new model series',
-    image: 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    name: 'ANNULUS RING',
+    tagline: 'Nova Auto – Powering Performance with Reliable Parts',
+    image: '/slider/annulus_ring.jpeg',
     category: 'jcb-nm',
     link: '/catalog?category=jcb-nm'
   },
@@ -40,7 +40,7 @@ const sliderProducts: SliderProduct[] = [
     id: '4',
     name: 'Complete Engine Solutions',
     tagline: 'Reliable engine parts for uninterrupted operations',
-    image: 'https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    image: '/slider/planet_w_ bearing.jpeg',
     category: 'engine',
     link: '/catalog'
   }
