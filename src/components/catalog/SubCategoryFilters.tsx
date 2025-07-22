@@ -27,7 +27,7 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-4">
+    <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-8 pt-8">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
