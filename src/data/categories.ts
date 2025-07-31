@@ -2,20 +2,20 @@ import { CategoryWithSubcategories, ProductCategory, SubCategoryInfo } from '../
 
 // Sub-categories for JCB models
 const jcbSubCategories: SubCategoryInfo[] = [
-  { name: 'Bushes', description: 'High-quality bushes for pivot points and joints' },
-  { name: 'Pivot Pins', description: 'Precision-machined pivot pins for smooth operation' },
-  { name: 'Transmission', description: 'Gears, clutch plates, and transmission components' },
-  { name: 'Hydraulic System', description: 'Pumps, valves, and hydraulic control components' },
-  { name: 'Fabrication / Casting Parts', description: 'Custom fabricated and cast components' },
+  { name: 'Bushes'},
+  { name: 'Pivot Pins'},
+  { name: 'Transmission'},
+  { name: 'Hydraulic System'},
+  { name: 'Fabrication / Casting Parts'},
   { name: 'Bearing', description: 'Premium bearings for JCB equipment' },
-  { name: 'Electrical Parts', description: 'Wiring, lights, switches, and electrical components' },
-  { name: 'Seals, O-Rings & Seal Kits', description: 'Complete sealing solutions for all systems' },
-  { name: 'Engine Parts', description: 'Engine components and replacement parts' },
-  { name: 'Cabin Parts', description: 'Cabin components, glass, and interior parts' },
-  { name: 'Filters', description: 'Oil, fuel, hydraulic, and air filtration systems' },
+  { name: 'Electrical Parts'},
+  { name: 'Seals, O-Rings & Seal Kits'},
+  { name: 'Engine Parts'},
+  { name: 'Cabin Parts'},
+  { name: 'Filters'},
   { name: 'Miscellaneous Parts', description: 'Various accessories and miscellaneous components' },
-  { name: 'Bolts & Nuts', description: 'Fasteners, hardware, and mounting components' },
-  { name: 'Hydraulic Ram', description: 'Hydraulic cylinders and ram assemblies' }
+  { name: 'Bolts & Nuts'},
+  { name: 'Hydraulic Ram'}
 ];
 
 // Sub-categories for Rapid Bearing
@@ -28,30 +28,30 @@ const rapidBearingSubCategories: SubCategoryInfo[] = [
 export const categoryData: CategoryWithSubcategories[] = [
   {
     id: 'jcb-3dx',
-    name: '🚜 JCB 3DX',
+    name: 'JCB 3DX',
     icon: '🚜',
-    description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
+    // description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
     subcategories: jcbSubCategories
   },
   {
     id: 'jcb-3d',
     name: '🔧 JCB 3D',
     icon: '🔧',
-    description: 'Genuine parts and accessories for JCB 3D series machines',
+    // description: 'Genuine parts and accessories for JCB 3D series machines',
     subcategories: jcbSubCategories
   },
   {
     id: 'jcb-nm',
-    name: '⚡ JCB N/M (New Model)',
+    name: 'JCB N/M (New Model)',
     icon: '⚡',
-    description: 'Latest generation parts for JCB New Model series',
+    // description: 'Latest generation parts for JCB New Model series',
     subcategories: jcbSubCategories
   },
   {
     id: 'rapid-bearing',
-    name: '🛠️ Rapid Bearing',
+    name: 'Rapid Bearing',
     icon: '🛠️',
-    description: 'Premium industrial bearings for all applications',
+    // description: 'Premium industrial bearings for all applications',
     subcategories: rapidBearingSubCategories
   }
 ];

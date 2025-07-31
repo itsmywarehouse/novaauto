@@ -30,10 +30,10 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
 
   const mainCategories = [
     { label: 'All Products', value: null },
-    { label: '🚜 JCB 3DX', value: 'jcb-3dx' },
-    { label: '🔧 JCB 3D', value: 'jcb-3d' },
-    { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm' },
-    { label: '🛠️ Rapid Bearing', value: 'rapid-bearing' }
+    { label: 'JCB 3DX', value: 'jcb-3dx' },
+    { label: 'JCB 3D', value: 'jcb-3d' },
+    { label: 'JCB N/M (New Model)', value: 'jcb-nm' },
+    { label: 'Rapid Bearing', value: 'rapid-bearing' }
   ];
   return (
     <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-8 pt-8">
@@ -65,9 +65,9 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
           <div className="relative">
             <select
               value={selectedCategoryLabel === 'All Products' ? '' : 
-                     selectedCategoryLabel === '🚜 JCB 3DX' ? 'jcb-3dx' :
-                     selectedCategoryLabel === '🔧 JCB 3D' ? 'jcb-3d' :
-                     selectedCategoryLabel === '⚡ JCB N/M (New Model)' ? 'jcb-nm' : ''}
+                     selectedCategoryLabel === 'JCB 3DX' ? 'jcb-3dx' :
+                     selectedCategoryLabel === 'JCB 3D' ? 'jcb-3d' :
+                     selectedCategoryLabel === 'JCB N/M (New Model)' ? 'jcb-nm' : ''}
               onChange={(e) => onChangeCategory(e.target.value || null)}
               className="w-full appearance-none bg-gradient-to-r from-primary to-accent text-white font-semibold border-2 border-primary rounded-lg px-4 py-3 pr-10 focus:outline-none focus:ring-4 focus:ring-primary/30 focus:border-accent transition-all shadow-lg hover:shadow-xl"
             >
