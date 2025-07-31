@@ -12,9 +12,10 @@ const ProductDetailPage: React.FC = () => {
   const relatedProducts = getFeaturedProducts().filter(p => p.id !== id).slice(0, 4);
   
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-    
+    // Smooth scroll to top of page when product changes
+    const scrollElement = document.scrollingElement || document.documentElement;
+    scrollElement.scrollTo({ top: 0, behavior: 'smooth' });
+
     // Update page title
     if (product) {
       document.title = `${product.name} | Nova Auto`;
@@ -88,7 +89,7 @@ const ProductDetailPage: React.FC = () => {
                 />
               </div>
               
-              {/* For a real site, we'd have multiple images. This is a placeholder */}
+              {/* Image thumbnails */}
               <div className="flex gap-2 justify-center">
                 <button 
                   className={`w-16 h-16 rounded-md border-2 overflow-hidden ${

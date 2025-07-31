@@ -11,6 +11,7 @@ interface Props {
   selectedSubCategory: string | null;
   onSelectCategory: (category: string | null) => void;
   onSelectSubCategory: (subCategory: string | null) => void;
+  onCloseMobile?: () => void; // For mobile drawer close
 }
 
 const icons: Record<string, JSX.Element> = {
@@ -25,16 +26,35 @@ const CategoryFilterComponent: React.FC<Props> = ({
   selectedCategory,
   selectedSubCategory,
   onSelectCategory,
-  onSelectSubCategory
+  onSelectSubCategory,
+  onCloseMobile
 }) => {
-  // Store only ONE expanded category at a time
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const categoryData = getAllCategories();
   const subCategories = getSubCategoriesWithCounts(selectedCategory as any);
 
+  // Smooth scroll to top of the whole page
+  const scrollToTop = () => {
+    const scrollElement = document.scrollingElement || document.documentElement;
+    scrollElement.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelect = (category: string | null, subCategory: string | null = null) => {
+    onSelectCategory(category);
+    onSelectSubCategory(subCategory);
+
+    // Close dropdown if subcategory selected
+    if (subCategory) setExpanded(null);
+
+    // Scroll to top
+    scrollToTop();
+
+    // Close mobile drawer if provided
+    if (onCloseMobile) onCloseMobile();
+  };
+
   const toggleCategory = (id: string) => {
-    // Toggle between open/close
     setExpanded(prev => (prev === id ? null : id));
   };
 
@@ -42,6 +62,7 @@ const CategoryFilterComponent: React.FC<Props> = ({
     onSelectCategory(null);
     onSelectSubCategory(null);
     setExpanded(null);
+    scrollToTop();
   };
 
   const allCount = categories.reduce((sum, c) => sum + c.count, 0);
@@ -49,29 +70,28 @@ const CategoryFilterComponent: React.FC<Props> = ({
   return (
     <div className="space-y-4 text-sm">
       {/* Header */}
-     <div className="flex justify-between items-center border-b pb-2">
-  <div className="flex items-center text-gray-800 font-medium">
-    <Filter size={16} className="mr-2 text-gray-500" />
-    Filters
-  </div>
+      <div className="flex justify-between items-center border-b pb-2">
+        <div className="flex items-center text-gray-800 font-medium">
+          <Filter size={16} className="mr-2 text-gray-500" />
+          Filters
+        </div>
 
-  <button
-    onClick={clearFilters}
-    disabled={!selectedCategory && !selectedSubCategory}
-    className={`flex items-center text-xs px-2 py-1 rounded transition-all
-      ${selectedCategory || selectedSubCategory
-        ? 'text-red-600 hover:text-white hover:bg-red-600 border border-red-300'
-        : 'text-gray-400 border border-gray-200 cursor-not-allowed'}
-    `}
-  >
-    <X size={12} className="mr-1" /> Clear All
-  </button>
-</div>
-
+        <button
+          onClick={clearFilters}
+          disabled={!selectedCategory && !selectedSubCategory}
+          className={`flex items-center text-xs px-2 py-1 rounded transition-all
+            ${selectedCategory || selectedSubCategory
+              ? 'text-red-600 hover:text-white hover:bg-red-600 border border-red-300'
+              : 'text-gray-400 border border-gray-200 cursor-not-allowed'}
+          `}
+        >
+          <X size={12} className="mr-1" /> Clear All
+        </button>
+      </div>
 
       {/* All Products */}
       <button
-        onClick={() => onSelectCategory(null)}
+        onClick={() => handleSelect(null, null)}
         className={`w-full px-3 py-2 text-left rounded-md border shadow-sm transition-all duration-200 ${
           selectedCategory === null
             ? 'bg-gray-800 text-white border-gray-800 shadow-md'
@@ -103,11 +123,10 @@ const CategoryFilterComponent: React.FC<Props> = ({
                 isSelected ? 'shadow-md' : 'hover:shadow-sm'
               }`}
             >
-              {/* Category header (Full clickable for dropdown & select) */}
+              {/* Category header */}
               <button
                 onClick={() => {
-                  onSelectCategory(category.value);
-                  if (!isSelected) onSelectSubCategory(null);
+                  handleSelect(category.value, null);
                   toggleCategory(category.value);
                 }}
                 className={`flex items-center justify-between w-full px-3 py-2 transition-colors text-left ${
@@ -135,7 +154,7 @@ const CategoryFilterComponent: React.FC<Props> = ({
                 </div>
               </button>
 
-              {/* Subcategories with animation */}
+              {/* Subcategories */}
               <AnimatePresence initial={false}>
                 {isExpanded && catInfo && (
                   <motion.div
@@ -155,10 +174,7 @@ const CategoryFilterComponent: React.FC<Props> = ({
                         return (
                           <button
                             key={idx}
-                            onClick={() => {
-                              onSelectCategory(category.value);
-                              onSelectSubCategory(subVal);
-                            }}
+                            onClick={() => handleSelect(category.value, subVal)}
                             className={`flex justify-between items-center w-full px-2 py-1.5 text-left rounded text-xs transition-colors duration-200 ${
                               isSubSel
                                 ? 'bg-gray-800 text-white shadow-sm'

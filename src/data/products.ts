@@ -382,10 +382,10 @@ export const getCategoriesWithCounts = (): { label: string; value: ProductCatego
   });
   
   return [
-    { label: '🚜 JCB 3DX', value: 'jcb-3dx', count: categoryCounts['jcb-3dx'] || 0 },
-    { label: '🔧 JCB 3D', value: 'jcb-3d', count: categoryCounts['jcb-3d'] || 0 },
-    { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm', count: categoryCounts['jcb-nm'] || 0 },
-    { label: '🛠️ Rapid Bearing', value: 'rapid-bearing', count: categoryCounts['rapid-bearing'] || 0 },
+    { label: 'JCB 3DX', value: 'jcb-3dx', count: categoryCounts['jcb-3dx'] || 0 },
+    { label: 'JCB 3D', value: 'jcb-3d', count: categoryCounts['jcb-3d'] || 0 },
+    { label: 'JCB N/M (New Model)', value: 'jcb-nm', count: categoryCounts['jcb-nm'] || 0 },
+    { label: 'Rapid Bearing', value: 'rapid-bearing', count: categoryCounts['rapid-bearing'] || 0 },
   ];
 };
 
