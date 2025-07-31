@@ -8,13 +8,14 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-custom overflow-hidden transition-all duration-300 hover:shadow-custom-lg group animate-fade-in">
+    <div className="bg-white rounded-lg shadow-custom overflow-hidden transition-all duration-300 hover:shadow-custom-lg group animate-fade-in h-full flex flex-col">
       <div className="relative overflow-hidden">
         <Link to={`/catalog/${product.id}`}>
           <img 
             src={product.imageUrl} 
             alt={product.name} 
             className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
           />
         </Link>
         {product.featured && (
@@ -24,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         )}
       </div>
       
-      <div className="p-2 sm:p-3">
+      <div className="p-2 sm:p-3 flex-1 flex flex-col">
         {/* Category */}
         <div className="mb-2">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -48,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         
         {/* Action Buttons */}
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1.5 mt-auto">
           <Link 
             to={`/catalog/${product.id}`}
             className="w-full bg-primary hover:bg-primary-600 text-white text-center py-2 rounded-md transition-all duration-300 hover:scale-105 text-xs font-semibold shadow-md min-h-[36px] flex items-center justify-center"
