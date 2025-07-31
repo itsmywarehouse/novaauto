@@ -44,14 +44,15 @@ const CategoryFilterComponent: React.FC<Props> = ({
     onSelectCategory(category);
     onSelectSubCategory(subCategory);
 
-    // Close dropdown if subcategory selected
-    if (subCategory) setExpanded(null);
-
-    // Scroll to top
-    scrollToTop();
-
-    // Close mobile drawer if provided
-    if (onCloseMobile) onCloseMobile();
+    // Only on subcategory selection: close dropdown and close mobile drawer
+    if (subCategory) {
+      setExpanded(null);
+      if (onCloseMobile) {
+        setTimeout(() => {
+          onCloseMobile();
+        }, 200); // allow animation to finish if needed
+      }
+    }
   };
 
   const toggleCategory = (id: string) => {

@@ -5,15 +5,19 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
   placeholder?: string;
   initialQuery?: string;
+  inputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
   onSearch, 
   placeholder = 'Search for parts or categories...', 
-  initialQuery = '' 
+  initialQuery = '',
+  inputRef
 }) => {
   const [query, setQuery] = useState(initialQuery);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const localInputRef = useRef<HTMLInputElement>(null);
+  // Use passed ref or fallback
+  const refToUse = inputRef || localInputRef;
 
   useEffect(() => {
     setQuery(initialQuery);
@@ -27,8 +31,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
   const handleClear = () => {
     setQuery('');
     onSearch('');
-    if (inputRef.current) {
-      inputRef.current.focus();
+    if (refToUse.current) {
+      refToUse.current.focus();
     }
   };
 
@@ -38,7 +42,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       className="relative w-full flex items-center"
     >
       <input
-        ref={inputRef}
+        ref={refToUse}
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}

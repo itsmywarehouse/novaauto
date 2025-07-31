@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Grid, List, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { products, getCategoriesWithCounts, getSubCategoriesWithCounts } from '../data/products';
@@ -32,6 +32,8 @@ const CatalogPage: React.FC = () => {
   const [sortOption, setSortOption] = useState('default');
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  // Ref for SearchBar
+  const searchBarRef = useRef<HTMLInputElement | null>(null);
   
   const categories = getCategoriesWithCounts();
   const totalPages = Math.ceil(allFilteredProducts.length / PRODUCTS_PER_PAGE);
@@ -129,6 +131,12 @@ const CatalogPage: React.FC = () => {
 
   const handleSubCategorySelect = (subCategory: string | null) => {
     setSelectedSubCategory(subCategory);
+    // Scroll to SearchBar when subcategory is selected
+    if (subCategory && searchBarRef.current) {
+      setTimeout(() => {
+        searchBarRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }, 0);
+    }
   };
 
   const handleSearch = (query: string) => {
@@ -272,7 +280,7 @@ const CatalogPage: React.FC = () => {
             <div className="bg-white rounded-xl shadow-custom p-6 mb-8">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 <div className="flex-grow max-w-2xl">
-                  <SearchBar onSearch={handleSearch} initialQuery={searchQuery} />
+                  <SearchBar onSearch={handleSearch} initialQuery={searchQuery} inputRef={searchBarRef} />
                 </div>
                 
                 <div className="flex items-center gap-4">
