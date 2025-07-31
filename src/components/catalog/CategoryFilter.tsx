@@ -49,6 +49,7 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       case 'jcb-3dx': return <Wrench size={20} className="text-blue-600" />;
       case 'jcb-3d': return <Settings size={20} className="text-green-600" />;
       case 'jcb-nm': return <Zap size={20} className="text-purple-600" />;
+      case 'rapid-bearing': return <Settings size={20} className="text-orange-600" />;
       default: return <Filter size={20} className="text-gray-600" />;
     }
   };
@@ -58,6 +59,7 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       case 'jcb-3dx': return 'border-blue-200 bg-blue-50 hover:bg-blue-100';
       case 'jcb-3d': return 'border-green-200 bg-green-50 hover:bg-green-100';
       case 'jcb-nm': return 'border-purple-200 bg-purple-50 hover:bg-purple-100';
+      case 'rapid-bearing': return 'border-orange-200 bg-orange-50 hover:bg-orange-100';
       default: return 'border-gray-200 bg-gray-50 hover:bg-gray-100';
     }
   };
@@ -67,6 +69,7 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       case 'jcb-3dx': return 'border-blue-500 bg-blue-500 text-white shadow-lg';
       case 'jcb-3d': return 'border-green-500 bg-green-500 text-white shadow-lg';
       case 'jcb-nm': return 'border-purple-500 bg-purple-500 text-white shadow-lg';
+      case 'rapid-bearing': return 'border-orange-500 bg-orange-500 text-white shadow-lg';
       default: return 'border-primary bg-primary text-white shadow-lg';
     }
   };
@@ -138,7 +141,7 @@ const CategoryFilterComponent: React.FC<CategoryFilterProps> = ({
       <div className="space-y-4">
         <h4 className="font-bold text-lg text-gray-800 flex items-center">
           <Settings size={20} className="mr-2 text-primary" />
-          JCB Models
+          Product Categories
         </h4>
         
         {categories.map((category) => {

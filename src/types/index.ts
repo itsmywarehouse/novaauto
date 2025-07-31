@@ -17,7 +17,8 @@ export interface Product {
 export type ProductCategory = 
   | 'jcb-3dx'
   | 'jcb-3d'
-  | 'jcb-nm';
+  | 'jcb-nm'
+  | 'rapid-bearing';
 
 export type SubCategory = 
   | 'bushes'

@@ -1,13 +1,13 @@
 import { CategoryWithSubcategories, ProductCategory, SubCategoryInfo } from '../types';
 
-// Shared sub-categories for all JCB models
-const sharedSubCategories: SubCategoryInfo[] = [
+// Sub-categories for JCB models
+const jcbSubCategories: SubCategoryInfo[] = [
   { name: 'Bushes', description: 'High-quality bushes for pivot points and joints' },
   { name: 'Pivot Pins', description: 'Precision-machined pivot pins for smooth operation' },
   { name: 'Transmission', description: 'Gears, clutch plates, and transmission components' },
   { name: 'Hydraulic System', description: 'Pumps, valves, and hydraulic control components' },
   { name: 'Fabrication / Casting Parts', description: 'Custom fabricated and cast components' },
-  { name: 'Bearing', description: 'Premium bearings - Taper, Ball, Needle (Powered by Rapid Bearing)' },
+  { name: 'Bearing', description: 'Premium bearings for JCB equipment' },
   { name: 'Electrical Parts', description: 'Wiring, lights, switches, and electrical components' },
   { name: 'Seals, O-Rings & Seal Kits', description: 'Complete sealing solutions for all systems' },
   { name: 'Engine Parts', description: 'Engine components and replacement parts' },
@@ -18,27 +18,41 @@ const sharedSubCategories: SubCategoryInfo[] = [
   { name: 'Hydraulic Ram', description: 'Hydraulic cylinders and ram assemblies' }
 ];
 
+// Sub-categories for Rapid Bearing
+const rapidBearingSubCategories: SubCategoryInfo[] = [
+  { name: 'Taper Roller Bearing', description: 'High-performance taper roller bearings for heavy loads' },
+  { name: 'Ball Bearing', description: 'Precision ball bearings for various applications' },
+  { name: 'Spherical Bearing', description: 'Self-aligning spherical bearings for misalignment tolerance' }
+];
+
 export const categoryData: CategoryWithSubcategories[] = [
   {
     id: 'jcb-3dx',
     name: '🚜 JCB 3DX',
     icon: '🚜',
     description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
-    subcategories: sharedSubCategories
+    subcategories: jcbSubCategories
   },
   {
     id: 'jcb-3d',
     name: '🔧 JCB 3D',
     icon: '🔧',
     description: 'Genuine parts and accessories for JCB 3D series machines',
-    subcategories: sharedSubCategories
+    subcategories: jcbSubCategories
   },
   {
     id: 'jcb-nm',
     name: '⚡ JCB N/M (New Model)',
     icon: '⚡',
     description: 'Latest generation parts for JCB New Model series',
-    subcategories: sharedSubCategories
+    subcategories: jcbSubCategories
+  },
+  {
+    id: 'rapid-bearing',
+    name: '🛠️ Rapid Bearing',
+    icon: '🛠️',
+    description: 'Premium industrial bearings for all applications',
+    subcategories: rapidBearingSubCategories
   }
 ];
 
@@ -50,7 +64,12 @@ export const getAllCategories = (): CategoryWithSubcategories[] => {
   return categoryData;
 };
 
-// Get all sub-categories (same for all main categories)
+// Get all sub-categories for JCB models
 export const getAllSubCategories = (): SubCategoryInfo[] => {
-  return sharedSubCategories;
+  return jcbSubCategories;
+};
+
+// Get all sub-categories for Rapid Bearing
+export const getRapidBearingSubCategories = (): SubCategoryInfo[] => {
+  return rapidBearingSubCategories;
 };

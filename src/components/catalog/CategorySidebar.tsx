@@ -18,6 +18,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
       case 'jcb-3dx': return <Wrench size={20} className="text-blue-600" />;
       case 'jcb-3d': return <Settings size={20} className="text-green-600" />;
       case 'jcb-nm': return <Zap size={20} className="text-purple-600" />;
+      case 'rapid-bearing': return <Settings size={20} className="text-orange-600" />;
       default: return <Filter size={20} className="text-gray-600" />;
     }
   };
@@ -27,6 +28,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
       case 'jcb-3dx': return 'hover:bg-blue-50 hover:border-blue-200';
       case 'jcb-3d': return 'hover:bg-green-50 hover:border-green-200';
       case 'jcb-nm': return 'hover:bg-purple-50 hover:border-purple-200';
+      case 'rapid-bearing': return 'hover:bg-orange-50 hover:border-orange-200';
       default: return 'hover:bg-gray-50 hover:border-gray-200';
     }
   };
@@ -36,6 +38,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
       case 'jcb-3dx': return 'bg-blue-500 border-blue-500 text-white shadow-lg';
       case 'jcb-3d': return 'bg-green-500 border-green-500 text-white shadow-lg';
       case 'jcb-nm': return 'bg-purple-500 border-purple-500 text-white shadow-lg';
+      case 'rapid-bearing': return 'bg-orange-500 border-orange-500 text-white shadow-lg';
       default: return 'bg-primary border-primary text-white shadow-lg';
     }
   };
@@ -109,7 +112,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
                     <div className="font-semibold">{category.label}</div>
                     <div className={`text-sm ${isSelected ? 'text-white/80' : 'text-gray-500'}`}>
                       JCB spare parts
-                    </div>
+                    {category.value === 'rapid-bearing' ? 'Industrial bearings' : 'JCB spare parts'}
                   </div>
                 </div>
                 <div className={`px-3 py-1 rounded-full text-sm font-bold ${

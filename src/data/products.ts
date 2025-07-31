@@ -13,6 +13,9 @@ const generatePartNumber = (category: ProductCategory): string => {
     case 'jcb-nm':
       prefix = 'NM';
       break;
+    case 'rapid-bearing':
+      prefix = 'RB';
+      break;
     default:
       prefix = 'JCB';
   }
@@ -211,46 +214,135 @@ export const products: Product[] = [
       'Application': 'Hydraulic cylinders and pumps'
     }
   },
+  // Rapid Bearing Products
+  {
+    id: '9',
+    name: 'Rapid Bearing Taper Roller Bearing 32215',
+    category: 'rapid-bearing',
+    subCategory: 'Taper Roller Bearing',
+    description: 
+      'Premium taper roller bearing manufactured by Rapid Bearing for heavy-duty applications. ' +
+      'Designed to handle combined radial and axial loads with exceptional durability. ' +
+      'Features precision-ground raceways and high-quality steel construction. ' +
+      'Ideal for construction equipment, automotive, and industrial machinery applications.',
+    shortDescription: 'Premium taper roller bearing for heavy-duty industrial applications.',
+    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'RB-32215',
+    compatibleWith: ['JCB Equipment', 'Industrial Machinery', 'Automotive Applications'],
+    inStock: true,
+    featured: true,
+    specifications: {
+      'Inner Diameter': '75mm',
+      'Outer Diameter': '130mm',
+      'Width': '33.25mm',
+      'Dynamic Load Rating': '95 kN',
+      'Static Load Rating': '112 kN'
+    }
+  },
+  {
+    id: '10',
+    name: 'Rapid Bearing Deep Groove Ball Bearing 6208',
+    category: 'rapid-bearing',
+    subCategory: 'Ball Bearing',
+    description: 
+      'High-precision deep groove ball bearing from Rapid Bearing suitable for various applications. ' +
+      'Features low friction design with excellent speed capabilities and long service life. ' +
+      'Manufactured with premium steel and advanced heat treatment for superior performance. ' +
+      'Suitable for electric motors, pumps, and general machinery applications.',
+    shortDescription: 'High-precision ball bearing with low friction and excellent speed capabilities.',
+    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'RB-6208',
+    compatibleWith: ['Electric Motors', 'Pumps', 'General Machinery'],
+    inStock: true,
+    specifications: {
+      'Inner Diameter': '40mm',
+      'Outer Diameter': '80mm',
+      'Width': '18mm',
+      'Dynamic Load Rating': '32.5 kN',
+      'Speed Rating': '9500 RPM'
+    }
+  },
+  {
+    id: '11',
+    name: 'Rapid Bearing Spherical Roller Bearing 22215',
+    category: 'rapid-bearing',
+    subCategory: 'Spherical Bearing',
+    description: 
+      'Heavy-duty spherical roller bearing designed for applications with shaft misalignment. ' +
+      'Self-aligning design accommodates angular misalignment and shaft deflection. ' +
+      'Excellent for heavy loads and harsh operating conditions in construction equipment. ' +
+      'Features cage design optimized for high load capacity and extended service life.',
+    shortDescription: 'Self-aligning spherical bearing for heavy loads and shaft misalignment.',
+    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    partNumber: 'RB-22215',
+    compatibleWith: ['Construction Equipment', 'Mining Machinery', 'Heavy Industry'],
+    inStock: true,
+    specifications: {
+      'Inner Diameter': '75mm',
+      'Outer Diameter': '130mm',
+      'Width': '31mm',
+      'Dynamic Load Rating': '140 kN',
+      'Misalignment Capability': '±1.5°'
+    }
+  }
 ];
 
 // Generate additional products for each category and sub-category
 const additionalProducts: Product[] = [];
-const categories: ProductCategory[] = ['jcb-3dx', 'jcb-3d', 'jcb-nm'];
-const subCategories = [
-  'bushes', 'pivot-pins', 'transmission', 'hydraulic-system', 'fabrication-casting',
-  'bearing', 'electrical-parts', 'seals-o-rings', 'engine-parts', 'cabin-parts',
-  'filters', 'miscellaneous-parts', 'bolts-nuts', 'hydraulic-ram'
+const categories: ProductCategory[] = ['jcb-3dx', 'jcb-3d', 'jcb-nm', 'rapid-bearing'];
+const jcbSubCategories = [
+  'Bushes', 'Pivot Pins', 'Transmission', 'Hydraulic System', 'Fabrication / Casting Parts',
+  'Bearing', 'Electrical Parts', 'Seals, O-Rings & Seal Kits', 'Engine Parts', 'Cabin Parts',
+  'Filters', 'Miscellaneous Parts', 'Bolts & Nuts', 'Hydraulic Ram'
+];
+const rapidBearingSubCategories = [
+  'Taper Roller Bearing', 'Ball Bearing', 'Spherical Bearing'
 ];
 
-let productId = 9;
+let productId = 12;
 
 categories.forEach(category => {
+  const subCategories = category === 'rapid-bearing' ? rapidBearingSubCategories : jcbSubCategories;
+  
   subCategories.forEach(subCategory => {
     // Skip if we already have a product for this combination
     const existingProduct = products.find(p => p.category === category && p.subCategory === subCategory);
     if (existingProduct) return;
     
     const categoryName = category === 'jcb-3dx' ? 'JCB 3DX' : 
-                        category === 'jcb-3d' ? 'JCB 3D' : 'JCB N/M';
-    const subCategoryName = subCategory.split('-').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
+                        category === 'jcb-3d' ? 'JCB 3D' : 
+                        category === 'jcb-nm' ? 'JCB N/M' :
+                        'Rapid Bearing';
+    
+    let description = '';
+    let compatibleWith: string[] = [];
+    
+    if (category === 'rapid-bearing') {
+      description = `High-quality ${subCategory.toLowerCase()} from Rapid Bearing designed for industrial applications. ` +
+        'Manufactured to strict quality standards for extended service life under demanding conditions. ' +
+        'Features precision engineering and premium materials for reliable performance. ' +
+        'Suitable for various industrial and construction equipment applications.';
+      compatibleWith = ['Industrial Machinery', 'Construction Equipment', 'Automotive Applications'];
+    } else {
+      description = `High-quality ${subCategory.toLowerCase()} component designed specifically for ${categoryName} machinery. ` +
+        'Manufactured to strict OEM specifications for perfect fitment and reliable performance. ' +
+        'Constructed from premium materials to ensure durability in demanding applications. ' +
+        'Engineered for long service life and trouble-free operation in all conditions.';
+      compatibleWith = category === 'jcb-3dx' ? ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'] :
+                     category === 'jcb-3d' ? ['JCB 3D', 'JCB 3D Super'] :
+                     ['JCB N/M Series', 'JCB New Model'];
+    }
     
     additionalProducts.push({
       id: productId.toString(),
-      name: `${categoryName} ${subCategoryName} Component`,
+      name: `${categoryName} ${subCategory} Component`,
       category,
       subCategory,
-      description: `High-quality ${subCategoryName.toLowerCase()} component designed specifically for ${categoryName} machinery. ` +
-        'Manufactured to strict OEM specifications for perfect fitment and reliable performance. ' +
-        'Constructed from premium materials to ensure durability in demanding applications. ' +
-        'Engineered for long service life and trouble-free operation in all conditions.',
-      shortDescription: `Premium ${subCategoryName.toLowerCase()} component for ${categoryName} with OEM specifications.`,
+      description,
+      shortDescription: `Premium ${subCategory.toLowerCase()} component for ${categoryName} with OEM specifications.`,
       imageUrl: 'https://images.pexels.com/photos/162568/oil-pump-pump-jack-donkey-pump-jack-pump-162568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       partNumber: generatePartNumber(category),
-      compatibleWith: category === 'jcb-3dx' ? ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'] :
-                     category === 'jcb-3d' ? ['JCB 3D', 'JCB 3D Super'] :
-                     ['JCB N/M Series', 'JCB New Model'],
+      compatibleWith,
       inStock: Math.random() > 0.3,
       featured: Math.random() > 0.9
     });
@@ -261,59 +353,6 @@ categories.forEach(category => {
 
 // Add the additional products to the main array
 products.push(...additionalProducts);
-
-// Remove the old case parts products section
-/*
-// Generate 8 more products to have 20 in total
-for (let i = 13; i <= 20; i++) {
-  const categories: ProductCategory[] = ['jcb-3dx', 'jcb-3d', 'jcb-nm'];
-  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-  
-  let subCategory = '';
-  switch (randomCategory) {
-    case 'jcb-3dx':
-      subCategory = ['Hydraulic Ram', 'Hydraulic System', 'Transmission', 'Bearing'][Math.floor(Math.random() * 4)];
-      break;
-    case 'jcb-3d':
-      subCategory = ['Pivot Pins', 'Transmission', 'Electrical Parts', 'Filters'][Math.floor(Math.random() * 4)];
-      break;
-    case 'jcb-nm':
-      subCategory = ['Bearing', 'Electrical Parts', 'Engine Parts', 'Cabin Parts'][Math.floor(Math.random() * 4)];
-      break;
-  }
-  
-  // Random compatibility
-  const jcbModels = randomCategory === 'jcb-3dx' ? ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'] :
-                   randomCategory === 'jcb-3d' ? ['JCB 3D', 'JCB 3D Super'] :
-                   ['JCB N/M Series', 'JCB New Model'];
-  const randomCompatibility = [];
-  const numCompatible = 1 + Math.floor(Math.random() * jcbModels.length);
-  
-  for (let j = 0; j < numCompatible; j++) {
-    const randomModel = jcbModels[Math.floor(Math.random() * jcbModels.length)];
-    if (!randomCompatibility.includes(randomModel)) {
-      randomCompatibility.push(randomModel);
-    }
-  }
-
-  products.push({
-    id: i.toString(),
-    name: `${subCategory} Component ${i}`,
-    category: randomCategory,
-    subCategory,
-    description: `High-quality ${subCategory.toLowerCase()} component designed specifically for JCB machinery. ` +
-      'Manufactured to strict OEM specifications for perfect fitment and reliable performance. ' +
-      'Constructed from premium materials to ensure durability in demanding applications. ' +
-      'Engineered for long service life and trouble-free operation in all conditions.',
-    shortDescription: `Premium ${subCategory.toLowerCase()} component for JCB equipment with OEM specifications.`,
-    imageUrl: 'https://images.pexels.com/photos/162568/oil-pump-pump-jack-donkey-pump-jack-pump-162568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: generatePartNumber(randomCategory),
-    compatibleWith: randomCompatibility,
-    inStock: Math.random() > 0.3, // 70% chance of being in stock
-    featured: Math.random() > 0.8, // 20% chance of being featured
-  });
-}
-*/
 
 // Function to get products by category
 export const getProductsByCategory = (category: ProductCategory): Product[] => {
@@ -346,6 +385,7 @@ export const getCategoriesWithCounts = (): { label: string; value: ProductCatego
     { label: '🚜 JCB 3DX', value: 'jcb-3dx', count: categoryCounts['jcb-3dx'] || 0 },
     { label: '🔧 JCB 3D', value: 'jcb-3d', count: categoryCounts['jcb-3d'] || 0 },
     { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm', count: categoryCounts['jcb-nm'] || 0 },
+    { label: '🛠️ Rapid Bearing', value: 'rapid-bearing', count: categoryCounts['rapid-bearing'] || 0 },
   ];
 };
 
@@ -365,11 +405,17 @@ export const getSubCategoriesWithCounts = (mainCategory?: ProductCategory): { la
       }
     });
   
-  const subCategories = [
-    'Bushes', 'Pivot Pins', 'Transmission', 'Hydraulic System', 'Fabrication / Casting Parts',
-    'Bearing', 'Electrical Parts', 'Seals, O-Rings & Seal Kits', 'Engine Parts', 'Cabin Parts',
-    'Filters', 'Miscellaneous Parts', 'Bolts & Nuts', 'Hydraulic Ram'
-  ];
+  let subCategories: string[] = [];
+  
+  if (mainCategory === 'rapid-bearing') {
+    subCategories = ['Taper Roller Bearing', 'Ball Bearing', 'Spherical Bearing'];
+  } else {
+    subCategories = [
+      'Bushes', 'Pivot Pins', 'Transmission', 'Hydraulic System', 'Fabrication / Casting Parts',
+      'Bearing', 'Electrical Parts', 'Seals, O-Rings & Seal Kits', 'Engine Parts', 'Cabin Parts',
+      'Filters', 'Miscellaneous Parts', 'Bolts & Nuts', 'Hydraulic Ram'
+    ];
+  }
   
   return subCategories.map(subCat => ({
     label: subCat,

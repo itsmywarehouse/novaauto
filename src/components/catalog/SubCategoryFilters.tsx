@@ -32,7 +32,8 @@ const SubCategoryFilters: React.FC<SubCategoryFiltersProps> = ({
     { label: 'All Products', value: null },
     { label: '🚜 JCB 3DX', value: 'jcb-3dx' },
     { label: '🔧 JCB 3D', value: 'jcb-3d' },
-    { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm' }
+    { label: '⚡ JCB N/M (New Model)', value: 'jcb-nm' },
+    { label: '🛠️ Rapid Bearing', value: 'rapid-bearing' }
   ];
   return (
     <div className="bg-white rounded-lg shadow-custom border border-gray-200 p-6 mb-8 mt-8 pt-8">
