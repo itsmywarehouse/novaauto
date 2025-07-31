@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { getAllCategories } from '../../data/categories';
 
 const Footer: React.FC = () => {
+  // Smooth scroll to SearchBar on Catalog page if present
+  const handleCategoryClick = (catId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Only run on client
+    if (window.location.pathname.startsWith('/catalog')) {
+      setTimeout(() => {
+        const searchBar = document.querySelector('input[placeholder="Search for parts or categories..."]');
+        if (searchBar) {
+          (searchBar as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 200); // allow route to update
+    }
+  };
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,33 +60,27 @@ Trusted by professionals across India for unmatched reliability, durability, and
             </ul>
           </div>
 
-          {/* Product Categories */}
+          {/* Product Categories (Dynamic) */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">JCB Models</h3>
+            <h3 className="font-semibold text-lg mb-6">Categories</h3>
             <ul className="space-y-3">
-              <li>
-                <Link to="/catalog?category=jcb-3dx" className="text-gray-300 hover:text-accent transition-colors">
-                  🚜 JCB 3DX
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=jcb-3d" className="text-gray-300 hover:text-accent transition-colors">
-                  🔧 JCB 3D
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog?category=jcb-nm" className="text-gray-300 hover:text-accent transition-colors">
-                  ⚡ JCB N/M (New Model)
-                </Link>
-              </li>
-              <li className="pt-2 border-t border-gray-600">
-                <div className="text-accent font-medium text-sm">
-                  🔩 All Models: Premium Bearings
-                </div>
-                <div className="text-gray-400 text-xs">
-                  Powered by Rapid Bearing
-                </div>
-              </li>
+              {getAllCategories().map((cat) => (
+                <li key={cat.id}>
+                  <Link
+                    to={`/catalog?category=${cat.id}`}
+                    className="text-gray-300 hover:text-accent transition-colors"
+                    onClick={handleCategoryClick(cat.id)}
+                  >
+                    {cat.name}
+                  </Link>
+                  {cat.id === 'rapid-bearing' && (
+                    <>
+                      <div className="text-accent font-medium text-sm mt-2">All Models: Premium Bearings</div>
+                      <div className="text-gray-400 text-xs">Powered by Rapid Bearing</div>
+                    </>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 

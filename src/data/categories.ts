@@ -29,28 +29,24 @@ export const categoryData: CategoryWithSubcategories[] = [
   {
     id: 'jcb-3dx',
     name: 'JCB 3DX',
-    icon: '🚜',
     // description: 'Complete range of spare parts for JCB 3DX backhoe loaders',
     subcategories: jcbSubCategories
   },
   {
     id: 'jcb-3d',
-    name: '🔧 JCB 3D',
-    icon: '🔧',
+    name: 'JCB 3D',
     // description: 'Genuine parts and accessories for JCB 3D series machines',
     subcategories: jcbSubCategories
   },
   {
     id: 'jcb-nm',
     name: 'JCB N/M (New Model)',
-    icon: '⚡',
     // description: 'Latest generation parts for JCB New Model series',
     subcategories: jcbSubCategories
   },
   {
     id: 'rapid-bearing',
     name: 'Rapid Bearing',
-    icon: '🛠️',
     // description: 'Premium industrial bearings for all applications',
     subcategories: rapidBearingSubCategories
   }

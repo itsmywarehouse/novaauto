@@ -57,7 +57,7 @@ export interface SubCategoryInfo {
 export interface CategoryWithSubcategories {
   id: ProductCategory;
   name: string;
-  icon: string;
-  description: string;
+  icon?: string;
+  description?: string;
   subcategories: SubCategoryInfo[];
 }
