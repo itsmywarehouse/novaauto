@@ -81,48 +81,36 @@ const ProductSlider: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[70vh] sm:h-[80vh] lg:h-screen overflow-hidden">
+    <div className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[75vh] bg-black overflow-hidden">
       {/* Slides Container */}
       <div className="relative w-full h-full">
         {sliderProducts.map((product, index) => (
           <div
             key={product.id}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+            className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${
               index === currentSlide 
-                ? 'opacity-100 scale-100' 
-                : 'opacity-0 scale-105'
+                ? 'opacity-100 scale-100 z-10' 
+                : 'opacity-0 scale-105 z-0 pointer-events-none'
             }`}
           >
-            {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${product.image})` }}
+            {/* Main Product Image (centered, prominent) */}
+            <img 
+              src={product.image}
+              alt={product.name}
+              className="object-contain max-h-[60vh] sm:max-h-[70vh] lg:max-h-[75vh] w-auto mx-auto rounded-3xl shadow-2xl border-4 border-white/20 bg-white/10"
+              draggable={false}
             />
-            
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
-            
-            {/* Content Overlay */}
-            <div className="absolute inset-0 flex items-center">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="max-w-2xl">
-                  <div className="animate-fade-in">
-                    <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                      {product.name}
-                    </h1>
-                    <p className="text-lg sm:text-xl lg:text-2xl text-white/90 font-light mb-8 leading-relaxed">
-                      {product.tagline}
-                    </p>
-                    <Link
-                      to={product.link}
-                      className="inline-flex items-center bg-accent hover:bg-accent-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 shadow-xl text-lg"
-                    >
-                      Explore Collection
-                      <ChevronRight size={20} className="ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            {/* Minimal Overlay: Name and Tagline at bottom */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black/60 rounded-xl px-6 py-4 text-center shadow-lg max-w-lg w-[90vw]">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 truncate">{product.name}</h1>
+              <p className="text-base sm:text-lg text-white/90 font-light mb-2 truncate">{product.tagline}</p>
+              <Link
+                to={product.link}
+                className="inline-flex items-center bg-accent hover:bg-accent-600 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow text-base"
+              >
+                Explore Collection
+                <ChevronRight size={18} className="ml-2" />
+              </Link>
             </div>
           </div>
         ))}
@@ -131,30 +119,29 @@ const ProductSlider: React.FC = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-10"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg border-2 border-white/40"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={28} />
       </button>
-
       <button
         onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-10"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg border-2 border-white/40"
         aria-label="Next slide"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={28} />
       </button>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
         {sliderProducts.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-4 h-4 rounded-full border-2 border-white transition-all duration-300 ${
               index === currentSlide 
-                ? 'bg-accent scale-125 shadow-lg' 
-                : 'bg-white/50 hover:bg-white/70'
+                ? 'bg-accent scale-125 shadow-lg border-accent' 
+                : 'bg-white/40 hover:bg-white/70'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -162,9 +149,9 @@ const ProductSlider: React.FC = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1.5 bg-white/30 rounded-full overflow-hidden z-20">
         <div 
-          className="h-full bg-accent transition-all duration-300 ease-linear"
+          className="h-full bg-accent transition-all duration-500 ease-linear"
           style={{ 
             width: `${((currentSlide + 1) / sliderProducts.length) * 100}%` 
           }}
