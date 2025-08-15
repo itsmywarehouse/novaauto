@@ -144,7 +144,7 @@ const ContactForm: React.FC = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
+                  className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] hover:shadow-md`}
                   placeholder="John Doe"
                 />
                 {errors.name && (
@@ -162,7 +162,7 @@ const ContactForm: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
+                  className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] hover:shadow-md`}
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
@@ -182,7 +182,7 @@ const ContactForm: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] hover:shadow-md"
                   placeholder="(123) 456-7890"
                 />
               </div>
@@ -197,7 +197,7 @@ const ContactForm: React.FC = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] hover:shadow-md"
                   placeholder="How can we help you?"
                 />
               </div>
@@ -213,7 +213,7 @@ const ContactForm: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all`}
+                className={`w-full border ${errors.message ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] hover:shadow-md`}
                 placeholder="Please provide details about your inquiry..."
               ></textarea>
               {errors.message && (
@@ -224,8 +224,8 @@ const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`flex items-center justify-center w-full md:w-auto bg-accent hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-md transition-colors ${
-                isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+              className={`flex items-center justify-center w-full md:w-auto bg-accent hover:bg-accent-600 text-white font-medium px-6 py-3 rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                isSubmitting ? 'opacity-75 cursor-not-allowed scale-95' : 'hover:-translate-y-1'
               }`}
             >
               {isSubmitting ? (

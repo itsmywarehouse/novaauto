@@ -119,14 +119,14 @@ const ProductSlider: React.FC = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg border-2 border-white/40"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-500 hover:scale-125 hover:shadow-xl z-20 shadow-lg border-2 border-white/40 backdrop-blur-sm"
         aria-label="Previous slide"
       >
         <ChevronLeft size={28} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20 shadow-lg border-2 border-white/40"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 bg-white/30 hover:bg-accent/80 text-accent hover:text-white rounded-full flex items-center justify-center transition-all duration-500 hover:scale-125 hover:shadow-xl z-20 shadow-lg border-2 border-white/40 backdrop-blur-sm"
         aria-label="Next slide"
       >
         <ChevronRight size={28} />
@@ -138,10 +138,10 @@ const ProductSlider: React.FC = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-4 h-4 rounded-full border-2 border-white transition-all duration-300 ${
+            className={`w-4 h-4 rounded-full border-2 border-white transition-all duration-500 hover:scale-125 ${
               index === currentSlide 
-                ? 'bg-accent scale-125 shadow-lg border-accent' 
-                : 'bg-white/40 hover:bg-white/70'
+                ? 'bg-accent scale-125 shadow-lg border-accent animate-pulse-soft' 
+                : 'bg-white/40 hover:bg-white/70 hover:shadow-md'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -151,7 +151,7 @@ const ProductSlider: React.FC = () => {
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1.5 bg-white/30 rounded-full overflow-hidden z-20">
         <div 
-          className="h-full bg-accent transition-all duration-500 ease-linear"
+          className="h-full bg-accent transition-all duration-700 ease-out shadow-lg"
           style={{ 
             width: `${((currentSlide + 1) / sliderProducts.length) * 100}%` 
           }}

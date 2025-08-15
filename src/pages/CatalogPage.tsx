@@ -219,12 +219,12 @@ const CatalogPage: React.FC = () => {
         <div className="lg:hidden mb-6">
           <button
             onClick={toggleFilterSidebar}
-            className="flex items-center bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary-600 transition-colors w-full sm:w-auto justify-center"
+            className="flex items-center bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary-600 transition-all duration-300 w-full sm:w-auto justify-center transform hover:scale-105 hover:shadow-lg"
           >
             <Filter size={18} className="mr-2" />
             Filters & Categories
             {(selectedCategory || selectedSubCategory) && (
-              <span className="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-full font-bold">
+              <span className="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">
                 {(selectedCategory ? 1 : 0) + (selectedSubCategory ? 1 : 0)}
               </span>
             )}
@@ -247,15 +247,15 @@ const CatalogPage: React.FC = () => {
           
           {/* Mobile Filter Overlay */}
           {isFilterOpen && (
-            <div className="fixed inset-0 z-50 lg:hidden">
+            <div className="fixed inset-0 z-50 lg:hidden animate-fade-in">
               <div className="absolute inset-0 bg-black/50" onClick={() => setIsFilterOpen(false)} />
-              <div className="absolute inset-y-0 left-0 w-80 max-w-[90vw] bg-white shadow-xl overflow-y-auto">
-                <div className="sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
+              <div className="absolute inset-y-0 left-0 w-80 max-w-[90vw] bg-white shadow-xl overflow-y-auto animate-slide-in-left">
+                <div className="sticky top-0 bg-white border-b border-gray-200 p-4 z-10 backdrop-blur-sm">
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-semibold text-gray-800">Filters</h2>
                     <button
                       onClick={() => setIsFilterOpen(false)}
-                      className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                      className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:rotate-90"
                     >
                       ✕
                     </button>
@@ -337,7 +337,7 @@ const CatalogPage: React.FC = () => {
                     setSearchQuery('');
                     setSortOption('default');
                   }}
-                  className="bg-primary hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+                  className="bg-primary hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Reset All Filters
                 </button>
@@ -374,10 +374,10 @@ const CatalogPage: React.FC = () => {
                         <button
                           onClick={handlePrevPage}
                           disabled={currentPage === 1}
-                          className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                             currentPage === 1
                               ? 'text-gray-400 cursor-not-allowed'
-                              : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                              : 'text-gray-700 hover:bg-gray-100 hover:text-primary transform hover:scale-105'
                           }`}
                         >
                           <ChevronLeft size={16} className="mr-1" />
@@ -393,10 +393,10 @@ const CatalogPage: React.FC = () => {
                               ) : (
                                 <button
                                   onClick={() => handlePageChange(page as number)}
-                                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-110 ${
                                     currentPage === page
-                                      ? 'bg-primary text-white shadow-md'
-                                      : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                                      ? 'bg-primary text-white shadow-lg scale-110'
+                                      : 'text-gray-700 hover:bg-gray-100 hover:text-primary hover:shadow-md'
                                   }`}
                                 >
                                   {page}
@@ -415,10 +415,10 @@ const CatalogPage: React.FC = () => {
                         <button
                           onClick={handleNextPage}
                           disabled={currentPage === totalPages}
-                          className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                             currentPage === totalPages
                               ? 'text-gray-400 cursor-not-allowed'
-                              : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                              : 'text-gray-700 hover:bg-gray-100 hover:text-primary transform hover:scale-105'
                           }`}
                         >
                           Next
@@ -435,7 +435,7 @@ const CatalogPage: React.FC = () => {
                           <select
                             value={currentPage}
                             onChange={(e) => handlePageChange(parseInt(e.target.value))}
-                            className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:shadow-md focus:scale-105"
                           >
                             {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                               <option key={page} value={page}>

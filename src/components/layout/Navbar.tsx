@@ -174,19 +174,19 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-[9999] bg-black/50" onClick={toggleMenu}>
+          <div className="lg:hidden fixed inset-0 z-[9999] bg-black/50 animate-fade-in" onClick={toggleMenu}>
             <div 
-              className="absolute top-0 right-0 w-80 max-w-[90vw] h-full bg-white shadow-2xl transform transition-transform duration-300 ease-out overflow-y-auto"
+              className="absolute top-0 right-0 w-80 max-w-[90vw] h-full bg-white shadow-2xl transform transition-all duration-500 ease-out overflow-y-auto animate-slide-in-right"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200 sticky top-0 bg-white z-10">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 sticky top-0 bg-white z-10 backdrop-blur-sm">
                 <div className="font-bold text-xl text-primary">
                   NOVA<span className="text-accent">AUTO</span>
                 </div>
                 <button 
                   onClick={toggleMenu}
-                  className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all duration-300 hover:scale-110 hover:rotate-90"
                   aria-label="Close menu"
                 >
                   <X size={20} />
@@ -198,20 +198,20 @@ const Navbar: React.FC = () => {
                 <nav className="space-y-4">
                   <Link 
                     to="/" 
-                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base transform hover:scale-105 hover:translate-x-2 ${
                       isActiveRoute('/') 
-                        ? 'bg-accent text-white shadow-md' 
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                        ? 'bg-accent text-white shadow-lg scale-105' 
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary hover:shadow-md'
                     }`}
                   >
                     🏠 Home
                   </Link>
                   <Link 
                     to="/about" 
-                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base transform hover:scale-105 hover:translate-x-2 ${
                       isActiveRoute('/about') 
-                        ? 'bg-accent text-white shadow-md' 
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                        ? 'bg-accent text-white shadow-lg scale-105' 
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary hover:shadow-md'
                     }`}
                   >
                     ℹ️ About Us
@@ -220,10 +220,10 @@ const Navbar: React.FC = () => {
                   {/* Products/Catalog with Dropdown */}
                   <Link 
                     to="/catalog"
-                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base transform hover:scale-105 hover:translate-x-2 ${
                       isActiveRoute('/catalog') 
-                        ? 'bg-primary text-white shadow-md' 
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                        ? 'bg-primary text-white shadow-lg scale-105' 
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary hover:shadow-md'
                     }`}
                   >
                     🛠️ Products / Catalog
@@ -231,10 +231,10 @@ const Navbar: React.FC = () => {
                   
                   <Link 
                     to="/contact" 
-                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base ${
+                    className={`block py-4 px-4 rounded-lg font-medium transition-all duration-300 text-base transform hover:scale-105 hover:translate-x-2 ${
                       isActiveRoute('/contact') 
-                        ? 'bg-accent text-white shadow-md' 
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                        ? 'bg-accent text-white shadow-lg scale-105' 
+                        : 'text-gray-700 hover:bg-gray-100 hover:text-primary hover:shadow-md'
                     }`}
                   >
                     📞 Contact
@@ -243,7 +243,7 @@ const Navbar: React.FC = () => {
                     href="https://drive.google.com/file/d/18psmsUjVd56M8x71f5mivT8QDntspb98/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block py-4 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300 text-base"
+                    className="block py-4 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300 text-base transform hover:scale-105 hover:translate-x-2 hover:shadow-md"
                   >
                     📥 View Catalog
                   </a>
@@ -253,7 +253,7 @@ const Navbar: React.FC = () => {
                 <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
                   <a 
                     href="tel:+918140251789" 
-                    className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
+                    className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px] transform hover:scale-105 hover:-translate-y-1"
                   >
                     <Phone size={18} className="mr-2" />
                     📞 Call Now
@@ -262,7 +262,7 @@ const Navbar: React.FC = () => {
                     href="https://wa.me/918140251789" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px]"
+                    className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px] transform hover:scale-105 hover:-translate-y-1"
                   >
                     <MessageCircle size={18} className="mr-2" />
                     💬 WhatsApp Us
@@ -290,7 +290,7 @@ const Navbar: React.FC = () => {
         href="https://wa.me/918140251789" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 z-[9998] animate-bounce-gentle min-h-[48px] min-w-[48px] flex items-center justify-center"
+        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all duration-500 hover:scale-125 hover:shadow-2xl z-[9998] animate-bounce-gentle min-h-[48px] min-w-[48px] flex items-center justify-center hover:rotate-12"
         aria-label="WhatsApp"
       >
         <MessageCircle size={24} />

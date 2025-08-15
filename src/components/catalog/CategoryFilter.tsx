@@ -130,12 +130,14 @@ const CategoryFilterComponent: React.FC<Props> = ({
                   handleSelect(category.value, null);
                   toggleCategory(category.value);
                 }}
-                className={`flex items-center justify-between w-full px-3 py-2 transition-colors text-left ${
-                  isSelected ? 'bg-gray-800 text-white' : 'hover:bg-gray-50 text-gray-800'
+                className={`flex items-center justify-between w-full px-3 py-2 transition-all duration-300 text-left transform hover:scale-[1.02] ${
+                  isSelected ? 'bg-gray-800 text-white shadow-lg' : 'hover:bg-gray-50 text-gray-800 hover:shadow-md'
                 }`}
               >
                 <div className="flex items-center">
-                  <div className="w-7 h-7 flex items-center justify-center rounded bg-gray-100 mr-3">
+                  <div className={`w-7 h-7 flex items-center justify-center rounded mr-3 transition-all duration-300 ${
+                    isSelected ? 'bg-white/20 scale-110' : 'bg-gray-100 hover:scale-110'
+                  }`}>
                     {icons[category.value] || <Filter size={14} className="text-gray-500" />}
                   </div>
                   <div>
@@ -151,7 +153,9 @@ const CategoryFilterComponent: React.FC<Props> = ({
                   <span className={`text-xs font-bold px-2 py-0.5 rounded ${
                     isSelected ? 'bg-gray-700 text-white' : 'bg-gray-100 text-gray-700'
                   }`}>{category.count}</span>
-                  {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                  <div className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
+                    <ChevronDown size={14} />
+                  </div>
                 </div>
               </button>
 
@@ -160,10 +164,10 @@ const CategoryFilterComponent: React.FC<Props> = ({
                 {isExpanded && catInfo && (
                   <motion.div
                     key="subcategories"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    initial={{ height: 0, opacity: 0, y: -10 }}
+                    animate={{ height: 'auto', opacity: 1, y: 0 }}
+                    exit={{ height: 0, opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     className="border-t bg-gray-50 overflow-hidden"
                   >
                     <div className="p-2 grid gap-1">
@@ -176,10 +180,10 @@ const CategoryFilterComponent: React.FC<Props> = ({
                           <button
                             key={idx}
                             onClick={() => handleSelect(category.value, subVal)}
-                            className={`flex justify-between items-center w-full px-2 py-1.5 text-left rounded text-xs transition-colors duration-200 ${
+                            className={`flex justify-between items-center w-full px-2 py-1.5 text-left rounded text-xs transition-all duration-300 transform hover:scale-105 ${
                               isSubSel
-                                ? 'bg-gray-800 text-white shadow-sm'
-                                : 'hover:bg-white hover:shadow-sm text-gray-700'
+                                ? 'bg-gray-800 text-white shadow-md scale-105'
+                                : 'hover:bg-white hover:shadow-md text-gray-700 hover:translate-x-1'
                             }`}
                           >
                             <span className="font-medium">{sub.name}</span>

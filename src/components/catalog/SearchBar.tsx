@@ -47,7 +47,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-white border border-gray-300 rounded-lg py-3 pl-10 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+        className="w-full bg-white border border-gray-300 rounded-lg py-3 pl-10 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 focus:scale-[1.02] focus:shadow-lg"
       />
       <div className="absolute left-3 text-gray-500">
         <Search size={18} />
@@ -57,7 +57,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <button
           type="button"
           onClick={handleClear}
-          className="absolute right-12 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute right-12 text-gray-400 hover:text-gray-600 transition-all duration-300 hover:scale-125 hover:rotate-90"
         >
           <X size={18} />
         </button>
@@ -65,7 +65,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       
       <button
         type="submit"
-        className="absolute right-3 bg-primary hover:bg-primary-600 text-white rounded p-1 transition-colors"
+        className="absolute right-3 bg-primary hover:bg-primary-600 text-white rounded p-1 transition-all duration-300 hover:scale-110 hover:shadow-md"
       >
         <Search size={16} />
       </button>

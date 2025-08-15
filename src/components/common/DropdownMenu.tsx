@@ -69,10 +69,10 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, className = '' }) =>
             {/* Dropdown Header */}
             <button
               onClick={() => toggleDropdown(item.id)}
-              className={`w-full text-left px-4 py-3 transition-all duration-200 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset ${
+              className={`w-full text-left px-4 py-3 transition-all duration-300 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset transform hover:scale-[1.02] ${
                 isOpen 
-                  ? 'bg-primary text-white font-medium' 
-                  : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
+                  ? 'bg-primary text-white font-medium shadow-lg' 
+                  : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100 hover:shadow-md'
               }`}
               aria-expanded={isOpen}
               aria-controls={`dropdown-content-${item.id}`}
@@ -106,7 +106,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, className = '' }) =>
                   </span>
                 )}
                 
-                <span className={`transition-transform duration-200 ${
+                <span className={`transition-transform duration-400 ease-out ${
                   isOpen ? 'rotate-180' : 'rotate-0'
                 } ${isOpen ? 'text-white' : 'text-gray-500'}`}>
                   <ChevronDown size={16} />
@@ -117,14 +117,14 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ items, className = '' }) =>
             {/* Dropdown Content */}
             <div
               id={`dropdown-content-${item.id}`}
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
+              className={`transition-all duration-500 ease-out overflow-hidden ${
                 isOpen 
-                  ? 'max-h-96 opacity-100' 
-                  : 'max-h-0 opacity-0'
+                  ? 'max-h-96 opacity-100 transform translate-y-0' 
+                  : 'max-h-0 opacity-0 transform -translate-y-2'
               }`}
               aria-hidden={!isOpen}
             >
-              <div className="bg-gray-50 border-t border-gray-200 p-4">
+              <div className="bg-gray-50 border-t border-gray-200 p-4 animate-fade-in">
                 {item.content}
               </div>
             </div>

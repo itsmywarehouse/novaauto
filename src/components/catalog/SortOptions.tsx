@@ -22,7 +22,7 @@ const SortOptions: React.FC<SortOptionsProps> = ({
       <select
         value={selectedOption}
         onChange={(e) => onSelectOption(e.target.value)}
-        className="appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+        className="appearance-none bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 hover:shadow-md focus:scale-[1.02]"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
