@@ -186,7 +186,7 @@ const ProductDetailPage: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a 
-                  href={`https://wa.me/918140251789?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide a quote?`}
+                  href={`https://wa.me/918155018518?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide a quote?`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
@@ -196,7 +196,7 @@ const ProductDetailPage: React.FC = () => {
                 </a>
                 
                 <a 
-                  href="tel:+918140251789"
+                  href="tel:+918155018518"
                   className="bg-primary hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg"
                 >
                   <Phone size={18} className="mr-2" />

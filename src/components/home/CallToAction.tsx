@@ -38,7 +38,7 @@ const CallToAction: React.FC = () => {
             </Link>
             
             <a 
-              href="tel:+918140251789"
+              href="tel:+918155018518"
               className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center border border-white/30 min-h-[64px]"
             >
               <Phone size={20} className="mr-2" />
@@ -46,7 +46,7 @@ const CallToAction: React.FC = () => {
             </a>
             
             <a 
-              href="https://wa.me/918140251789" 
+              href="https://wa.me/918155018518" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-xl min-h-[64px]"
@@ -69,7 +69,7 @@ const CallToAction: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-accent font-bold text-lg mb-2">📞 Call Us</div>
-                <div className="text-white/90">+91 8140251789</div>
+                <div className="text-white/90">+91 8155018518</div>
               </div>
               <div>
                 <div className="text-accent font-bold text-lg mb-2">📧 Email Us</div>

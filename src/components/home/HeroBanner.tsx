@@ -56,7 +56,7 @@ const HeroBanner: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
-                  href="tel:+918140251789" 
+                  href="tel:+918155018518" 
                   className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center border border-white/30 text-lg min-h-[56px]"
                 >
                   <Phone size={20} className="mr-2" />
@@ -64,7 +64,7 @@ const HeroBanner: React.FC = () => {
                 </a>
                 
                 <a 
-                  href="https://wa.me/918140251789" 
+                  href="https://wa.me/918155018518" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-xl text-lg min-h-[56px]"

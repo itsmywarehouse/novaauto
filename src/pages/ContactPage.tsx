@@ -39,10 +39,10 @@ const ContactPage: React.FC = () => {
               Our customer service team is available Monday through Saturday, 9am to 7pm.
             </p>
             <a 
-              href="tel:+918140251789" 
+              href="tel:+918155018518" 
               className="text-accent hover:text-accent-600 font-medium transition-colors"
             >
-              +91 8140251789
+              +91 8155018518
             </a>
           </div>
           
@@ -85,7 +85,7 @@ const ContactPage: React.FC = () => {
           </div>
           <h3 className="text-lg font-semibold text-green-800 mb-2">Quick WhatsApp Support</h3>
           <p className="text-green-700 mb-4">Get instant responses to your queries via WhatsApp</p>
-          <a href="https://wa.me/918140251789" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center">
+          <a href="https://wa.me/918155018518" target="_blank" rel="noopener noreferrer" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors inline-flex items-center">
             <MessageCircle size={18} className="mr-2" />
             Chat on WhatsApp
           </a>

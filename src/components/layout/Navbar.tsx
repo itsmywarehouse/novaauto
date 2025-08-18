@@ -138,16 +138,16 @@ const Navbar: React.FC = () => {
             {/* Desktop Call to Action */}
             <div className="hidden lg:flex items-center space-x-4">
               <a 
-                href="tel:+918140251789" 
+                href="tel:+918155018518" 
                 className={`flex items-center transition-all duration-300 hover:scale-105 ${
                   shouldBeSolid ? 'text-primary hover:text-accent' : 'text-white hover:text-accent'
                 }`}
               >
                 <Phone size={18} className="mr-2" />
-                <span className="font-medium">+91 8140251789</span>
+                <span className="font-medium">+91 8155018518</span>
               </a>
               <a 
-                href="https://wa.me/918140251789" 
+                href="https://wa.me/918155018518" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 flex items-center shadow-lg"
@@ -252,14 +252,14 @@ const Navbar: React.FC = () => {
                 {/* Mobile Contact Actions */}
                 <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
                   <a 
-                    href="tel:+918140251789" 
+                    href="tel:+918155018518" 
                     className="flex items-center justify-center w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px] transform hover:scale-105 hover:-translate-y-1"
                   >
                     <Phone size={18} className="mr-2" />
                     📞 Call Now
                   </a>
                   <a 
-                    href="https://wa.me/918140251789" 
+                    href="https://wa.me/918155018518" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-4 rounded-lg transition-all duration-300 shadow-lg text-base min-h-[48px] transform hover:scale-105 hover:-translate-y-1"
@@ -287,7 +287,7 @@ const Navbar: React.FC = () => {
 
       {/* WhatsApp Floating Button - Always Visible */}
       <a 
-        href="https://wa.me/918140251789" 
+        href="https://wa.me/918155018518" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-xl transition-all duration-500 hover:scale-125 hover:shadow-2xl z-[9998] animate-bounce-gentle min-h-[48px] min-w-[48px] flex items-center justify-center hover:rotate-12"

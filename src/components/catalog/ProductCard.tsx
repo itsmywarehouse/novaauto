@@ -57,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             View Details
           </Link>
           <a 
-            href={`https://wa.me/918140251789?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide more details?`}
+            href={`https://wa.me/918155018518?text=Hi, I'm interested in ${product.name} (Part #: ${product.partNumber}). Can you provide more details?`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-md transition-all duration-400 hover:scale-110 hover:shadow-lg text-xs font-semibold shadow-md min-h-[36px] flex items-center justify-center transform hover:-translate-y-1"

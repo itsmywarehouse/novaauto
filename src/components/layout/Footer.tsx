@@ -94,9 +94,16 @@ Trusted by professionals across India for unmatched reliability, durability, and
               </div>
               <div className="flex items-center">
                 <Phone size={20} className="text-accent mr-3 flex-shrink-0" />
-                <a href="tel:+918140251789" className="text-gray-300 hover:text-accent transition-colors">
-                  +91 8140251789
-                </a>
+                <div className="space-y-1">
+                  <div>
+                    <a href="tel:+918155018518" className="text-gray-300 hover:text-accent transition-colors">
+                      +91 8155018518
+                    </a>
+                  </div>
+                  <div className="text-gray-400 text-sm">
+                    Rapid Bearing: <a href="tel:+917211175160" className="text-gray-300 hover:text-accent transition-colors">7211175160</a>
+                  </div>
+                </div>
               </div>
               <div className="flex items-center">
                 <Mail size={20} className="text-accent mr-3 flex-shrink-0" />

@@ -143,7 +143,7 @@ const BrandShowcase: React.FC = () => {
               </div>
               
               <a 
-                href="tel:+918140251789" 
+                href="tel:+918155018518" 
                 className="group inline-flex items-center bg-primary hover:bg-primary-600 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 Contact for Bearings
