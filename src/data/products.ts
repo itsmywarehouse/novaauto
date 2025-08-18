@@ -27,49 +27,36 @@ export const products: Product[] = [
   // JCB 3DX Parts
   {
     id: '1',
-    name: 'JCB 3DX Hydraulic Cylinder Assembly',
+    name: 'Bush 750 JCB 3DX',
     category: 'jcb-3dx',
-    subCategory: 'Hydraulic Ram',
+    subCategory: 'Bushes',
     description: 
-      'High-quality hydraulic cylinder assembly designed specifically for JCB 3DX backhoe loaders. ' +
-      'Engineered with precision to provide reliable performance under heavy workloads. ' +
-      'Features durable seals and chrome-plated rods to resist corrosion and extend service life. ' +
-      'Manufactured to OEM specifications for perfect fitment and long-lasting operation.',
-    shortDescription: 'Premium hydraulic cylinder for JCB 3DX with extended service life.',
-    imageUrl: 'https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: '3DX-32415',
-    compatibleWith: ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'],
+      'Bucket Bush (Type 750), used in bucket linkage of JCB 3DX backhoe loader.',
+    shortDescription: 'High-efficiency hydraulic pump for JCB 3DX with reliable pressure delivery.',
+    imageUrl: '/assets/images/error.png',
+    partNumber: '809/00750',
+    compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
-    featured: true,
     specifications: {
-      'Bore Size': '100mm',
-      'Stroke Length': '800mm',
-      'Operating Pressure': '350 bar',
-      'Rod Diameter': '45mm',
-      'Material': 'High-grade steel with chrome plating'
+      'Flow Rate': '120 L/min',
+      'Weight': '35 kg',
     }
   },
   {
     id: '2',
-    name: 'JCB 3DX Hydraulic Pump Assembly',
+    name: 'Bush 750 JCB 3DX',
     category: 'jcb-3dx',
-    subCategory: 'Hydraulic System',
+    subCategory: 'Bushes',
     description: 
-      'High-efficiency hydraulic pump assembly designed specifically for JCB 3DX machinery. ' +
-      'Delivers consistent flow and pressure to ensure optimal performance of all hydraulic systems. ' +
-      'Constructed with precision-machined components for minimal energy loss and maximum output. ' +
-      'Designed to withstand the demands of heavy-duty construction and excavation work.',
+      'Bucket Bush (Type 750), used in bucket linkage of JCB 3DX backhoe loader.',
     shortDescription: 'High-efficiency hydraulic pump for JCB 3DX with reliable pressure delivery.',
-    imageUrl: 'https://images.pexels.com/photos/162568/oil-pump-pump-jack-donkey-pump-jack-pump-162568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: '3DX-75362',
-    compatibleWith: ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'],
+    imageUrl: '/assets/images/error.png',
+    partNumber: '809/00750',
+    compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
     specifications: {
       'Flow Rate': '120 L/min',
-      'Maximum Pressure': '250 bar',
-      'Power Requirement': '75 kW',
       'Weight': '35 kg',
-      'Connection Type': 'SAE standard flanges'
     }
   },
   {
