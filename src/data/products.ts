@@ -204,7 +204,7 @@ export const products: Product[] = [
   // Rapid Bearing Products
   {
     id: '9',
-    name: 'Rapid Bearing Taper Roller Bearing 32215',
+    name: 'Rapid Bearing Taper Roller Bearing',
     category: 'rapid-bearing',
     subCategory: 'Taper Roller Bearing',
     description: 
@@ -213,22 +213,18 @@ export const products: Product[] = [
       'Features precision-ground raceways and high-quality steel construction. ' +
       'Ideal for construction equipment, automotive, and industrial machinery applications.',
     shortDescription: 'Premium taper roller bearing for heavy-duty industrial applications.',
-    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'RB-32215',
+    imageUrl: '/assets/bearing/Taper_Roller.png',
+    partNumber: 'Multiple',
     compatibleWith: ['JCB Equipment', 'Industrial Machinery', 'Automotive Applications'],
     inStock: true,
     featured: true,
     specifications: {
-      'Inner Diameter': '75mm',
-      'Outer Diameter': '130mm',
-      'Width': '33.25mm',
-      'Dynamic Load Rating': '95 kN',
-      'Static Load Rating': '112 kN'
+    'Ask for part numbers which we have': ''   
     }
   },
   {
     id: '10',
-    name: 'Rapid Bearing Deep Groove Ball Bearing 6208',
+    name: 'Rapid Bearing Deep Groove Ball Bearing',
     category: 'rapid-bearing',
     subCategory: 'Ball Bearing',
     description: 
@@ -237,16 +233,12 @@ export const products: Product[] = [
       'Manufactured with premium steel and advanced heat treatment for superior performance. ' +
       'Suitable for electric motors, pumps, and general machinery applications.',
     shortDescription: 'High-precision ball bearing with low friction and excellent speed capabilities.',
-    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'RB-6208',
+    imageUrl: '/assets/bearing/ball.jpg',
+    partNumber: 'Multiple',
     compatibleWith: ['Electric Motors', 'Pumps', 'General Machinery'],
     inStock: true,
     specifications: {
-      'Inner Diameter': '40mm',
-      'Outer Diameter': '80mm',
-      'Width': '18mm',
-      'Dynamic Load Rating': '32.5 kN',
-      'Speed Rating': '9500 RPM'
+      'Ask for part numbers which we have': ''   
     }
   },
   {
@@ -260,16 +252,13 @@ export const products: Product[] = [
       'Excellent for heavy loads and harsh operating conditions in construction equipment. ' +
       'Features cage design optimized for high load capacity and extended service life.',
     shortDescription: 'Self-aligning spherical bearing for heavy loads and shaft misalignment.',
-    imageUrl: 'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'RB-22215',
+    imageUrl: '/assets/bearing/spherical_roller.jpg',
+    partNumber: 'Multiple',
     compatibleWith: ['Construction Equipment', 'Mining Machinery', 'Heavy Industry'],
     inStock: true,
     specifications: {
-      'Inner Diameter': '75mm',
-      'Outer Diameter': '130mm',
-      'Width': '31mm',
-      'Dynamic Load Rating': '140 kN',
-      'Misalignment Capability': '±1.5°'
+      
+      'Ask for part numbers which we have': ''    
     }
   }
 ];
