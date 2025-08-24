@@ -156,26 +156,19 @@ export const products: Product[] = [
   },
   {
     id: '7',
-    name: 'JCB N/M Electrical Wiring Harness',
-    category: 'jcb-nm',
+    name: 'ACC KNOB With CABLE',
+    category: 'jcb-3dx',
     subCategory: 'Electrical Parts',
     description: 
-      'Complete electrical wiring harness for JCB N/M (New Model) series. ' +
-      'Features high-quality copper conductors with weather-resistant insulation. ' +
-      'Designed to handle the electrical demands of modern JCB equipment systems. ' +
-      'Includes all necessary connectors and protective sheathing for reliable operation.',
-    shortDescription: 'Complete wiring harness for JCB N/M with weather-resistant design.',
-    imageUrl: 'https://images.pexels.com/photos/10809076/pexels-photo-10809076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: 'NM-27381',
-    compatibleWith: ['JCB N/M Series', 'JCB New Model'],
+      'A comprehensive switch assembly tailored for JCB 3DX and 3CX backhoe loaders ' +
+      'featuring an accelerator control knob with cable, joystick-integrated dump switch' +
+      'and wiring harness—all designed for direct-fit installation and robust field performance.',
+
+      shortDescription: 'Durable wired switch assembly for JCB 3DX—simple install, long-lasting reliability.',
+    imageUrl: '/assets/images/error.png',
+    partNumber: 'NA',
+    compatibleWith: ['JCB 3DX'],
     inStock: true,
-    specifications: {
-      'Voltage Rating': '24V',
-      'Wire Gauge': '14-18 AWG',
-      'Insulation': 'Weather-resistant PVC',
-      'Length': '12 meters',
-      'Connectors': 'Waterproof sealed'
-    }
   },
   {
     id: '8',
