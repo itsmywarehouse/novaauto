@@ -26,7 +26,7 @@ const generatePartNumber = (category: ProductCategory): string => {
 export const products: Product[] = [
   // JCB 3DX Parts
   {
-    id: '1',
+    id: '2',
     name: 'Bush 750 JCB 3DX',
     category: 'jcb-3dx',
     subCategory: 'Bushes',
@@ -43,16 +43,16 @@ export const products: Product[] = [
     }
   },
   {
-    id: '2',
-    name: 'Bush 750 JCB 3DX',
+    id: '1',
+    name: 'All Bush',
     category: 'jcb-3dx',
     subCategory: 'Bushes',
     description: 
       'Bucket Bush (Type 750), used in bucket linkage of JCB 3DX backhoe loader.',
     shortDescription: 'High-efficiency hydraulic pump for JCB 3DX with reliable pressure delivery.',
-    imageUrl: '/assets/images/error.png',
+    imageUrl: '/assets/bush/allbush.jpg',
     partNumber: '809/00750',
-    compatibleWith: ['JCB 3DX', 'JCB 3D'],
+    compatibleWith: ['JCB 3DX'],
     inStock: true,
     specifications: {
       'Flow Rate': '120 L/min',
