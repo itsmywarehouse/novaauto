@@ -1,87 +1,46 @@
-import { Product, ProductCategory } from '../types';
-
-// Helper function to generate random part numbers
-const generatePartNumber = (category: ProductCategory): string => {
-  let prefix = '';
-  switch (category) {
-    case 'jcb-3dx':
-      prefix = '3DX';
-      break;
-    case 'jcb-3d':
-      prefix = '3D';
-      break;
-    case 'jcb-nm':
-      prefix = 'NM';
-      break;
-    case 'rapid-bearing':
-      prefix = 'RB';
-      break;
-    default:
-      prefix = 'JCB';
-  }
-  const random = Math.floor(10000 + Math.random() * 90000);
-  return `${prefix}-${random}`;
-};
 
 export const products: Product[] = [
   // JCB 3DX Parts
   {
-    id: '2',
-    name: 'Bush 750 JCB 3DX',
-    category: 'jcb-3dx',
-    subCategory: 'Bushes',
-    description: 
-      'Bucket Bush (Type 750), used in bucket linkage of JCB 3DX backhoe loader.',
-    shortDescription: 'High-efficiency hydraulic pump for JCB 3DX with reliable pressure delivery.',
-    imageUrl: '/assets/images/error.png',
-    partNumber: '809/00750',
-    compatibleWith: ['JCB 3DX', 'JCB 3D'],
-    inStock: true,
-    specifications: {
-      'Flow Rate': '120 L/min',
-      'Weight': '35 kg',
-    }
+ id: '1',
+  name: 'All Bush',
+  category: 'jcb-3dx',
+  subCategory: 'Bushes',
+  description: 
+    'High-quality replacement bush designed for long service life and smooth operation. Provides reliable performance in demanding working conditions.',
+  shortDescription: 'Durable bucket bush for JCB 3DX linkage.',
+  imageUrl: '/assets/bush/allbush.jpg',
+  partNumber: '809/00750',
+  compatibleWith: ['JCB 3DX'],
+  inStock: true,
   },
   {
-    id: '1',
-    name: 'All Bush',
-    category: 'jcb-3dx',
-    subCategory: 'Bushes',
-    description: 
-      'Bucket Bush (Type 750), used in bucket linkage of JCB 3DX backhoe loader.',
-    shortDescription: 'High-efficiency hydraulic pump for JCB 3DX with reliable pressure delivery.',
-    imageUrl: '/assets/bush/allbush.jpg',
-    partNumber: '809/00750',
-    compatibleWith: ['JCB 3DX'],
-    inStock: true,
-    specifications: {
-      'Flow Rate': '120 L/min',
-      'Weight': '35 kg',
-    }
+     id: '2',
+  name: 'Bush 750 JCB 3DX',
+  category: 'jcb-3dx',
+  subCategory: 'Bushes',
+  description: 
+    'Heavy-duty bucket bush built for strength and durability. Designed to handle high loads and ensure smooth movement in JCB 3DX and 3D machines.',
+  shortDescription: 'Heavy-duty bucket bush 750 for JCB 3DX/3D.',
+  imageUrl: '/assets/bush/bush750.jpg',
+  partNumber: '809/00750',
+  compatibleWith: ['JCB 3DX', 'JCB 3D'],
+  inStock: true,
   },
+  
   {
-    id: '3',
-    name: 'JCB 3D Transmission Gear Set',
-    category: 'jcb-3d',
-    subCategory: 'Transmission',
-    description: 
-      'Complete transmission gear set manufactured to OEM specifications for JCB 3D equipment. ' +
-      'Includes primary and secondary gears, clutch plates, and torque converter components. ' +
-      'Precision-machined from high-grade steel for optimal power transmission and durability. ' +
-      'Designed for maximum torque handling and smooth gear changes.',
-    shortDescription: 'Complete transmission gear set for JCB 3D with all necessary components.',
-    imageUrl: 'https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    partNumber: '3D-84726',
-    compatibleWith: ['JCB 3D', 'JCB 3D Super'],
-    inStock: true,
-    featured: true,
-    specifications: {
-      'Gear Ratio': '1:4.2',
-      'Torque Capacity': '850 Nm',
-      'Material': 'Hardened steel',
-      'Weight': '45 kg',
-      'Lubrication': 'Pressure fed'
-    }
+     id: '3',
+  name: 'All PINs',
+  category: 'jcb-3d',
+  subCategory: 'Pivot Pins',
+  description: 
+    'Precision replacement pivot pins designed for smooth articulation and long-lasting performance. Helps maintain proper alignment and reduces wear in the linkage assembly.',
+  shortDescription: 'Complete pivot pin set for linkage assembly.',
+  imageUrl: '/assets/pin/allpin.png',
+  partNumber: '3D-84726',
+  compatibleWith: ['JCB 3D', 'JCB 3DX'],
+  inStock: true,
+  featured: true,
   },
   {
     id: '4',
@@ -256,72 +215,6 @@ export const products: Product[] = [
   }
 ];
 
-// Generate additional products for each category and sub-category
-const additionalProducts: Product[] = [];
-const categories: ProductCategory[] = ['jcb-3dx', 'jcb-3d', 'jcb-nm', 'rapid-bearing'];
-const jcbSubCategories = [
-  'Bushes', 'Pivot Pins', 'Transmission', 'Hydraulic System', 'Fabrication / Casting Parts',
-  'Bearing', 'Electrical Parts', 'Seals, O-Rings & Seal Kits', 'Engine Parts', 'Cabin Parts',
-  'Filters', 'Miscellaneous Parts', 'Bolts & Nuts', 'Hydraulic Ram'
-];
-const rapidBearingSubCategories = [
-  'Taper Roller Bearing', 'Ball Bearing', 'Spherical Bearing'
-];
-
-let productId = 12;
-
-categories.forEach(category => {
-  const subCategories = category === 'rapid-bearing' ? rapidBearingSubCategories : jcbSubCategories;
-  
-  subCategories.forEach(subCategory => {
-    // Skip if we already have a product for this combination
-    const existingProduct = products.find(p => p.category === category && p.subCategory === subCategory);
-    if (existingProduct) return;
-    
-    const categoryName = category === 'jcb-3dx' ? 'JCB 3DX' : 
-                        category === 'jcb-3d' ? 'JCB 3D' : 
-                        category === 'jcb-nm' ? 'JCB N/M' :
-                        'Rapid Bearing';
-    
-    let description = '';
-    let compatibleWith: string[] = [];
-    
-    if (category === 'rapid-bearing') {
-      description = `High-quality ${subCategory.toLowerCase()} from Rapid Bearing designed for industrial applications. ` +
-        'Manufactured to strict quality standards for extended service life under demanding conditions. ' +
-        'Features precision engineering and premium materials for reliable performance. ' +
-        'Suitable for various industrial and construction equipment applications.';
-      compatibleWith = ['Industrial Machinery', 'Construction Equipment', 'Automotive Applications'];
-    } else {
-      description = `High-quality ${subCategory.toLowerCase()} component designed specifically for ${categoryName} machinery. ` +
-        'Manufactured to strict OEM specifications for perfect fitment and reliable performance. ' +
-        'Constructed from premium materials to ensure durability in demanding applications. ' +
-        'Engineered for long service life and trouble-free operation in all conditions.';
-      compatibleWith = category === 'jcb-3dx' ? ['JCB 3DX', 'JCB 3DX Super', 'JCB 3DX Eco'] :
-                     category === 'jcb-3d' ? ['JCB 3D', 'JCB 3D Super'] :
-                     ['JCB N/M Series', 'JCB New Model'];
-    }
-    
-    additionalProducts.push({
-      id: productId.toString(),
-      name: `${categoryName} ${subCategory} Component`,
-      category,
-      subCategory,
-      description,
-      shortDescription: `Premium ${subCategory.toLowerCase()} component for ${categoryName} with OEM specifications.`,
-      imageUrl: 'https://images.pexels.com/photos/162568/oil-pump-pump-jack-donkey-pump-jack-pump-162568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      partNumber: generatePartNumber(category),
-      compatibleWith,
-      inStock: Math.random() > 0.3,
-      featured: Math.random() > 0.9
-    });
-    
-    productId++;
-  });
-});
-
-// Add the additional products to the main array
-products.push(...additionalProducts);
 
 // Function to get products by category
 export const getProductsByCategory = (category: ProductCategory): Product[] => {
