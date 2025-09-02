@@ -70,17 +70,18 @@ const CatalogPage: React.FC = () => {
     // Apply category filter
     if (selectedCategory) {
       filteredProducts = filteredProducts.filter(product => 
-        product.category === selectedCategory
+        product.categories.includes(selectedCategory)
       );
     }
     
     // Apply sub-category filter
     if (selectedSubCategory) {
-      filteredProducts = filteredProducts.filter(product => {
-        if (!product.subCategory) return false;
-        const normalizedSubCategory = product.subCategory.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-        return normalizedSubCategory === selectedSubCategory;
-      });
+      filteredProducts = filteredProducts.filter(product =>
+        product.subCategories.some(sub => {
+          const normalizedSubCategory = sub.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+          return normalizedSubCategory === selectedSubCategory;
+        })
+      );
     }
     
     // Apply search filter
@@ -89,8 +90,8 @@ const CatalogPage: React.FC = () => {
       filteredProducts = filteredProducts.filter(product => 
         product.name.toLowerCase().includes(query) || 
         product.description.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query) ||
-        (product.subCategory && product.subCategory.toLowerCase().includes(query)) ||
+        product.categories.some(cat => cat.toLowerCase().includes(query)) ||
+        product.subCategories.some(sub => sub.toLowerCase().includes(query)) ||
         product.partNumber.toLowerCase().includes(query)
       );
     }

@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getProductById, getFeaturedProducts } from '../data/products';
+import { getProductById, getRelatedProducts } from '../data/products';
 import ProductCard from '../components/catalog/ProductCard';
 import { ArrowLeft, CheckCircle, XCircle, Info, ArrowRight, MessageCircle, Phone } from 'lucide-react';
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const product = id ? getProductById(id) : undefined;
-  const [activeImage, setActiveImage] = useState<string | undefined>(product?.imageUrl);
-  const relatedProducts = getFeaturedProducts().filter(p => p.id !== id).slice(0, 4);
-  
+  const [product, setProduct] = useState(() => (id ? getProductById(id) : undefined));
+  const [activeImage, setActiveImage] = useState<string | undefined>(undefined);
+  const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
+
   useEffect(() => {
+    // Fetch product and related products when id changes
+    const prod = id ? getProductById(id) : undefined;
+    setProduct(prod);
+    setActiveImage(prod?.imageUrl);
+    setRelatedProducts(prod ? getRelatedProducts(prod, 4) : []);
     // Smooth scroll to top of page when product changes
     const scrollElement = document.scrollingElement || document.documentElement;
     scrollElement.scrollTo({ top: 0, behavior: 'smooth' });
-
     // Update page title
-    if (product) {
-      document.title = `${product.name} | Nova Auto`;
+    if (prod) {
+      document.title = `${prod.name} | Nova Auto`;
     } else {
       document.title = 'Product Not Found | Nova Auto';
     }
-  }, [product]);
+  }, [id]);
 
   if (!product) {
     return (
@@ -56,12 +60,14 @@ const ProductDetailPage: React.FC = () => {
             <span className="mx-2 text-gray-400">/</span>
             <Link to="/catalog" className="text-gray-500 hover:text-primary transition-colors">Catalog</Link>
             <span className="mx-2 text-gray-400">/</span>
-            <Link 
-              to={`/catalog?category=${product.category}`} 
-              className="text-gray-500 hover:text-primary transition-colors"
-            >
-              {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-            </Link>
+            {product.categories.length > 0 && (
+              <Link 
+                to={`/catalog?category=${product.categories[0]}`} 
+                className="text-gray-500 hover:text-primary transition-colors"
+              >
+                {product.categories[0].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </Link>
+            )}
             <span className="mx-2 text-gray-400">/</span>
             <span className="text-gray-700 font-medium">{product.name}</span>
           </nav>
@@ -83,9 +89,10 @@ const ProductDetailPage: React.FC = () => {
             <div className="p-6">
               <div className="bg-gray-100 rounded-lg overflow-hidden mb-4">
                 <img 
-                  src={activeImage || product.imageUrl} 
+                  src={activeImage || product.imageUrl || '/assets/no-image.png'} 
                   alt={product.name}
                   className="w-full aspect-square object-contain p-4"
+                  onError={e => { e.currentTarget.src = '/assets/no-image.png'; }}
                 />
               </div>
               
@@ -98,9 +105,10 @@ const ProductDetailPage: React.FC = () => {
                   onClick={() => setActiveImage(product.imageUrl)}
                 >
                   <img 
-                    src={product.imageUrl} 
+                    src={product.imageUrl || '/assets/no-image.png'} 
                     alt={product.name}
                     className="w-full h-full object-cover"
+                    onError={e => { e.currentTarget.src = '/assets/no-image.png'; }}
                   />
                 </button>
                 
@@ -208,26 +216,29 @@ const ProductDetailPage: React.FC = () => {
         </div>
         
         {/* Related Products */}
-        {relatedProducts.length > 0 && (
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-primary">Related Products</h2>
-              <Link 
-                to="/catalog" 
-                className="flex items-center text-accent hover:text-accent-600 transition-colors"
-              >
-                View All
-                <ArrowRight size={18} className="ml-1" />
-              </Link>
-            </div>
-            
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-primary">Related Products</h2>
+            <Link 
+              to="/catalog" 
+              className="flex items-center text-accent hover:text-accent-600 transition-colors"
+            >
+              View All
+              <ArrowRight size={18} className="ml-1" />
+            </Link>
+          </div>
+          {relatedProducts.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {relatedProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
+              {relatedProducts.map(rp => (
+                <ProductCard key={rp.id} product={{ ...rp, imageUrl: rp.imageUrl || '/assets/no-image.png' }} />
               ))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="bg-white rounded-xl shadow-custom p-8 text-center text-gray-500">
+              No related products found.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -26,11 +26,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
       
       <div className="p-2 sm:p-3 flex-1 flex flex-col">
-        {/* Category */}
-        <div className="mb-2">
-          <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-            {product.category}
-          </span>
+        {/* Categories */}
+        <div className="mb-2 flex flex-wrap gap-1">
+          {product.categories.map((cat, idx) => (
+            <span key={idx} className="text-xs font-medium text-gray-500 uppercase tracking-wide bg-gray-100 px-2 py-0.5 rounded">
+              {cat.replace(/-/g, ' ').toUpperCase()}
+            </span>
+          ))}
+        </div>
+        {/* Subcategories */}
+        <div className="mb-2 flex flex-wrap gap-1">
+          {product.subCategories.map((sub, idx) => (
+            <span key={idx} className="text-xs font-medium text-accent bg-gray-50 px-2 py-0.5 rounded">
+              {sub.replace(/-/g, ' ')}
+            </span>
+          ))}
         </div>
         
         {/* Product Name */}

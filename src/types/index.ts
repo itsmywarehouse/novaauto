@@ -1,8 +1,8 @@
 export interface Product {
   id: string;
   name: string;
-  category: ProductCategory;
-  subCategory?: string;
+  categories: ProductCategory[];
+  subCategories: string[];
   description: string;
   shortDescription: string;
   imageUrl: string;
