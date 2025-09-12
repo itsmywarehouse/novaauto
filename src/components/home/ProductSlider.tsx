@@ -34,7 +34,7 @@ const sliderProducts: SliderProduct[] = [
     tagline: 'Complete Bearing Solutions for Every Industry',
     image: '/slider/bearing.jpeg',
     category: 'bearing',
-    link: '/catalog'
+    link: '/catalog?category=rapid-bearing'
   },
   {
     id: '4',
@@ -42,7 +42,7 @@ const sliderProducts: SliderProduct[] = [
     tagline: 'Nova Auto – Powering Performance with Reliable Parts',
     image: '/slider/annulus_ring.jpeg',
     category: 'jcb-nm',
-    link: '/catalog?category=jcb-nm'
+    link: '/catalog'
   },
   {
     id: '5',
