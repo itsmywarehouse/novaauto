@@ -13,15 +13,23 @@ interface SliderProduct {
 
 const sliderProducts: SliderProduct[] = [
   {
+    id: '2',
+    name: 'PIN',
+    tagline: 'All Types of Pin for JCB 3D & 3DX – Precision Engineered for Performance',
+    image: '/slider/pin.jpeg',
+    category: 'jcb-3dx',
+    link: '/catalog?category=jcb-3dx'
+  },
+    {
     id: '1',
-    name: 'PIN/BUSH',
-    tagline: 'All Types of Pin Bushes for JCB 3D & 3DX – Precision Engineered for Performance',
-    image: '/slider/pin_bush.jpeg',
+    name: 'Bush',
+    tagline: 'All Types of Bushes for JCB 3D & 3DX – Precision Engineered for Performance',
+    image: '/slider/bush.png',
     category: 'jcb-3dx',
     link: '/catalog?category=jcb-3dx'
   },
   {
-    id: '2',
+    id: '3',
     name: 'Rapid Bearings',
     tagline: 'Complete Bearing Solutions for Every Industry',
     image: '/slider/bearing.jpeg',
@@ -29,7 +37,7 @@ const sliderProducts: SliderProduct[] = [
     link: '/catalog'
   },
   {
-    id: '3',
+    id: '4',
     name: 'ANNULUS RING',
     tagline: 'Nova Auto – Powering Performance with Reliable Parts',
     image: '/slider/annulus_ring.jpeg',
@@ -37,12 +45,20 @@ const sliderProducts: SliderProduct[] = [
     link: '/catalog?category=jcb-nm'
   },
   {
-    id: '4',
+    id: '5',
     name: 'Complete Engine Solutions',
     tagline: 'Reliable engine parts for uninterrupted operations',
     image: '/slider/planet_w_ bearing.jpeg',
     category: 'engine',
     link: '/catalog'
+  },
+    {
+    id: '6',
+    name: 'PIN/BUSH',
+    tagline: 'All Types of Pin Bushes for JCB 3D & 3DX – Precision Engineered for Performance',
+    image: '/slider/pin_bush.jpeg',
+    category: 'jcb-3dx',
+    link: '/catalog?category=jcb-3dx'
   }
 ];
 
