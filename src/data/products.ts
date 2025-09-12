@@ -12,6 +12,7 @@ export const products: Product[] = [
     partNumber: 'Multiple',
     compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
+    featured: true,
   },
   {
     id: '2',
@@ -49,7 +50,7 @@ export const products: Product[] = [
     partNumber: 'Multiple',
     compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
-    featured: true,
+    // featured: true,
   },
   // {
   //   id: '5',
@@ -93,6 +94,7 @@ export const products: Product[] = [
     partNumber: 'Multiple',
     compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
+    featured: true,
   },
   {
     id: '7',
@@ -153,6 +155,7 @@ export const products: Product[] = [
     partNumber: 'Multiple',
     compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
+    featured: true,
   },
   {
     id: '15',
@@ -177,6 +180,7 @@ export const products: Product[] = [
     partNumber: 'Multiple',
     compatibleWith: ['JCB 3DX', 'JCB 3D'],
     inStock: true,
+    featured: true,
   },
 
 
